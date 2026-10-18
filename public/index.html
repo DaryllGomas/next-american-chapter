@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=5">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
@@ -32,20 +32,21 @@
   </header>
 
   <section class="intro wrap">
-    <a class="os-badge" href="https://github.com/DaryllGomas/next-american-chapter">Powered by open source</a>
-    <p class="eyebrow">An open-source, hypothetical administration · 2028–2032</p>
+    <a class="os-badge" href="https://github.com/DaryllGomas/next-american-chapter">Open source · AI powered</a>
+    <p class="eyebrow">An open-source, AI-powered, hypothetical administration · 2028–2032</p>
     <p class="lede">A team picked for what they've actually built, with the people who've had the least opportunity as the
       measure of success.</p>
-    <p class="lede open">This isn't one person's list, and it isn't any party's. It's all of us. Every pick, every vote rule and
-      every line of code is public: see how each pick was made, vote, write in your own, or change it yourself on
+    <p class="lede open">This isn't one person's list, and it isn't any party's. It's all of us: an open-source, AI-powered
+      democracy experiment. AIs did the first pass. Now people vote, write in who they want and say why, and that feedback goes
+      back through AI to shape the next version. Every pick, rule and line of code is public on
       <a href="https://github.com/DaryllGomas/next-american-chapter">GitHub</a>.</p>
-    <p class="lede small">Not picked for party, not picked for show. Just the strongest record for each job. Two seats are set.
-      <strong>For every other seat, vote for the AI pick, one of the other top picks, or write in your own and say why.</strong></p>
+    <p class="lede small">Not picked for party, not picked for show. Just the strongest record for each job. McConaughey starts as the strong lead for president.
+      <strong>For every seat, vote for the pick you think is strongest, or write in your own and say why.</strong></p>
   </section>
 
   <main class="wrap">
     <section aria-labelledby="fixed-h">
-      <h2 id="fixed-h" class="section-h">Set</h2>
+      <h2 id="fixed-h" class="section-h">The backer</h2>
       <div id="fixed" class="fixed"></div>
     </section>
 
@@ -57,6 +58,17 @@
     <section id="council-section" aria-labelledby="council-h" hidden>
       <h2 id="council-h" class="section-h">Outside council <span class="hint">advisers, not officials</span></h2>
       <div id="council" class="council"></div>
+    </section>
+
+    <section class="feedback" aria-labelledby="fb-h">
+      <h2 id="fb-h" class="section-h">Make it better</h2>
+      <p class="lede small">Missing a seat? A pick you'd swap? An idea for the mission? Tell us. AI reads every note, sums up what
+        people keep saying, and the next version of the team is built from it.</p>
+      <form id="fb-form" class="fb-form" novalidate>
+        <textarea name="text" maxlength="1500" placeholder="Your idea, and why" required></textarea>
+        <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+        <button class="btn submit" type="submit">Send feedback</button>
+      </form>
     </section>
 
     <section class="fine">
@@ -75,15 +87,16 @@
       <p><strong>How voting works.</strong> One vote per seat per browser. Change it anytime, or click your choice again to take it back. Every vote passes a Cloudflare human check,
         and each network has a daily cap. We don't store IP addresses, only a hash that changes every day. It's not bot-proof. Nothing
         is. If we see gaming, we'll tighten it and say so.</p>
-      <p><strong>Write-ins.</strong> Anyone can write in their own pick for any seat. Once three different people write in the
+      <p><strong>Write-ins.</strong> Anyone can write in their own pick for any seat. An AI gives each new write-in a quick sniff
+        test (a real person, a real reason, no abuse) without judging their politics. Once three different people write in the
         same name, it shows on that seat's board and others can back it with one tap. Write-ins with strong support get added to
-        the ballot as a top pick. Reasons appear after a quick review for spam, links and personal attacks.</p>
+        the ballot as a top pick. Reasons that pass the sniff test show on the seat.</p>
       <p id="updated" class="muted"></p>
     </section>
   </main>
 
   <footer class="wrap foot">
-    <span>Powered by open source. Not one person, not one party: all of us. Change the slate by pull request.</span>
+    <span>Open source and AI powered. Not one person, not one party: all of us. Change the slate by pull request.</span>
     <a id="repo-link" href="#">GitHub</a>
   </footer>
 
@@ -95,6 +108,6 @@
     </div>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js" type="module"></script>
+  <script src="app.js?v=5" type="module"></script>
 </body>
 </html>

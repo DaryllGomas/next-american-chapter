@@ -173,3 +173,9 @@ button, input, textarea { font: inherit; color: inherit; }
 .os-badge:hover { background: var(--ink); color: var(--paper); }
 .lede.open { font-size: 16px; max-width: 640px; }
 .lede.open a { font-weight: 600; }
+
+/* Feedback */
+.feedback .lede.small { text-align: left; margin-left: 0; }
+.fb-form { display: flex; flex-direction: column; gap: 8px; max-width: 640px; }
+.fb-form textarea { width: 100%; min-height: 96px; border: 1px solid var(--line); border-radius: 10px; padding: 10px; background: var(--card); resize: vertical; }
+.fb-form .submit { align-self: flex-start; background: var(--ink); color: var(--paper); border-color: var(--ink); padding: 9px 18px; }

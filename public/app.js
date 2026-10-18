@@ -19,6 +19,30 @@ async function init() {
   renderFixed();
   renderSeats();
   refreshTally();
+  $('#fb-form').addEventListener('submit', sendFeedback);
+}
+
+async function sendFeedback(e) {
+  e.preventDefault();
+  const f = e.target;
+  const btn = $('button', f);
+  btn.disabled = true;
+  try {
+    const token = await humanCheck();
+    const res = await fetch('/api/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: f.text.value, website: f.website.value, token }),
+    });
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(out.error || 'Something went wrong.');
+    f.reset();
+    toast('Thanks. It goes into the next version.');
+  } catch (err) {
+    toast(err.message);
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 function renderFixed() {
@@ -45,7 +69,7 @@ function renderSeats() {
             <button class="candidate" data-choice="c${i}" aria-pressed="false">
               <span class="cand-head">
                 <span class="name">${esc(c.name)}</span>
-                ${i === 0 ? '<span class="ai-pick" title="The pick Claude, ChatGPT and Grok agreed on">AI pick</span>' : ''}
+                ${i === 0 ? `<span class="ai-pick" title="${s.badge ? 'Starting pick; voters can write in someone else' : 'The pick the AIs agreed on'}">${esc(s.badge || 'AI pick')}</span>` : ''}
                 ${c.writeIn ? '<span class="write-in" title="Added to the ballot by voters\' write-ins">Write-in</span>' : ''}
                 <span class="pct" data-pct="c${i}"></span>
               </span>
