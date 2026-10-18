@@ -23,7 +23,7 @@ pull request that edits it, and say why in the description. The two set seats ar
 
 | Piece | What |
 |---|---|
-| `public/` | The static page (`index.html`, `app.js`, `styles.css`) and `slate.json` |
+| `public/` | The static page (`index.html`, `app.js`, `styles.css`), `slate.json`, and `img/` (banner and share image) |
 | `src/worker.js` | Cloudflare Worker: `/api/vote`, `/api/tally`, `/api/config`; serves `public/` for everything else |
 | `schema.sql` | D1 (SQLite) tables: `votes` and `alternatives` |
 | `wrangler.toml` | Worker config. Secrets are set with `wrangler secret put`, never committed |
@@ -67,6 +67,9 @@ npx wrangler secret put HASH_SALT               # long random string, e.g. `open
 
 Then `npx wrangler deploy`.
 
+After the first deploy, set the share image tags (`og:image`, `twitter:image` in `public/index.html`) to the full live
+URL, e.g. `https://<host>/img/og.jpg`. X ignores relative image URLs.
+
 ## Moderate suggestions
 
 ```bash
@@ -87,3 +90,9 @@ Remove anything defamatory, personal, spammy or with contact details.
 - GitHub: `DaryllGomas/next-american-chapter` (public, not created yet).
 - Background: the ChatGPT thread "McConaughey Administration Plan" and the Claude/ChatGPT back-and-forth that
   produced the slate.
+
+## The banner
+
+`public/img/banner.{webp,jpg}` is the dawn header Daryll made with ChatGPT on 2026-10-18 (the "Meeting Ground"
+direction, plus a rising sun and a boat on the river). The original 2048×768 PNG is in `docs/design/`. `img/og.jpg` is a
+1200×630 center crop used as the share card on X. Phones get a centered crop of the banner so the title stays readable.

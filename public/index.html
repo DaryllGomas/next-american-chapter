@@ -4,9 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Balanced Ticket</title>
-  <meta name="description" content="A hypothetical, cross-partisan team for America's next chapter. Not left, not right. Vote on every seat or suggest someone better.">
+  <meta name="description" content="Not left. Not right. One country. A hypothetical team picked on merit by three AIs. Vote on every seat or suggest someone better.">
   <meta property="og:title" content="The Balanced Ticket">
-  <meta property="og:description" content="Not left. Not right. Vote on every seat, or suggest someone better.">
+  <meta property="og:description" content="Not left. Not right. One country. Three AIs picked the strongest person for every seat. Now you vote.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="img/og.jpg">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,25 +20,23 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <svg class="mark" viewBox="0 0 120 72" aria-hidden="true">
-        <line x1="60" y1="8" x2="60" y2="62" class="post"/>
-        <path d="M44 66 H76" class="post"/>
-        <line x1="14" y1="16" x2="106" y2="16" class="beam"/>
-        <path d="M14 16 L4 40 M14 16 L24 40 M106 16 L96 40 M106 16 L116 40" class="string"/>
-        <path d="M2 40 H26 A12 9 0 0 1 2 40 Z" class="pan left"/>
-        <path d="M94 40 H118 A12 9 0 0 1 94 40 Z" class="pan right"/>
-        <circle cx="60" cy="8" r="4" class="knob"/>
-      </svg>
-      <p class="eyebrow">A hypothetical administration · 2028–2032</p>
-      <h1>The Balanced Ticket</h1>
-      <p class="tagline">Not left. Not right.</p>
-      <p class="lede">A team picked for what they've actually built, with the people who've had the least opportunity as
-        the measure of success.</p>
-      <p class="lede small">Not picked for party, not picked for show. Just the strongest record for each job. Two seats are set. <strong>For every other seat, vote for the AI pick, one of the other top picks, or suggest someone better and say why.</strong></p>
-    </div>
+  <header class="banner">
+    <picture>
+      <source srcset="img/banner.webp" type="image/webp">
+      <img src="img/banner.jpg" width="2048" height="768"
+        alt="The Balanced Ticket. Not left. Not right. One country. A small boat on a river at dawn between blue hills on the left and red hills on the right.">
+    </picture>
+    <h1 class="sr-only">The Balanced Ticket: Not left. Not right. One country.</h1>
+    <a class="banner-gh" href="https://github.com/DaryllGomas/next-american-chapter" aria-label="Source code on GitHub"></a>
   </header>
+
+  <section class="intro wrap">
+    <p class="eyebrow">A hypothetical administration · 2028–2032</p>
+    <p class="lede">A team picked for what they've actually built, with the people who've had the least opportunity as the
+      measure of success.</p>
+    <p class="lede small">Not picked for party, not picked for show. Just the strongest record for each job. Two seats are set.
+      <strong>For every other seat, vote for the AI pick, one of the other top picks, or suggest someone better and say why.</strong></p>
+  </section>
 
   <main class="wrap">
     <section aria-labelledby="fixed-h">

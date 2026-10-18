@@ -1,4 +1,6 @@
 :root {
+  /* Light only: the page sits under a painted dawn banner on warm paper. */
+  color-scheme: light;
   --paper: #f6f2ea;
   --card: #fffdf8;
   --ink: #1d1b18;
@@ -14,18 +16,6 @@
   --down: #a6453a;
   --focus: #7a5aa6;
   --shadow: 0 1px 2px rgba(29, 27, 24, .06), 0 6px 24px rgba(29, 27, 24, .05);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #151412; --card: #1e1c19; --ink: #f1ece3; --muted: #a39b8f; --line: #34302a;
-    --left: #6d93db; --right: #e07a6f; --center: #ad8fd8; --lean-left: #4b6aa0; --lean-right: #a95a52; --none: #6b7380; --up: #5dbb8d; --down: #e0806f;
-    --shadow: none;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #151412; --card: #1e1c19; --ink: #f1ece3; --muted: #a39b8f; --line: #34302a;
-  --left: #6d93db; --right: #e07a6f; --center: #ad8fd8; --lean-left: #4b6aa0; --lean-right: #a95a52; --none: #6b7380; --up: #5dbb8d; --down: #e0806f;
-  --shadow: none;
 }
 
 * { box-sizing: border-box; }
@@ -150,3 +140,16 @@ button, input, textarea { font: inherit; color: inherit; }
 .candidate .bar span { display: block; height: 100%; width: 0; background: var(--ink); opacity: .55; transition: width .3s; }
 .btn.alt[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .your-vote { font-size: 13px; margin: 0; padding: 6px 10px; border-radius: 8px; background: color-mix(in srgb, var(--ink) 6%, transparent); }
+
+/* Banner: the ChatGPT-painted dawn header. Full image on wide screens; centered crop on phones so the title stays readable. */
+.banner { position: relative; margin: 0; background: #f4ead9; }
+.banner img { display: block; width: 100%; height: auto; }
+.banner-gh { position: absolute; top: 3%; right: 1.6%; width: 3.2%; aspect-ratio: 1; border-radius: 50%; }
+.banner-gh:focus-visible { outline: 2px solid var(--ink); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.intro { text-align: center; padding-top: 28px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.intro .lede { margin-top: 10px; }
+@media (max-width: 700px) {
+  .banner img { height: 300px; object-fit: cover; object-position: 50% 50%; }
+  .banner-gh { display: none; }
+}
