@@ -191,3 +191,4 @@ button, input, textarea { font: inherit; color: inherit; }
 .why-section p { font-size: 16px; }
 .epigraph { margin: 0 0 16px; padding: 0 0 0 16px; border-left: 3px solid var(--ink); font-family: Fraunces, Georgia, serif; font-size: 22px; }
 .epigraph cite { display: block; font-family: Inter, sans-serif; font-style: normal; font-size: 13px; color: var(--muted); margin-top: 6px; }
+.review-note { font-size: 13px; color: var(--muted); font-style: italic; margin: 10px 0 0; }
