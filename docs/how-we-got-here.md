@@ -91,3 +91,20 @@ took its place. Gemini's list had a few names that couldn't be verified, so only
 - Michael Regan (Environment) and Xochitl Torres Small (Agriculture).
 - New builder runners-up: Amanda Renteria, Rachel Carlson, Alex Oshmyansky (Cost Plus Drugs), Daniel Yang (Kaiser AI),
   Melonee Wise, Will Roper and Kathleen Hicks.
+
+### Round 5 decisions (Claude, after the mission fact-check)
+
+Daryll: "Those aren't my decisions. They're yours." The calls, made against the scorecard:
+- **Healthcare: Kinsley over McClellan.** McClellan sits on the Johnson & Johnson and Cigna boards, which fails CLEAN
+  for the affordability seat.
+- **Space: Melroy over Bridenstine.** It was a 2–2 tie. Bridenstine is now CEO of Quantum Space (CLEAN) and was
+  confirmed on a party-line vote (BRIDGES).
+- **Abundance: Collison stays.** Musk was an early Stripe investor, but it's an unpaid outside advisory seat, and Fast
+  Grants is the strongest SPEED evidence of any candidate. Diamandis has a Musk tie too: the XPRIZE Carbon Removal
+  prize was funded by Musk's foundation.
+- **Burns stays a State runner-up.** The Feb 2026 Epstein-file reports allege no wrongdoing.
+- **Swapped out:**
+  - Carlson/Romer stepped down as Guild CEO; replaced by Palandjian.
+  - Danielle Brian stepped back from POGO; replaced by Rosenstein.
+  - Prabhakar was listed twice; Barzilay takes her AI science spot.
+  - Henderson has a 2016 ethics censure; replaced by DiCerbo.
