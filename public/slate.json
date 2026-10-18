@@ -359,13 +359,13 @@
       "confidence": "close call",
       "candidates": [
         {
-          "name": "Jim Bridenstine",
-          "bio": "NASA administrator 2018–2021 and former congressman and Navy pilot; launched the Artemis program.",
-          "evidence": "On two of three AIs' lists; launched the Artemis moon program and oversaw NASA's first crewed commercial flights to the space station in 2020."
+          "name": "Pam Melroy",
+          "bio": "Former astronaut and shuttle commander; NASA deputy administrator 2021–2025.",
+          "evidence": "On two of three AIs' lists; as NASA's deputy administrator she helped steer Artemis I, which flew around the Moon in 2022."
         },
         {
-          "name": "Pam Melroy",
-          "bio": "Former astronaut and shuttle commander; NASA deputy administrator 2021–2025."
+          "name": "Jim Bridenstine",
+          "bio": "NASA administrator 2018–2021, former congressman and Navy pilot; launched the Artemis program. Now CEO of Quantum Space."
         },
         {
           "name": "Thomas Zurbuchen",
