@@ -18,17 +18,12 @@ much life improves for the people who've had the least chance to share in it.
 
 ## How we built it
 
-I had three AIs argue it out. ChatGPT drafted a team. Claude tore it apart: too many picks from one side, no one on
-housing or rural America, and nobody who has actually lived what being "left behind" means. Then Grok tore *that*
-apart: "11 independents" was a dodge, and the policy still tilted left. They went back and forth until all three
-signed off.
+No quotas. Not left, not right, not any box. Just the strongest record for each job.
 
-The result is 24 seats:
-
-**6 left-associated · 6 right-associated · 12 with no known lean**
-
-Every pick is labeled by lean *and* by what they bring (public official, builder or expert). "No known lean"
-means exactly that, not "secret centrist". Think a label is wrong? Challenge it with evidence.
+I had three AIs (Claude, ChatGPT and Grok) each pick the best person for 24 seats **on their own, without seeing each
+other's answers**. They judged only the record: results in comparable jobs, competence, integrity, and working across
+the aisle. Where two or more agreed, that's the **AI pick**. Their runners-up are listed right beside each one, with a
+short bio, and you vote for whoever you think is strongest. Or suggest someone better and tell us why.
 
 ## Two seats are set
 
@@ -39,23 +34,20 @@ means exactly that, not "secret centrist". Think a label is wrong? Challenge it 
 
 ## Everything else is yours
 
-Some of the picks:
+Some of the AI picks:
 
-- **VP: Spencer Cox (R):** started *Disagree Better*.
-- **Government delivery: Jennifer Pahlka (lean L):** founded Code for America.
-- **Budget: Mitch Daniels (R)** · **Treasury: Lael Brainard (L)**.
-- **Labor: Oren Cass (R)**, with **David Autor** on the AI workforce transition.
-- **Healthcare: Avik Roy (R)**, with **Eric Topol** on AI in medicine. **Education: Sal Khan.**
-- **Energy: Chris Wright (R)**, checked by **Environment: Gina McCarthy (L)**. Build the power *and* keep the air clean.
-- **AI governance: Adam Thierer (lean R).** **Defense: Michèle Flournoy (L).**
-- **Space: Ellen Ochoa**, the former Johnson Space Center director. Not a Musk-adjacent pick, on purpose.
-- **Anti-corruption: Michael Horowitz**, inspector general under Obama, Trump and Biden.
-- **Rural America: Heidi Heitkamp (L).**
-- **Lived experience: Mark Horvath.** He was homeless and founded Invisible People. This seat isn't ceremonial:
-  it reviews policy before launch.
-- **Outside advisers:** Peter Diamandis and Alex Wissner-Gross.
+- **VP: Spencer Cox:** Utah governor who launched *Disagree Better*.
+- **Labor: Marty Walsh:** union leader, Boston mayor and Labor Secretary. All three AIs picked him independently.
+- **Budget: Mitch Daniels:** ran OMB and turned Indiana's deficit into a surplus. The only name on all three AIs' lists.
+- **Treasury: Neel Kashkari:** ran the 2008 bank rescue for both Bush and Obama.
+- **Healthcare: Mark McClellan:** one of the few people to have run both the FDA and Medicare/Medicaid.
+- **Education: Sal Khan** · **AI science: Fei-Fei Li** · **Robotics: Daniela Rus**.
+- **Energy: Jigar Shah:** his office closed about $60B in energy project loans.
+- **State: Bill Burns** · **Anti-corruption: Michael Horowitz**, inspector general under three presidents.
+- **Lived experience: Donald Whitehead:** homeless for five years, now runs the National Coalition for the Homeless.
+  This seat reviews every policy before launch.
 
-Vote on every seat: 👍, 👎, or suggest someone better and **say why**. One vote per seat, with bot checks. The
+On every seat, pick the AI pick, a runner-up, or suggest someone better and **say why**. One vote per seat, with bot checks. The
 whole thing is open source, so if you think a seat is wrong, change it with a pull request.
 
 🗳️ **Vote:** [link]

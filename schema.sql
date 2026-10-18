@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS votes (
   seat        TEXT NOT NULL,
   voter_hash  TEXT NOT NULL,          -- sha256(salt + cookie id); the raw id never leaves the browser cookie
   ip_hash     TEXT NOT NULL,          -- sha256(salt + day + ip); rotates daily, used only for rate limits
-  choice      TEXT NOT NULL CHECK (choice IN ('up', 'down', 'alt')),
+  choice      TEXT NOT NULL,          -- 'c0', 'c1', ... (a listed candidate) or 'alt' (someone else)
   created_at  INTEGER NOT NULL,
   PRIMARY KEY (seat, voter_hash)
 );

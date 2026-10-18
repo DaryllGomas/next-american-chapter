@@ -8,37 +8,19 @@
 
 @McConaughey says independents could force both parties to work together. So who'd be on the team?
 
-Three AIs argued it out: 24 seats. 6 left, 6 right, 12 no known lean.
+Three AIs each picked the best person for 24 seats, blind. No quotas, just track records.
 
-Every seat is up for your vote. @elonmusk, here's a way to back balance.
+Vote on every seat. @elonmusk, back the best team.
 
 https://x.co/linkplaceholder
 
 ## Reply 1
 
-The picks, if they'd have it:
-VP @SpencerJCox
-Delivery @pahlkadot
-Budget @purduemitch
-Labor @oren_cass
-AI jobs @davidautor
-Health @Avik / @EricTopol
-Education @salkhanacademy
-AI @drfeifei
-AI governance [Thierer: verify]
-Energy [Chris Wright: verify]
+[Rebuild after the slate is final: tag the AI picks with verified handles, e.g. VP @SpencerJCox, Delivery @pahlkadot, Health @EricTopol, Education @salkhanacademy, AI @drfeifei, Energy @JigarShahDC.]
 
 ## Reply 2
 
-Rural @HeidiHeitkamp
-Environment [McCarthy: verify]
-Defense [Flournoy: verify]
-Care @aijenpoo
-Lived experience @hardlynormal
-Outside advisers @PeterDiamandis @alexwg
-The independent-vote path @AndrewYang
-
-Nobody named has endorsed this. Vote, or suggest someone better and say why.
+[Continue the tags. Handles still to verify: Walsh, Daniels, Kashkari, McClellan, Auguste, Tabassi, Rus, Haggerty, Vilsack, McCarthy, Bridenstine, Flournoy, Burns, Horowitz, Smith, Whitehead, Diamandis, Bengio.]
 
 ## Notes
 

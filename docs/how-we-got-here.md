@@ -45,3 +45,27 @@ That overcorrected to 5 left / 8 right, so there were two more changes:
 - Space: Ellen Ochoa (none) as primary, with Isaacman as alternate because of his SpaceX ties next to Musk.
 
 **Final tally:** 6 left-associated, 6 right-associated, 12 with no known lean. Grok: "Sign off ... No remaining vetoes."
+
+## Round 4: merit only (2026-10-18)
+
+Daryll: "It really doesn't matter who's left, who's right ... The only thing that matters is picking the right person for
+each one." That retired the balance-by-label approach from rounds 2 and 3.
+
+**Method:**
+- Claude wrote its own picks first ([merit-round-claude-blind.md](merit-round-claude-blind.md)).
+- ChatGPT (a temporary chat with no memory) and Grok (a new chat) each got the same blind prompt. The rule: judge on
+  record only; ignore party, gender, race and balance; conflicts and age count. See
+  [merit-round-grok-blind.md](merit-round-grok-blind.md).
+- The AI pick is whoever two or more of the three lists agreed on. Ties went to the strongest concrete evidence.
+  Runners-up come from the other lists.
+
+**Notable outcomes:**
+- Walsh (Labor) was picked by all three. Daniels (OMB) was the only name on all three lists.
+- Daryll's own Diamandis stays the Abundance pick. Wissner-Gross becomes a runner-up to Bengio, who is on two of
+  the three lists.
+
+**Sign-off:** ChatGPT reviewed the merged slate (in a fresh chat) and replied "sign off". Grok had hit its weekly
+limit and couldn't review it. That limit resets 2026-10-20.
+
+**Each AI's own lean showed up in its blind picks.** ChatGPT leaned toward recent Biden-era officials, and Grok
+included sitting Trump officials. Merging three blind lists is what cancels that out.

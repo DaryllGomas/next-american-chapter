@@ -2,6 +2,10 @@
 import slate from '../public/slate.json';
 
 const VOTABLE = new Set(slate.seats.map((s) => s.id));
+// Valid choices per seat: one per listed candidate ('c0', 'c1', ...), plus 'alt' for someone else.
+const CHOICES = Object.fromEntries(
+  slate.seats.map((s) => [s.id, new Set([...s.candidates.map((_, i) => `c${i}`), 'alt'])])
+);
 const MAX_PER_IP_PER_SEAT_PER_DAY = 25; // households, offices and phone carriers share IPs
 const MAX_PER_IP_PER_DAY = 400;
 const ALT_MIN_BACKERS = 3; // an alternative name is shown once this many different voters typed it
@@ -42,7 +46,7 @@ async function vote(req, env) {
   const { seat, choice, token, website } = body;
   if (website) return json({ ok: true }); // honeypot field: humans never see it
   if (!VOTABLE.has(seat)) return json({ error: 'unknown seat' }, 400);
-  if (!['up', 'down', 'alt', 'none'].includes(choice)) return json({ error: 'bad choice' }, 400);
+  if (choice !== 'none' && !CHOICES[seat].has(choice)) return json({ error: 'bad choice' }, 400);
 
   let altName = '';
   let reason = '';
@@ -134,8 +138,14 @@ async function tally(req, env, ctx) {
   ]);
 
   const seats = {};
-  for (const id of VOTABLE) seats[id] = { up: 0, down: 0, alt: 0, alternatives: [], reasons: [] };
-  for (const r of votes.results) if (seats[r.seat]) seats[r.seat][r.choice] = r.n;
+  for (const id of VOTABLE) seats[id] = { counts: {}, total: 0, alternatives: [], reasons: [] };
+  for (const r of votes.results) {
+    const s = seats[r.seat];
+    if (s) {
+      s.counts[r.choice] = r.n;
+      s.total += r.n;
+    }
+  }
   for (const r of alts.results) {
     const s = seats[r.seat];
     if (s && s.alternatives.length < 5) s.alternatives.push({ name: r.name, n: r.n });

@@ -1,8 +1,4 @@
-const LEAN_NAMES = { L: 'Left', 'lean-L': 'Leans left', none: 'No known lean', 'lean-R': 'Leans right', R: 'Right' };
-const LEAN_TAGS = { L: 'L', 'lean-L': 'lean L', none: 'none', 'lean-R': 'lean R', R: 'R' };
-const LEAN_ORDER = ['L', 'lean-L', 'none', 'lean-R', 'R'];
-const TYPE_NAMES = { official: 'Public official', builder: 'Builder', expert: 'Expert' };
-const MY_VOTES_KEY = 'nac-my-votes';
+const MY_VOTES_KEY = 'nac-my-votes-v2';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -20,21 +16,9 @@ async function init() {
     fetch('/api/config').then((r) => r.json()).catch(() => ({})),
   ]);
   if (slate.repo) $('#repo-link').href = slate.repo;
-  renderLedger();
   renderFixed();
   renderSeats();
-  renderCouncil();
   refreshTally();
-}
-
-function renderLedger() {
-  const counts = Object.fromEntries(LEAN_ORDER.map((k) => [k, 0]));
-  for (const s of slate.seats) counts[s.pick.lean] = (counts[s.pick.lean] || 0) + 1;
-  const total = slate.seats.length;
-  const colors = { L: 'var(--left)', 'lean-L': 'var(--lean-left)', none: 'var(--none)', 'lean-R': 'var(--lean-right)', R: 'var(--right)' };
-  $('#ledger').innerHTML = `
-    <div class="ledger-bar">${LEAN_ORDER.map((k) => `<span style="width:${(counts[k] / total) * 100}%;background:${colors[k]}"></span>`).join('')}</div>
-    <div class="ledger-keys">${LEAN_ORDER.map((k) => `<span><i style="background:${colors[k]}"></i>${LEAN_NAMES[k]} ${counts[k]}</span>`).join('')}</div>`;
 }
 
 function renderFixed() {
@@ -49,19 +33,29 @@ function renderFixed() {
 
 function renderSeats() {
   $('#seats').innerHTML = slate.seats.map((s) => `
-    <article class="card" data-seat="${esc(s.id)}">
-      <div class="card-top"><div class="role">${esc(s.seat)}</div><span class="lean ${esc(s.pick.lean)}" title="${esc(LEAN_NAMES[s.pick.lean])}">${esc(LEAN_TAGS[s.pick.lean])}</span></div>
-      <h3 class="name">${esc(s.pick.name)}</h3>
-      <div class="type">${esc(TYPE_NAMES[s.pick.type] || '')}</div>
+    <article class="card seat" data-seat="${esc(s.id)}">
+      <div class="card-top">
+        <div class="role">${esc(s.seat)}</div>
+        <span class="confidence ${s.confidence === 'clear' ? 'clear' : 'close'}">${s.confidence === 'clear' ? 'Clear pick' : 'Close call'}</span>
+      </div>
       <div class="mission">${esc(s.mission)}</div>
-      <p class="why">${esc(s.pick.why)}</p>
-      ${s.alternates?.length ? `<p class="alts">Also considered: ${s.alternates.map((a) => `<b>${esc(a.name)}</b> <span class="lean ${esc(a.lean)}" title="${esc(LEAN_NAMES[a.lean])}">${esc(LEAN_TAGS[a.lean])}</span>`).join(', ')}</p>` : ''}
-      <div class="bar"><span class="u"></span><span class="a"></span><span class="d"></span></div>
-      <div class="counts"><span class="cu">👍 0</span><span class="ca">✋ 0 someone else</span><span class="cd">👎 0</span></div>
+      <ol class="candidates">
+        ${s.candidates.map((c, i) => `
+          <li>
+            <button class="candidate" data-choice="c${i}" aria-pressed="false">
+              <span class="cand-head">
+                <span class="name">${esc(c.name)}</span>
+                ${i === 0 ? '<span class="ai-pick" title="The pick Claude, ChatGPT and Grok agreed on">AI pick</span>' : ''}
+                <span class="pct" data-pct="c${i}"></span>
+              </span>
+              <span class="bio">${esc(c.bio)}</span>
+              ${c.evidence ? `<span class="evidence"><b>Best evidence:</b> ${esc(c.evidence)}</span>` : ''}
+              <span class="bar"><span data-bar="c${i}"></span></span>
+            </button>
+          </li>`).join('')}
+      </ol>
       <div class="actions">
-        <button class="btn up" data-choice="up" aria-pressed="false">👍 Yes</button>
-        <button class="btn alt" data-choice="alt" aria-pressed="false">Someone else</button>
-        <button class="btn down" data-choice="down" aria-pressed="false">👎 No</button>
+        <button class="btn alt" data-choice="alt" aria-pressed="false">Someone else <span class="pct" data-pct="alt"></span></button>
       </div>
       <form class="alt-form" novalidate>
         <input name="altName" maxlength="80" placeholder="Who instead?" autocomplete="off" required>
@@ -69,13 +63,14 @@ function renderSeats() {
         <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
         <button class="btn submit" type="submit">Submit suggestion</button>
       </form>
+      <p class="your-vote" hidden></p>
       <div class="suggested" hidden></div>
     </article>`).join('');
 
   for (const card of document.querySelectorAll('[data-seat]')) {
     const seat = card.dataset.seat;
     markPressed(card, myVotes[seat]);
-    for (const btn of card.querySelectorAll('.actions .btn')) {
+    for (const btn of card.querySelectorAll('[data-choice]')) {
       btn.addEventListener('click', () => {
         // Clicking your current choice again takes the vote back.
         if (btn.getAttribute('aria-pressed') === 'true') {
@@ -98,16 +93,6 @@ function renderSeats() {
   }
 }
 
-function renderCouncil() {
-  if (!slate.council?.length) return;
-  $('#council-section').hidden = false;
-  $('#council').innerHTML = slate.council.map((c) => `
-    <article class="card">
-      <h3 class="name">${esc(c.name)}</h3>
-      <p class="why">${esc(c.why)}</p>
-    </article>`).join('');
-}
-
 async function submit(card, payload) {
   const buttons = card.querySelectorAll('button');
   buttons.forEach((b) => (b.disabled = true));
@@ -125,10 +110,7 @@ async function submit(card, payload) {
     saveMyVotes();
     markPressed(card, payload.choice);
     $('.alt-form', card).classList.remove('open');
-    toast({
-      none: 'Vote removed.',
-      alt: 'Suggestion counted. Thanks for the reason.',
-    }[payload.choice] || 'Vote counted. Click it again to take it back.');
+    toast({ none: 'Vote removed.', alt: 'Suggestion counted. Thanks for the reason.' }[payload.choice] || 'Vote counted.');
     setTimeout(refreshTally, 1500);
   } catch (err) {
     toast(err.message);
@@ -141,19 +123,15 @@ async function submit(card, payload) {
 function humanCheck() {
   return new Promise((resolve, reject) => {
     if (!window.turnstile || !siteKey) return reject(new Error('Human check is still loading. Try again in a second.'));
-    const opts = {
+    if (widgetId !== null) window.turnstile.remove(widgetId);
+    widgetId = window.turnstile.render('#turnstile', {
       sitekey: siteKey,
       action: 'vote',
       appearance: 'interaction-only',
       execution: 'execute',
       callback: (t) => resolve(t),
       'error-callback': () => reject(new Error('Human check failed. Refresh and try again.')),
-    };
-    if (widgetId === null) widgetId = window.turnstile.render('#turnstile', opts);
-    else {
-      window.turnstile.remove(widgetId);
-      widgetId = window.turnstile.render('#turnstile', opts);
-    }
+    });
     window.turnstile.execute(widgetId);
   });
 }
@@ -164,13 +142,15 @@ async function refreshTally() {
     for (const card of document.querySelectorAll('[data-seat]')) {
       const t = seats[card.dataset.seat];
       if (!t) continue;
-      const total = t.up + t.down + t.alt || 1;
-      $('.bar .u', card).style.width = `${(t.up / total) * 100}%`;
-      $('.bar .a', card).style.width = `${(t.alt / total) * 100}%`;
-      $('.bar .d', card).style.width = `${(t.down / total) * 100}%`;
-      $('.cu', card).textContent = `👍 ${t.up}`;
-      $('.ca', card).textContent = `✋ ${t.alt} someone else`;
-      $('.cd', card).textContent = `👎 ${t.down}`;
+      const total = t.total || 0;
+      for (const el of card.querySelectorAll('[data-pct]')) {
+        const n = t.counts[el.dataset.pct] || 0;
+        el.textContent = total ? `${Math.round((n / total) * 100)}%` : '';
+      }
+      for (const el of card.querySelectorAll('[data-bar]')) {
+        const n = t.counts[el.dataset.bar] || 0;
+        el.style.width = total ? `${(n / total) * 100}%` : '0';
+      }
       const box = $('.suggested', card);
       if (t.alternatives.length || t.reasons.length) {
         box.hidden = false;
@@ -186,7 +166,16 @@ async function refreshTally() {
 }
 
 function markPressed(card, choice) {
-  for (const b of card.querySelectorAll('.actions .btn')) b.setAttribute('aria-pressed', String(b.dataset.choice === choice));
+  for (const b of card.querySelectorAll('[data-choice]')) b.setAttribute('aria-pressed', String(b.dataset.choice === choice));
+  const note = $('.your-vote', card);
+  const seat = slate.seats.find((s) => s.id === card.dataset.seat);
+  if (!choice || choice === 'none') {
+    note.hidden = true;
+    return;
+  }
+  const name = choice === 'alt' ? 'someone else' : seat.candidates[Number(choice.slice(1))]?.name;
+  note.hidden = false;
+  note.textContent = `Your vote: ${name}. Tap it again to undo.`;
 }
 
 function loadMyVotes() {

@@ -129,3 +129,24 @@ button, input, textarea { font: inherit; color: inherit; }
   .seats { grid-template-columns: 1fr; }
   .foot { flex-direction: column; }
 }
+
+/* Seat cards: the AI pick plus other top picks, each one votable */
+.seats { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.confidence { font-size: 11px; font-weight: 600; letter-spacing: .06em; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+.confidence.clear { color: var(--ink); border-color: var(--ink); }
+.candidates { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.candidate { width: 100%; text-align: left; display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--line); background: transparent; border-radius: 12px; padding: 10px 12px; cursor: pointer; transition: border-color .15s, background .15s; }
+.candidate:hover { border-color: var(--ink); }
+.candidate[aria-pressed="true"] { border-color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); box-shadow: inset 3px 0 0 var(--ink); }
+.candidate:disabled { opacity: .6; cursor: wait; }
+.cand-head { display: flex; align-items: baseline; gap: 8px; }
+.candidate .name { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 17px; }
+.candidates li:first-child .name { font-size: 20px; }
+.ai-pick { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 2px 7px; border-radius: 99px; }
+.pct { margin-left: auto; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bio { font-size: 13.5px; color: var(--ink); }
+.evidence { font-size: 12.5px; color: var(--muted); }
+.candidate .bar { display: block; height: 4px; margin-top: 4px; }
+.candidate .bar span { display: block; height: 100%; width: 0; background: var(--ink); opacity: .55; transition: width .3s; }
+.btn.alt[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.your-vote { font-size: 13px; margin: 0; padding: 6px 10px; border-radius: 8px; background: color-mix(in srgb, var(--ink) 6%, transparent); }

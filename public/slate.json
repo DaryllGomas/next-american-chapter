@@ -1,5 +1,5 @@
 {
-  "version": "2.0-draft",
+  "version": "3.0-merit",
   "repo": "https://github.com/DaryllGomas/next-american-chapter",
   "fixed": [
     {
@@ -19,507 +19,508 @@
     {
       "id": "vice-president",
       "seat": "Vice President",
-      "mission": "Bridge political divides and lead cross-party cooperation.",
-      "pick": {
-        "name": "Spencer Cox",
-        "lean": "R",
-        "type": "official",
-        "why": "Republican Utah governor who launched the National Governors Association's Disagree Better initiative."
-      },
-      "alternates": [
+      "mission": "Help govern and work both sides of the aisle.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Jared Polis",
-          "lean": "L"
+          "name": "Spencer Cox",
+          "bio": "Governor of Utah since 2021; chaired the National Governors Association and launched its Disagree Better initiative.",
+          "evidence": "Picked by two of the three AIs independently and listed by the third; governs with high approval and AAA credit ratings."
         },
         {
-          "name": "Laura Kelly",
-          "lean": "L"
+          "name": "Andy Beshear",
+          "bio": "Governor of Kentucky since 2019 and its former attorney general; governs alongside a Republican legislature."
+        },
+        {
+          "name": "Jared Polis",
+          "bio": "Governor of Colorado since 2019, former congressman and tech entrepreneur."
         }
       ]
     },
     {
       "id": "government-delivery",
       "seat": "Government Delivery",
-      "mission": "Make federal services simpler, faster, and accountable.",
-      "pick": {
-        "name": "Jennifer Pahlka",
-        "lean": "lean-L",
-        "type": "builder",
-        "why": "Founded Code for America, served as Obama's deputy CTO, helped launch USDS, and co-founded the cross-ideological Recoding America."
-      },
-      "alternates": [
+      "mission": "Make federal services actually work.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "John Bridgeland",
-          "lean": "lean-R"
+          "name": "Jennifer Pahlka",
+          "bio": "Founded Code for America and was U.S. deputy CTO; helped create the U.S. Digital Service.",
+          "evidence": "Built the model for fixing government services that federal, state and local agencies now use."
         },
         {
-          "name": "Aneesh Chopra",
-          "lean": "L"
+          "name": "Mina Hsiang",
+          "bio": "Led the U.S. Digital Service 2021–2025 after working on the HealthCare.gov rescue."
+        },
+        {
+          "name": "Mikey Dickerson",
+          "bio": "Led the 2013 HealthCare.gov rescue and became the first administrator of the U.S. Digital Service."
         }
       ]
     },
     {
       "id": "treasury",
       "seat": "Treasury",
-      "mission": "Maintain financial stability and expand economic opportunity.",
-      "pick": {
-        "name": "Lael Brainard",
-        "lean": "L",
-        "type": "official",
-        "why": "Served as Federal Reserve vice chair, Treasury undersecretary, and director of Biden's National Economic Council."
-      },
-      "alternates": [
+      "mission": "Keep the system stable and growth broad.",
+      "confidence": "close call",
+      "candidates": [
         {
           "name": "Neel Kashkari",
-          "lean": "R"
+          "bio": "President of the Minneapolis Fed since 2016; ran Treasury's TARP office under Presidents Bush and Obama.",
+          "evidence": "Ran the 2008 bank rescue program for both a Republican and a Democratic administration."
         },
         {
-          "name": "Roger Ferguson",
-          "lean": "none"
+          "name": "Lael Brainard",
+          "bio": "Former Federal Reserve vice chair, Treasury undersecretary and National Economic Council director."
+        },
+        {
+          "name": "Scott Bessent",
+          "bio": "Treasury Secretary since 2025; founded Key Square Capital after years at Soros Fund Management."
         }
       ]
     },
     {
       "id": "federal-budget",
-      "seat": "Federal Budget / OMB",
-      "mission": "Control costs, evaluate spending, and fund national priorities.",
-      "pick": {
-        "name": "Mitch Daniels",
-        "lean": "R",
-        "type": "official",
-        "why": "Republican former Indiana governor and federal OMB director who froze tuition as Purdue University president."
-      },
-      "alternates": [
+      "seat": "Budget / OMB",
+      "mission": "Control costs and fund what matters.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Maya MacGuineas",
-          "lean": "none"
+          "name": "Mitch Daniels",
+          "bio": "Former OMB director, two-term Indiana governor and Purdue president who froze tuition for a decade.",
+          "evidence": "The only name on all three AIs' lists; turned a state deficit into a surplus as governor."
         },
         {
-          "name": "Gene Sperling",
-          "lean": "L"
+          "name": "Shalanda Young",
+          "bio": "OMB director 2022–2025 and former House Appropriations staff director."
+        },
+        {
+          "name": "Jack Lew",
+          "bio": "Former OMB director under Clinton and Obama and former Treasury Secretary."
         }
       ]
     },
     {
       "id": "labor",
-      "seat": "Labor / Worker Strategy",
-      "mission": "Strengthen wages, bargaining power, and domestic employment.",
-      "pick": {
-        "name": "Oren Cass",
-        "lean": "R",
-        "type": "builder",
-        "why": "Founded American Compass, developing conservative economic proposals centered on domestic industry, families, and workers."
-      },
-      "alternates": [
+      "seat": "Labor",
+      "mission": "Workers first through the AI transition.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Julie Su",
-          "lean": "L"
+          "name": "Marty Walsh",
+          "bio": "Former Boston mayor, union leader and U.S. Labor Secretary; now heads the NHL Players' Association.",
+          "evidence": "All three AIs picked him independently; helped broker the 2022 national freight-rail deal."
         },
         {
-          "name": "Scott Winship",
-          "lean": "lean-R"
+          "name": "Julie Su",
+          "bio": "Former California labor commissioner and acting U.S. Labor Secretary; helped settle the 2023 West Coast ports deal."
+        },
+        {
+          "name": "Alex Acosta",
+          "bio": "Former U.S. Labor Secretary, U.S. attorney and NLRB member."
         }
       ]
     },
     {
       "id": "workforce-transition",
       "seat": "AI Workforce Transition",
-      "mission": "Help displaced workers retrain, recover, and find opportunity.",
-      "pick": {
-        "name": "David Autor",
-        "lean": "none",
-        "type": "expert",
-        "why": "MIT economist whose research examines automation, labor markets, wages, and technological change."
-      },
-      "alternates": [
+      "mission": "Retrain and re-place people whose jobs change.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Brent Orrell",
-          "lean": "lean-R"
+          "name": "Byron Auguste",
+          "bio": "Co-founded Opportunity@Work and was deputy director of the National Economic Council.",
+          "evidence": "Built the movement getting major employers to hire on skills instead of degrees."
         },
         {
-          "name": "Harry Holzer",
-          "lean": "lean-L"
+          "name": "David Autor",
+          "bio": "MIT economist and a leading researcher on how automation changes jobs and wages."
+        },
+        {
+          "name": "Cynthia Breazeal",
+          "bio": "MIT professor who leads AI-literacy and workforce programs through MIT's RAISE initiative."
         }
       ]
     },
     {
-      "id": "healthcare-affordability",
+      "id": "healthcare",
       "seat": "Healthcare Affordability",
-      "mission": "Expand affordable coverage while testing costs and outcomes.",
-      "pick": {
-        "name": "Avik Roy",
-        "lean": "R",
-        "type": "builder",
-        "why": "Founded FREOPP, advised Republican presidential campaigns, and developed market-based universal healthcare proposals."
-      },
-      "alternates": [
+      "mission": "Coverage people can actually use and afford.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Andy Slavitt",
-          "lean": "L"
+          "name": "Mark McClellan",
+          "bio": "Physician-economist who ran both the FDA and Medicare/Medicaid (CMS); founded the Duke-Margolis Center for Health Policy.",
+          "evidence": "One of very few people to have run both FDA and CMS; respected across both parties."
         },
         {
-          "name": "Josh Green",
-          "lean": "L"
+          "name": "Scott Gottlieb",
+          "bio": "Physician and FDA commissioner 2017–2019, with a record number of generic drug approvals."
+        },
+        {
+          "name": "Kody Kinsley",
+          "bio": "North Carolina health secretary 2022–2024 who rolled out its Medicaid expansion."
         }
       ]
     },
     {
       "id": "clinical-ai",
       "seat": "Clinical AI / Medicine",
-      "mission": "Apply clinically validated AI to improve diagnosis and treatment.",
-      "pick": {
-        "name": "Eric Topol",
-        "lean": "none",
-        "type": "expert",
-        "why": "Cardiologist and Scripps researcher who has published on AI in medicine, digital health, and precision medicine."
-      },
-      "alternates": [
+      "mission": "Put proven AI to work for patients.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Atul Gawande",
-          "lean": "lean-L"
+          "name": "Eric Topol",
+          "bio": "Cardiologist and executive vice president of Scripps Research; a leading voice on AI in medicine.",
+          "evidence": "Two of three AIs listed him; decades of research on digital and AI-driven medicine."
         },
         {
-          "name": "Marty Makary",
-          "lean": "lean-R"
+          "name": "John Halamka",
+          "bio": "Physician and president of Mayo Clinic Platform, which runs a federated data network for medical AI."
+        },
+        {
+          "name": "Nigam Shah",
+          "bio": "Stanford professor and chief data scientist for Stanford Health Care, deploying clinical AI."
         }
       ]
     },
     {
       "id": "education",
       "seat": "Education / AI Tutors",
-      "mission": "Expand personalized learning and affordable lifelong education.",
-      "pick": {
-        "name": "Sal Khan",
-        "lean": "none",
-        "type": "builder",
-        "why": "Founded Khan Academy, which provides free education, and built Khanmigo, an AI-assisted tutor."
-      },
-      "alternates": [
+      "mission": "A great tutor for every learner.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Margaret Spellings",
-          "lean": "R"
+          "name": "Sal Khan",
+          "bio": "Founded Khan Academy and built Khanmigo, its AI tutor.",
+          "evidence": "Turned free, personalized learning into a platform used by millions, then added AI tutoring at scale."
         },
         {
-          "name": "Arne Duncan",
-          "lean": "L"
+          "name": "Luis von Ahn",
+          "bio": "Co-founder and CEO of Duolingo; co-created reCAPTCHA."
+        },
+        {
+          "name": "Kristen DiCerbo",
+          "bio": "Chief learning officer at Khan Academy and a learning-science researcher."
         }
       ]
     },
     {
-      "id": "ai-innovation",
+      "id": "ai-science",
       "seat": "AI Science / Innovation",
-      "mission": "Advance American AI research and broadly accessible innovation.",
-      "pick": {
-        "name": "Fei-Fei Li",
-        "lean": "none",
-        "type": "expert",
-        "why": "Led ImageNet, co-directs Stanford's Human-Centered AI institute, founded World Labs, and opposed California's SB 1047."
-      },
-      "alternates": [
+      "mission": "Keep America first in AI research.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Andrew Ng",
-          "lean": "none"
+          "name": "Fei-Fei Li",
+          "bio": "Stanford professor, co-director of Stanford HAI, creator of ImageNet and founder of World Labs.",
+          "evidence": "Two of three AIs picked her; ImageNet helped trigger the modern AI boom."
         },
         {
-          "name": "Daphne Koller",
-          "lean": "none"
+          "name": "Arati Prabhakar",
+          "bio": "Former director of both DARPA and NIST and White House science adviser 2022–2025."
+        },
+        {
+          "name": "Andrew Ng",
+          "bio": "Co-founded Google Brain and Coursera; former chief scientist at Baidu."
         }
       ]
     },
     {
       "id": "ai-governance",
-      "seat": "AI Governance / Rights",
-      "mission": "Support innovation while safeguarding privacy, civil rights, and due process.",
-      "pick": {
-        "name": "Adam Thierer",
-        "lean": "lean-R",
-        "type": "expert",
-        "why": "R Street technology policy fellow who writes on AI governance, permissionless innovation, and regulatory policy."
-      },
-      "alternates": [
+      "seat": "AI Governance",
+      "mission": "Rules that keep AI safe without killing innovation.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Alondra Nelson",
-          "lean": "L"
+          "name": "Elham Tabassi",
+          "bio": "NIST scientist and lead architect of the NIST AI Risk Management Framework; founding CTO of the U.S. AI Safety Institute.",
+          "evidence": "Wrote the practical AI risk framework that industry already uses voluntarily."
         },
         {
-          "name": "Arvind Narayanan",
-          "lean": "none"
+          "name": "Laurie Locascio",
+          "bio": "NIST director 2022–2024, when it released the AI Risk Management Framework; now CEO of ANSI."
+        },
+        {
+          "name": "Elizabeth Kelly",
+          "bio": "Founding director of the U.S. AI Safety Institute."
         }
       ]
     },
     {
       "id": "energy",
       "seat": "Energy / Power Build-Out",
-      "mission": "Expand reliable, affordable power with environmental accountability.",
-      "pick": {
-        "name": "Chris Wright",
-        "lean": "R",
-        "type": "official",
-        "why": "U.S. energy secretary and former Liberty Energy CEO with experience in oil, gas, nuclear, and geothermal."
-      },
-      "alternates": [
+      "mission": "Cheap, reliable power for the AI age.",
+      "confidence": "close call",
+      "candidates": [
         {
           "name": "Jigar Shah",
-          "lean": "lean-L"
+          "bio": "Ran the DOE Loan Programs Office 2021–2025; co-founded SunEdison and Generate Capital.",
+          "evidence": "Two of three AIs picked him; his office closed about $60 billion in energy project loans."
         },
         {
-          "name": "Kathryn Huff",
-          "lean": "lean-L"
+          "name": "Chris Wright",
+          "bio": "U.S. Energy Secretary and former CEO of Liberty Energy."
+        },
+        {
+          "name": "Jeff Lyash",
+          "bio": "Former CEO of the Tennessee Valley Authority, the nation's largest public power utility."
         }
       ]
     },
     {
       "id": "robotics",
       "seat": "Robotics / Automation",
-      "mission": "Develop useful robotics while preparing workers and industries.",
-      "pick": {
-        "name": "Daniela Rus",
-        "lean": "none",
-        "type": "expert",
-        "why": "MIT professor and CSAIL director whose research covers robotics, autonomous systems, and machine learning."
-      },
-      "alternates": [
+      "mission": "Useful robots, and a plan for the workers they affect.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Palmer Luckey",
-          "lean": "lean-R"
+          "name": "Daniela Rus",
+          "bio": "Director of MIT's Computer Science and AI Lab (CSAIL) and a leading robotics researcher.",
+          "evidence": "Two of three AIs picked her; runs one of the world's top robotics labs."
+        },
+        {
+          "name": "Tye Brady",
+          "bio": "Chief technologist of Amazon Robotics, which passed one million deployed robots in 2025."
         },
         {
           "name": "Gill Pratt",
-          "lean": "none"
+          "bio": "Founding CEO of Toyota Research Institute; ran the DARPA Robotics Challenge."
         }
       ]
     },
     {
       "id": "housing",
       "seat": "Housing / Homelessness",
-      "mission": "Increase housing supply, affordability, and pathways out of homelessness.",
-      "pick": {
-        "name": "Rosanne Haggerty",
-        "lean": "none",
-        "type": "builder",
-        "why": "Founded Common Ground and Community Solutions, which runs the Built for Zero initiative on homelessness."
-      },
-      "alternates": [
+      "mission": "More homes, and real ways out of homelessness.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Scott Turner",
-          "lean": "R"
+          "name": "Rosanne Haggerty",
+          "bio": "Founded Common Ground and Community Solutions, which runs the Built for Zero network.",
+          "evidence": "Communities in Built for Zero have reached data-verified \"functional zero\" for veteran or chronic homelessness."
         },
         {
-          "name": "Diane Yentel",
-          "lean": "lean-L"
+          "name": "Mandy Chapman Semple",
+          "bio": "Former Houston homelessness lead who helped build its coordinated housing-first system."
+        },
+        {
+          "name": "Jeff Olivet",
+          "bio": "Former executive director of the U.S. Interagency Council on Homelessness."
         }
       ]
     },
     {
-      "id": "agriculture-rural",
+      "id": "agriculture",
       "seat": "Agriculture / Rural America",
-      "mission": "Strengthen farming, rural healthcare, infrastructure, and opportunity.",
-      "pick": {
-        "name": "Heidi Heitkamp",
-        "lean": "L",
-        "type": "official",
-        "why": "Former Democratic senator and North Dakota attorney general who founded the rural-focused One Country Project."
-      },
-      "alternates": [
+      "mission": "Farms, rural health, broadband and opportunity.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Mike Johanns",
-          "lean": "R"
+          "name": "Tom Vilsack",
+          "bio": "Former Iowa governor and two-time U.S. Agriculture Secretary.",
+          "evidence": "All three AIs listed him; the longest-serving Agriculture Secretary in over a century."
         },
         {
-          "name": "Zippy Duvall",
-          "lean": "none"
+          "name": "Xochitl Torres Small",
+          "bio": "Former congresswoman and USDA deputy secretary who ran Rural Development."
+        },
+        {
+          "name": "Sonny Perdue",
+          "bio": "Former Georgia governor and U.S. Agriculture Secretary."
         }
       ]
     },
     {
       "id": "environment",
-      "seat": "Environment / Climate",
-      "mission": "Protect natural resources while enabling responsible development.",
-      "pick": {
-        "name": "Gina McCarthy",
-        "lean": "L",
-        "type": "official",
-        "why": "Ran the EPA under Obama and was Biden's national climate adviser; earlier served in Republican-led state administrations."
-      },
-      "alternates": [
+      "seat": "Environment",
+      "mission": "Clean air and water without blocking building.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Christine Todd Whitman",
-          "lean": "lean-R"
+          "name": "Gina McCarthy",
+          "bio": "EPA administrator 2013–2017 and White House climate adviser; earlier worked for Republican governors.",
+          "evidence": "Two of three AIs picked her; ran environmental agencies at state and federal level."
         },
         {
-          "name": "Katharine Hayhoe",
-          "lean": "none"
+          "name": "Michael Regan",
+          "bio": "EPA administrator 2021–2025 and former North Carolina environment secretary."
+        },
+        {
+          "name": "Andrew Wheeler",
+          "bio": "EPA administrator 2019–2021 and former Senate Environment Committee staff director."
         }
       ]
     },
     {
       "id": "space",
       "seat": "Space / NASA",
-      "mission": "Advance exploration, scientific discovery, and commercial space capability.",
-      "pick": {
-        "name": "Ellen Ochoa",
-        "lean": "none",
-        "type": "official",
-        "why": "Directed NASA's Johnson Space Center from 2013 to 2018, flew four shuttle missions, and oversaw Orion's first flight test."
-      },
-      "alternates": [
+      "mission": "Back to the Moon, and on to Mars.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Jared Isaacman",
-          "lean": "lean-R"
+          "name": "Jim Bridenstine",
+          "bio": "NASA administrator 2018–2021 and former congressman and Navy pilot; launched the Artemis program.",
+          "evidence": "Two of three AIs listed him; won bipartisan support for Artemis and commercial crew."
         },
         {
           "name": "Pam Melroy",
-          "lean": "lean-L"
-        }
-      ]
-    },
-    {
-      "id": "national-security",
-      "seat": "Defense / National Security",
-      "mission": "Protect national security with civilian oversight and restraint.",
-      "pick": {
-        "name": "Michèle Flournoy",
-        "lean": "L",
-        "type": "official",
-        "why": "Served as Obama's undersecretary of defense for policy and co-founded the Center for a New American Security."
-      },
-      "alternates": [
-        {
-          "name": "H. R. McMaster",
-          "lean": "lean-R"
+          "bio": "Former astronaut and shuttle commander; NASA deputy administrator 2021–2025."
         },
         {
-          "name": "William McRaven",
-          "lean": "none"
+          "name": "Jared Isaacman",
+          "bio": "NASA administrator since December 2025; commanded Inspiration4 and Polaris Dawn. Close ties to SpaceX."
         }
       ]
     },
     {
-      "id": "diplomacy",
+      "id": "defense",
+      "seat": "Defense",
+      "mission": "Deter wars and stay ahead on technology.",
+      "confidence": "close call",
+      "candidates": [
+        {
+          "name": "Michèle Flournoy",
+          "bio": "Former undersecretary of defense for policy and co-founder of the Center for a New American Security.",
+          "evidence": "Two of three AIs listed her; decades of senior Pentagon strategy work."
+        },
+        {
+          "name": "Jim Mattis",
+          "bio": "Retired Marine general and Secretary of Defense 2017–2019."
+        },
+        {
+          "name": "Christine Wormuth",
+          "bio": "Secretary of the Army 2021–2025, who turned around Army recruiting."
+        }
+      ]
+    },
+    {
+      "id": "state",
       "seat": "State / Diplomacy",
-      "mission": "Maintain alliances, pursue diplomacy, and protect American interests.",
-      "pick": {
-        "name": "William J. Burns",
-        "lean": "none",
-        "type": "official",
-        "why": "Career diplomat who served as deputy secretary of state, ambassador to Russia, and CIA director under presidents of both parties."
-      },
-      "alternates": [
+      "mission": "Strong alliances and real diplomacy.",
+      "confidence": "clear",
+      "candidates": [
         {
-          "name": "Condoleezza Rice",
-          "lean": "R"
+          "name": "William J. Burns",
+          "bio": "Career diplomat: deputy secretary of state, ambassador to Russia and CIA director under presidents of both parties.",
+          "evidence": "Two of three AIs picked him; led the secret 2013 U.S.-Iran talks."
         },
         {
-          "name": "Wendy Sherman",
-          "lean": "L"
+          "name": "Kurt Campbell",
+          "bio": "Former deputy secretary of state and architect of U.S. Indo-Pacific strategy."
+        },
+        {
+          "name": "Marco Rubio",
+          "bio": "Secretary of State since 2025 and former senator on the Foreign Relations and Intelligence committees."
         }
       ]
     },
     {
       "id": "justice",
       "seat": "Justice / Anti-Corruption",
-      "mission": "Strengthen independent oversight, equal justice, and accountability.",
-      "pick": {
-        "name": "Michael Horowitz",
-        "lean": "none",
-        "type": "official",
-        "why": "Served as Justice Department inspector general under Presidents Obama, Trump and Biden."
-      },
-      "alternates": [
+      "mission": "Go after corruption no matter whose side it's on.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "J. Michael Luttig",
-          "lean": "lean-R"
+          "name": "Michael Horowitz",
+          "bio": "Justice Department inspector general under Obama, Trump and Biden.",
+          "evidence": "Investigated the FBI and DOJ across administrations of both parties."
         },
         {
-          "name": "Sally Yates",
-          "lean": "lean-L"
+          "name": "Preet Bharara",
+          "bio": "U.S. attorney for the Southern District of New York 2009–2017; prosecuted New York's top legislative leaders of both parties."
+        },
+        {
+          "name": "Rod Rosenstein",
+          "bio": "Former deputy attorney general and U.S. attorney for Maryland."
         }
       ]
     },
     {
       "id": "families",
-      "seat": "Families / Care Economy",
-      "mission": "Support caregivers, children, and working families.",
-      "pick": {
-        "name": "Ai-jen Poo",
-        "lean": "L",
-        "type": "builder",
-        "why": "Co-founded the National Domestic Workers Alliance and Caring Across Generations, advocating for care workers and family caregivers."
-      },
-      "alternates": [
+      "seat": "Families / Care",
+      "mission": "Affordable childcare and elder care.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Linda Smith",
-          "lean": "R"
+          "name": "Linda K. Smith",
+          "bio": "Helped build the U.S. military childcare system; later led federal early-childhood policy and child care work at the Bipartisan Policy Center.",
+          "evidence": "The military childcare system she helped build is the government's longest-running quality childcare at scale."
         },
         {
-          "name": "Anne Mosle",
-          "lean": "none"
+          "name": "Ai-jen Poo",
+          "bio": "Co-founded the National Domestic Workers Alliance and Caring Across Generations."
+        },
+        {
+          "name": "Jessica Sager",
+          "bio": "Co-founded All Our Kin, which expands home-based childcare."
         }
       ]
     },
     {
       "id": "lived-experience",
       "seat": "Lived Experience / Opportunity",
-      "mission": "Give people facing poverty, displacement and exclusion a real voice in policy.",
-      "pick": {
-        "name": "Mark Horvath",
-        "lean": "none",
-        "type": "builder",
-        "why": "Experienced homelessness himself and founded Invisible People in 2008 to tell the stories of unhoused people."
-      },
-      "alternates": [
+      "mission": "Someone who's been there reviews every policy before launch.",
+      "confidence": "clear",
+      "candidates": [
         {
           "name": "Donald Whitehead",
-          "lean": "none"
+          "bio": "Was homeless for five years; now executive director of the National Coalition for the Homeless.",
+          "evidence": "Two of three AIs picked him; went from homelessness to running shelters to national policy."
+        },
+        {
+          "name": "Mark Horvath",
+          "bio": "Formerly homeless; founded Invisible People in 2008 to tell the stories of unhoused people."
         },
         {
           "name": "Liz Murray",
-          "lean": "none"
+          "bio": "Homeless as a teenager, then graduated from Harvard; author and advocate."
         }
       ]
     },
     {
       "id": "abundance-council",
       "seat": "Abundance Council · outside adviser",
-      "mission": "Explore emerging technologies that could expand prosperity and access.",
-      "pick": {
-        "name": "Peter Diamandis",
-        "lean": "none",
-        "type": "builder",
-        "why": "Founded XPRIZE, co-founded Singularity University, and hosts the Moonshots podcast."
-      },
-      "alternates": [
+      "mission": "Spot the technologies that can make life cheaper and better.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Salim Ismail",
-          "lean": "none"
+          "name": "Peter Diamandis",
+          "bio": "Founded XPRIZE and co-founded Singularity University; hosts the Moonshots podcast.",
+          "evidence": "XPRIZE has launched dozens of prize competitions that pulled private money into hard problems."
         },
         {
-          "name": "Vinod Khosla",
-          "lean": "lean-L"
+          "name": "Tyler Cowen",
+          "bio": "George Mason economist and Marginal Revolution author; a leading voice on growth and progress."
+        },
+        {
+          "name": "Daphne Koller",
+          "bio": "Co-founded Coursera and founded insitro, applying machine learning to drug discovery."
         }
       ]
     },
     {
       "id": "ai-foresight-council",
       "seat": "AI Foresight Council · outside adviser",
-      "mission": "Assess long-term AI capabilities, risks, and economic consequences.",
-      "pick": {
-        "name": "Alexander Wissner-Gross",
-        "lean": "none",
-        "type": "expert",
-        "why": "Physicist, computer scientist and entrepreneur; a regular co-host of the Moonshots podcast."
-      },
-      "alternates": [
+      "mission": "See what's coming in AI before it arrives.",
+      "confidence": "close call",
+      "candidates": [
         {
-          "name": "Dave Blundin",
-          "lean": "none"
+          "name": "Yoshua Bengio",
+          "bio": "Turing Award winner and founder of Mila; chaired the 2026 International AI Safety Report.",
+          "evidence": "Two of three AIs listed him; led the largest international scientific review of AI risk."
         },
         {
-          "name": "Erik Brynjolfsson",
-          "lean": "none"
+          "name": "Stuart Russell",
+          "bio": "UC Berkeley professor, co-author of the standard AI textbook, and founder of the Center for Human-Compatible AI."
+        },
+        {
+          "name": "Alexander Wissner-Gross",
+          "bio": "Physicist, computer scientist and entrepreneur; a regular co-host of the Moonshots podcast."
         }
       ]
     }
   ],
-  "council": []
+  "council": [],
+  "method": "Claude, ChatGPT and Grok each picked blind, on record only. The AI pick is where they agreed; ties went to the strongest concrete evidence."
 }
