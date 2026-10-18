@@ -1,0 +1,21 @@
+name: check
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Slate is valid
+        run: node scripts/check-slate.mjs
+      - name: JavaScript parses
+        run: |
+          node --check public/app.js
+          node --input-type=module --check < src/worker.js
