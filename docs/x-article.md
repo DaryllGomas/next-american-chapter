@@ -6,8 +6,8 @@
 
 # The Balanced Ticket: not left, not right
 
-Matthew McConaughey just posted a video asking a simple question: what if enough independents won seats that
-Democrats and Republicans *had* to work together?
+Matthew McConaughey just posted a video urging people to consider independent candidates, so that Democrats and
+Republicans *have* to work together. He endorsed no one, and the video isn't about him running.
 
 I took that seriously, and went one step further. If McConaughey were president, who would actually be on the
 team?
@@ -18,15 +18,17 @@ much life improves for the people who've had the least chance to share in it.
 
 ## How we built it
 
-I had two AIs argue it out. ChatGPT drafted a team. Claude tore it apart: too many picks from one side, no one on
-housing or rural America, and nobody who has actually lived what being "left behind" means. They went back and
-forth until they agreed.
+I had three AIs argue it out. ChatGPT drafted a team. Claude tore it apart: too many picks from one side, no one on
+housing or rural America, and nobody who has actually lived what being "left behind" means. Then Grok tore *that*
+apart: "11 independents" was a dodge, and the policy still tilted left. They went back and forth until all three
+signed off.
 
-The result is 24 seats with a balanced ledger:
+The result is 24 seats:
 
-**5 left · 5 right · 3 center · 11 independent**
+**6 left-associated · 6 right-associated · 12 with no known lean**
 
-Every pick has its lean labeled, so you can see the balance for yourself instead of taking my word for it.
+Every pick is labeled by lean *and* by what they bring (public official, builder or expert). "No known lean"
+means exactly that, not "secret centrist". Think a label is wrong? Challenge it with evidence.
 
 ## Two seats are set
 
@@ -39,16 +41,16 @@ Every pick has its lean labeled, so you can see the balance for yourself instead
 
 Some of the picks:
 
-- **VP: Spencer Cox (R):** started *Disagree Better* and has already shared a stage with McConaughey.
-- **Government delivery: Jennifer Pahlka:** founded Code for America.
-- **Budget: Mitch Daniels (R):** ran OMB and froze tuition at Purdue.
+- **VP: Spencer Cox (R):** started *Disagree Better*.
+- **Government delivery: Jennifer Pahlka (lean L):** founded Code for America.
+- **Budget: Mitch Daniels (R)** · **Treasury: Lael Brainard (L)**.
 - **Labor: Oren Cass (R)**, with **David Autor** on the AI workforce transition.
-- **Treasury: Lael Brainard (L).**
-- **Healthcare: Avik Roy (R)**, with **Eric Topol** on AI in medicine.
-- **Education: Sal Khan.**
-- **Energy: Jigar Shah (L).** **Space: Jared Isaacman.**
-- **Rural America: Heidi Heitkamp (L).** **Environment: Christine Todd Whitman.**
+- **Healthcare: Avik Roy (R)**, with **Eric Topol** on AI in medicine. **Education: Sal Khan.**
+- **Energy: Chris Wright (R)**, checked by **Environment: Gina McCarthy (L)**. Build the power *and* keep the air clean.
+- **AI governance: Adam Thierer (lean R).** **Defense: Michèle Flournoy (L).**
+- **Space: Ellen Ochoa**, the former Johnson Space Center director. Not a Musk-adjacent pick, on purpose.
 - **Anti-corruption: Michael Horowitz**, inspector general under Obama, Trump and Biden.
+- **Rural America: Heidi Heitkamp (L).**
 - **Lived experience: Mark Horvath.** He was homeless and founded Invisible People. This seat isn't ceremonial:
   it reviews policy before launch.
 - **Outside advisers:** Peter Diamandis and Alex Wissner-Gross.

@@ -8,7 +8,7 @@
 
 @McConaughey says independents could force both parties to work together. So who'd be on the team?
 
-Two AIs argued it out: 24 seats. 5 left, 5 right, 3 center, 11 independent.
+Three AIs argued it out: 24 seats. 6 left, 6 right, 12 no known lean.
 
 Every seat is up for your vote. @elonmusk, here's a way to back balance.
 
@@ -24,15 +24,15 @@ Labor @oren_cass
 AI jobs @davidautor
 Health @Avik / @EricTopol
 Education @salkhanacademy
-AI @drfeifei / @alondra
-Energy @JigarShahDC
-Space @rookisaacman
+AI @drfeifei
+AI governance [Thierer: verify]
+Energy [Chris Wright: verify]
 
 ## Reply 2
 
 Rural @HeidiHeitkamp
-Environment @GovCTW
-Defense @LTGHRMcMaster
+Environment [McCarthy: verify]
+Defense [Flournoy: verify]
 Care @aijenpoo
 Lived experience @hardlynormal
 Outside advisers @PeterDiamandis @alexwg
@@ -46,3 +46,6 @@ Nobody named has endorsed this. Vote, or suggest someone better and say why.
   with only McConaughey and Musk in the main post.
 - Attach a screenshot of the page hero (title + ledger bar) to the main post.
 - The long-form version is in [x-article.md](x-article.md).
+
+- **Slate v2 (after Grok):** the handles for Thierer, Wright, McCarthy, Flournoy and Ochoa still need checking.
+  Shah, Whitman, McMaster, Isaacman and Nelson are now alternates and are untagged.

@@ -24,3 +24,24 @@ Source thread: ChatGPT conversation "McConaughey Administration Plan" (Daryll's 
    **Final ledger: 5 L · 5 R · 3 C · 11 Ind.**
 
 Leans are judgment calls about public records, not party registrations.
+
+## Round 3: Grok (2026-10-18)
+
+Grok's verdict: "11 Independent" was a dodge, the policy direction skewed left, and the framing overclaimed what
+McConaughey's video said. See [grok-review.md](grok-review.md).
+
+**Labels.** Claude proposed honest two-part labels: lean (L / lean-L / none / lean-R / R) and type
+(official / builder / expert), plus a published note on how the labels were assigned. ChatGPT agreed, with one caveat:
+expertise isn't a lean, so academics stay "none" unless there's evidence.
+
+**Swaps:**
+- AI governance: Thierer (lean-R) as primary, Nelson as alternate.
+- Energy: Wright (R) as primary, Shah as alternate.
+- Defense: Flournoy (L) as primary, McMaster as alternate.
+- Relabels: Pahlka becomes lean-L, Whitman lean-R and Isaacman lean-R.
+
+That overcorrected to 5 left / 8 right, so there were two more changes:
+- Environment: McCarthy (L) as primary, a left-leaning check on a right-leaning energy secretary.
+- Space: Ellen Ochoa (none) as primary, with Isaacman as alternate because of his SpaceX ties next to Musk.
+
+**Final tally:** 6 left-associated, 6 right-associated, 12 with no known lean. Grok: "Sign off ... No remaining vetoes."

@@ -1,5 +1,7 @@
-const LEAN_NAMES = { L: 'Left', C: 'Center', Ind: 'Independent', R: 'Right' };
-const LEAN_ORDER = ['L', 'C', 'Ind', 'R'];
+const LEAN_NAMES = { L: 'Left', 'lean-L': 'Leans left', none: 'No known lean', 'lean-R': 'Leans right', R: 'Right' };
+const LEAN_TAGS = { L: 'L', 'lean-L': 'lean L', none: 'none', 'lean-R': 'lean R', R: 'R' };
+const LEAN_ORDER = ['L', 'lean-L', 'none', 'lean-R', 'R'];
+const TYPE_NAMES = { official: 'Public official', builder: 'Builder', expert: 'Expert' };
 const MY_VOTES_KEY = 'nac-my-votes';
 
 const $ = (sel, el = document) => el.querySelector(sel);
@@ -29,7 +31,7 @@ function renderLedger() {
   const counts = Object.fromEntries(LEAN_ORDER.map((k) => [k, 0]));
   for (const s of slate.seats) counts[s.pick.lean] = (counts[s.pick.lean] || 0) + 1;
   const total = slate.seats.length;
-  const colors = { L: 'var(--left)', C: 'var(--center)', Ind: 'var(--ind)', R: 'var(--right)' };
+  const colors = { L: 'var(--left)', 'lean-L': 'var(--lean-left)', none: 'var(--none)', 'lean-R': 'var(--lean-right)', R: 'var(--right)' };
   $('#ledger').innerHTML = `
     <div class="ledger-bar">${LEAN_ORDER.map((k) => `<span style="width:${(counts[k] / total) * 100}%;background:${colors[k]}"></span>`).join('')}</div>
     <div class="ledger-keys">${LEAN_ORDER.map((k) => `<span><i style="background:${colors[k]}"></i>${LEAN_NAMES[k]} ${counts[k]}</span>`).join('')}</div>`;
@@ -48,11 +50,12 @@ function renderFixed() {
 function renderSeats() {
   $('#seats').innerHTML = slate.seats.map((s) => `
     <article class="card" data-seat="${esc(s.id)}">
-      <div class="card-top"><div class="role">${esc(s.seat)}</div><span class="lean ${esc(s.pick.lean)}" title="${esc(LEAN_NAMES[s.pick.lean])}">${esc(s.pick.lean)}</span></div>
+      <div class="card-top"><div class="role">${esc(s.seat)}</div><span class="lean ${esc(s.pick.lean)}" title="${esc(LEAN_NAMES[s.pick.lean])}">${esc(LEAN_TAGS[s.pick.lean])}</span></div>
       <h3 class="name">${esc(s.pick.name)}</h3>
+      <div class="type">${esc(TYPE_NAMES[s.pick.type] || '')}</div>
       <div class="mission">${esc(s.mission)}</div>
       <p class="why">${esc(s.pick.why)}</p>
-      ${s.alternates?.length ? `<p class="alts">Also considered: ${s.alternates.map((a) => `<b>${esc(a.name)}</b> <span class="lean ${esc(a.lean)}">${esc(a.lean)}</span>`).join(', ')}</p>` : ''}
+      ${s.alternates?.length ? `<p class="alts">Also considered: ${s.alternates.map((a) => `<b>${esc(a.name)}</b> <span class="lean ${esc(a.lean)}" title="${esc(LEAN_NAMES[a.lean])}">${esc(LEAN_TAGS[a.lean])}</span>`).join(', ')}</p>` : ''}
       <div class="bar"><span class="u"></span><span class="a"></span><span class="d"></span></div>
       <div class="counts"><span class="cu">👍 0</span><span class="ca">✋ 0 someone else</span><span class="cd">👎 0</span></div>
       <div class="actions">
