@@ -1,33 +1,45 @@
-# X post and reply thread: draft 1
+# X post and reply thread: final draft
 
-> Not posted. Daryll posts it himself, after the page is live and the link is real.
-> Handles were checked by ChatGPT against X profiles on 2026-10-18. Spot-check them on X before posting.
-> Lael Brainard, Daniela Rus, Rosanne Haggerty, William Burns and Michael Horowitz: no confirmed personal account, so they aren't tagged.
+> Ready to paste. Post the main post, then reply to it with Reply 1, then reply to that with Reply 2.
+> Handles were confirmed by the fact-check (docs/fact-check-2026-10-18.md). Ten AI picks have no confirmed X account,
+> so they aren't tagged: Auguste, McClellan, Tabassi, Rus, Haggerty, Vilsack, Burns, Horowitz, L. Smith, Whitehead.
+> @purduemitch may be dormant. Don't tag the impersonator @Scott_Bessent or any former office accounts.
 
 ## Post
 
-@McConaughey says independents could force both parties to work together. So who'd be on the team?
+@McConaughey says independents could force both parties to work together. Who'd be on the team?
 
-Three AIs each picked the best person for 24 seats, blind. No quotas, just track records.
+Three AIs each picked the best person for 24 seats, blind. No quotas, just records.
 
-Vote on every seat. @elonmusk, back the best team.
+Vote on every seat, or write in your own. @elonmusk, back the best team.
 
-https://x.co/linkplaceholder
+https://next-american-chapter.next-american-chapter.workers.dev
 
 ## Reply 1
 
-[Rebuild after the slate is final: tag the AI picks with verified handles, e.g. VP @SpencerJCox, Delivery @pahlkadot, Health @EricTopol, Education @salkhanacademy, AI @drfeifei, Energy @JigarShahDC.]
+The AI picks (nobody named has endorsed this):
+VP @SpencerJCox
+Treasury @neelkashkari
+Budget @purduemitch
+Labor @marty_walsh
+Gov delivery @pahlkadot
+Medicine @EricTopol
+Education @salkhanacademy
 
 ## Reply 2
 
-[Continue the tags. Handles still to verify: Walsh, Daniels, Kashkari, McClellan, Auguste, Tabassi, Rus, Haggerty, Vilsack, McCarthy, Bridenstine, Flournoy, Burns, Horowitz, Smith, Whitehead, Diamandis, Bengio.]
+AI science @drfeifei
+Energy @JigarShahDC
+Environment @GinaEPA
+Space @JimBridenstine
+Defense @micheleflournoy
+Abundance @PeterDiamandis
+AI foresight @Yoshua_Bengio
+
+Think someone's stronger? Write them in. Code is open: github.com/DaryllGomas/next-american-chapter
 
 ## Notes
 
-- Tagging 20+ accounts in one post can get it throttled as spam. That's why the tags are spread across two replies,
-  with only McConaughey and Musk in the main post.
-- Attach a screenshot of the page hero (title + ledger bar) to the main post.
+- X shows the dawn banner as the link card (img/og.jpg).
+- The tags are spread over two replies, with only McConaughey and Musk in the main post, so the post isn't throttled as spam.
 - The long-form version is in [x-article.md](x-article.md).
-
-- **Slate v2 (after Grok):** the handles for Thierer, Wright, McCarthy, Flournoy and Ochoa still need checking.
-  Shah, Whitman, McMaster, Isaacman and Nelson are now alternates and are untagged.
