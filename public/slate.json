@@ -71,7 +71,7 @@
         },
         {
           "name": "Wally Adeyemo",
-          "bio": "U.S. deputy Treasury secretary 2021–2025 and former deputy national economic adviser."
+          "bio": "Barclays head of strategy since 2025; U.S. deputy Treasury secretary 2021–2025 and former deputy national economic adviser."
         },
         {
           "name": "Sarah Bloom Raskin",
@@ -133,12 +133,12 @@
           "evidence": "On all three AIs' lists; helped lead the movement getting major employers to hire on skills instead of degrees."
         },
         {
-          "name": "Rachel Carlson",
-          "bio": "Co-founded Guild, which runs employer-paid education and upskilling for frontline workers at large companies."
-        },
-        {
           "name": "Chike Aguh",
           "bio": "Former chief innovation officer at the U.S. Labor Department and former CEO of EveryoneOn, which closes the digital divide."
+        },
+        {
+          "name": "Tracy Palandjian",
+          "bio": "Co-founder and CEO of Social Finance, which pays for workforce programs based on the results they deliver."
         }
       ]
     },
@@ -149,17 +149,17 @@
       "confidence": "close call",
       "candidates": [
         {
-          "name": "Mark McClellan",
-          "bio": "Physician-economist who ran both the FDA and Medicare/Medicaid (CMS); founding director, now co-director, of the Duke-Margolis Institute for Health Policy.",
-          "evidence": "On two of three AIs' lists; launched Medicare's drug benefit on a tight deadline as head of CMS."
+          "name": "Kody Kinsley",
+          "bio": "North Carolina health secretary 2022–2025 who rolled out its Medicaid expansion.",
+          "evidence": "On the mission scorecard he's the cleanest fast mover: North Carolina's Medicaid expansion enrolled over 600,000 people ahead of schedule."
         },
         {
           "name": "Alex Oshmyansky",
-          "bio": "Physician and co-founder of Mark Cuban Cost Plus Drug Company, which sells prescription drugs at transparent, low markups."
+          "bio": "Physician and co-founder and CEO of Mark Cuban Cost Plus Drug Company, which sells prescription drugs at transparent, low markups."
         },
         {
-          "name": "Kody Kinsley",
-          "bio": "North Carolina health secretary 2022–2025 who rolled out its Medicaid expansion."
+          "name": "Mark McClellan",
+          "bio": "Physician-economist who ran the FDA and Medicare/Medicaid (CMS); co-directs the Duke-Margolis Institute. Sits on the Johnson & Johnson and Cigna boards."
         }
       ]
     },
@@ -200,8 +200,8 @@
           "bio": "Co-founder and CEO of Duolingo; co-created reCAPTCHA."
         },
         {
-          "name": "Kaya Henderson",
-          "bio": "Former chancellor of Washington, D.C. public schools; founded Reconstruction, an online learning company."
+          "name": "Kristen DiCerbo",
+          "bio": "Chief learning officer at Khan Academy and a learning-science researcher."
         }
       ]
     },
@@ -221,8 +221,8 @@
           "bio": "Co-founded Google Brain and Coursera; former chief scientist at Baidu."
         },
         {
-          "name": "Arati Prabhakar",
-          "bio": "Former director of both DARPA and NIST and White House science adviser 2022–2025."
+          "name": "Regina Barzilay",
+          "bio": "MIT professor and AI researcher; co-leads the Jameel Clinic for machine learning in health."
         }
       ]
     },
@@ -243,7 +243,7 @@
         },
         {
           "name": "Alondra Nelson",
-          "bio": "Former acting White House science adviser; led the Blueprint for an AI Bill of Rights."
+          "bio": "Former acting director of the White House Office of Science and Technology Policy; led the Blueprint for an AI Bill of Rights."
         }
       ]
     },
@@ -264,7 +264,7 @@
         },
         {
           "name": "Kathryn Huff",
-          "bio": "Nuclear engineer and former DOE assistant secretary for nuclear energy."
+          "bio": "Nuclear engineer and former DOE assistant secretary for nuclear energy; now chairs nuclear engineering at the University of Wisconsin–Madison."
         }
       ]
     },
@@ -277,11 +277,11 @@
         {
           "name": "Daniela Rus",
           "bio": "Director of MIT's Computer Science and AI Lab (CSAIL) and a leading robotics researcher.",
-          "evidence": "On all three AIs' lists; runs one of the world's top robotics labs."
+          "evidence": "On all three AIs' lists; directs MIT's Computer Science and AI Lab (CSAIL), one of the world's top AI and robotics research labs."
         },
         {
           "name": "Melonee Wise",
-          "bio": "Co-founded Fetch Robotics and built warehouse robots used in industry; later a robotics executive at Zebra and Agility."
+          "bio": "Co-founded Fetch Robotics and built warehouse robots used in industry; later a robotics executive at Zebra and Agility, now chief product officer for software and AI at KUKA."
         },
         {
           "name": "Gill Pratt",
@@ -302,11 +302,11 @@
         },
         {
           "name": "Shaun Donovan",
-          "bio": "Former HUD secretary and OMB director; led federal housing recovery after Hurricane Sandy."
+          "bio": "Former HUD secretary and OMB director who chaired the federal Hurricane Sandy Rebuilding Task Force; now CEO of Enterprise Community Partners."
         },
         {
           "name": "Jennifer Loving",
-          "bio": "Longtime leader of Destination: Home, Silicon Valley's public-private effort to end homelessness."
+          "bio": "Has led Destination: Home, Silicon Valley's public-private effort to end homelessness, since 2010."
         }
       ]
     },
@@ -319,15 +319,15 @@
         {
           "name": "Xochitl Torres Small",
           "bio": "Former congresswoman who led USDA Rural Development, then served as deputy agriculture secretary. Now heads the Quivira Coalition.",
-          "evidence": "The AIs split three ways here; she has the most senior record: she ran USDA Rural Development, then was deputy agriculture secretary."
+          "evidence": "The AIs split three ways here; she has the most senior USDA record: she ran USDA Rural Development, then was deputy agriculture secretary."
         },
         {
           "name": "Anne Hazlett",
-          "bio": "Former head of USDA Rural Development and Senate Agriculture Committee counsel."
+          "bio": "Led USDA Rural Development as assistant to the secretary (2017–19); earlier chief counsel to the Senate Agriculture Committee majority."
         },
         {
           "name": "Heidi Heitkamp",
-          "bio": "Former U.S. senator and attorney general of North Dakota; founded the rural-focused One Country Project."
+          "bio": "Former U.S. senator and attorney general of North Dakota; co-founded the rural-focused One Country Project."
         }
       ]
     },
@@ -344,11 +344,11 @@
         },
         {
           "name": "Ali Zaidi",
-          "bio": "Former White House national climate adviser who ran implementation of federal clean-energy investments."
+          "bio": "Biden's national climate adviser 2022–2025, leading the White House climate policy office; now a professor of practice at Penn Engineering."
         },
         {
           "name": "Kate Gordon",
-          "bio": "Former senior adviser on climate to California's governor; works on economic transition and infrastructure."
+          "bio": "Former climate adviser to California's governor and DOE senior adviser; now CEO of California Forward, working on economic transition."
         }
       ]
     },
@@ -361,7 +361,7 @@
         {
           "name": "Jim Bridenstine",
           "bio": "NASA administrator 2018–2021 and former congressman and Navy pilot; launched the Artemis program.",
-          "evidence": "On two of three AIs' lists; won bipartisan support for Artemis and the first operational commercial crew flights."
+          "evidence": "On two of three AIs' lists; launched the Artemis moon program and oversaw NASA's first crewed commercial flights to the space station in 2020."
         },
         {
           "name": "Pam Melroy",
@@ -369,7 +369,7 @@
         },
         {
           "name": "Thomas Zurbuchen",
-          "bio": "Led NASA's science missions 2016–2022, including the James Webb Space Telescope launch."
+          "bio": "Led NASA's science missions 2016–2022, including the James Webb Space Telescope launch; joining Blue Origin in 2026 to head advanced concepts."
         }
       ]
     },
@@ -382,11 +382,11 @@
         {
           "name": "Christine Wormuth",
           "bio": "Secretary of the Army 2021–2025, who overhauled Army recruiting; now president and CEO of the Nuclear Threat Initiative.",
-          "evidence": "The AIs split here; as Army secretary she turned around recruiting after two years of misses, and she has no defense-industry ties."
+          "evidence": "The AIs split here; as Army secretary she overhauled recruiting after the Army missed its goals in 2022 and 2023, and it beat its 2024 goal."
         },
         {
           "name": "Will Roper",
-          "bio": "Former Air Force acquisition chief who pushed software-first, faster weapons development."
+          "bio": "Former Air Force acquisition chief who pushed software-first, faster weapons development; now CEO of Istari, a digital-engineering firm with Air Force work."
         },
         {
           "name": "Kathleen Hicks",
@@ -431,8 +431,8 @@
           "bio": "U.S. attorney for the Southern District of New York 2009–2017; prosecuted New York's top legislative leaders of both parties."
         },
         {
-          "name": "Danielle Brian",
-          "bio": "Longtime executive director of the Project On Government Oversight, a nonpartisan government watchdog."
+          "name": "Rod Rosenstein",
+          "bio": "Former deputy attorney general and U.S. attorney for Maryland."
         }
       ]
     },
@@ -449,7 +449,7 @@
         },
         {
           "name": "Jessica Sager",
-          "bio": "Co-founded All Our Kin, which helps home-based childcare providers; evaluations found many earned thousands more a year."
+          "bio": "Co-founder and CEO of All Our Kin, which helps home-based childcare providers; a 2011 UConn study found 60% earned $5,000 more their first licensed year."
         },
         {
           "name": "Ai-jen Poo",
@@ -470,7 +470,7 @@
         },
         {
           "name": "Michael Tubbs",
-          "bio": "Grew up in poverty, became mayor of Stockton, California, and founded Mayors for a Guaranteed Income."
+          "bio": "Grew up in poverty, became mayor of Stockton, California, and founded Mayors for a Guaranteed Income; ran for lieutenant governor in 2026."
         },
         {
           "name": "Mark Horvath",
@@ -512,7 +512,7 @@
         },
         {
           "name": "Demis Hassabis",
-          "bio": "CEO of Google DeepMind and Nobel laureate in chemistry for AlphaFold."
+          "bio": "Co-founder and chair of Google DeepMind and Alphabet's chief scientist since 2026; shared the 2024 Nobel Prize in Chemistry for AlphaFold."
         },
         {
           "name": "Stuart Russell",
