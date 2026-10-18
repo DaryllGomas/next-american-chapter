@@ -110,7 +110,11 @@ button, input, textarea { font: inherit; color: inherit; }
 .muted { color: var(--muted); font-size: 13px; }
 .foot { display: flex; justify-content: space-between; gap: 12px; padding: 32px 16px 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); margin-top: 48px; }
 
-.turnstile { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); z-index: 20; }
+.check { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; padding: 16px; background: rgba(29, 27, 24, .45); }
+.check[hidden] { display: grid; visibility: hidden; pointer-events: none; }
+.check-box { background: var(--card); border-radius: 16px; padding: 20px 20px 14px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,.25); max-width: 360px; }
+.check-h { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 18px; margin: 0 0 12px; }
+.check-note { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
 .toast { position: fixed; bottom: 16px; right: 16px; left: 16px; max-width: 360px; margin-left: auto; background: var(--ink); color: var(--paper); padding: 12px 16px; border-radius: 12px; font-size: 14px; opacity: 0; transform: translateY(8px); transition: .2s; pointer-events: none; z-index: 30; }
 .toast.show { opacity: 1; transform: none; }
 
