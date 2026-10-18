@@ -11,6 +11,7 @@ const MAX_PER_IP_PER_DAY = 400;
 const ALT_MIN_BACKERS = 3; // a write-in joins the seat's list once this many different voters typed it (and one passed the sniff test)
 const TALLY_CACHE_SECONDS = 30;
 const MAX_FEEDBACK_PER_IP_PER_DAY = 10;
+const MAX_FEEDBACK_PER_DAY = 5000;
 const COOKIE = 'nac_vid';
 
 export default {
@@ -150,13 +151,22 @@ async function feedback(req, env) {
   if (body.website) return json({ ok: true }); // honeypot
   const text = clean(body.text, 1500);
   if (text.length < 10) return json({ error: 'Say a little more.' }, 400);
-  if (/https?:|www\./i.test(text)) return json({ error: 'No links, please.' }, 400);
+  if (/https?:|www\.|\.(com|net|org|io|xyz|ru)\b/i.test(text)) return json({ error: 'No links, please.' }, 400);
+  if (looksLikeJunk(text)) return json({ error: 'Say a little more, in words.' }, 400);
   const ip = req.headers.get('CF-Connecting-IP') || '';
   if (!(await turnstileOk(env, body.token, ip))) return json({ error: 'Human check failed. Refresh and try again.' }, 403);
   const day = new Date().toISOString().slice(0, 10);
   const ipHash = await sha256(`${env.HASH_SALT}|ip|${day}|${ip}`);
-  const n = await env.DB.prepare('SELECT COUNT(*) AS n FROM feedback WHERE ip_hash = ?1').bind(ipHash).first();
-  if (n.n >= MAX_FEEDBACK_PER_IP_PER_DAY) return json({ error: 'Thanks! That\'s plenty for today.' }, 429);
+  const since = Date.now() - 86400000;
+  const [mine, dup, all] = await env.DB.batch([
+    env.DB.prepare('SELECT COUNT(*) AS n FROM feedback WHERE ip_hash = ?1').bind(ipHash),
+    env.DB.prepare('SELECT COUNT(*) AS n FROM feedback WHERE lower(text) = lower(?1) AND created_at >= ?2').bind(text, since),
+    env.DB.prepare('SELECT COUNT(*) AS n FROM feedback WHERE created_at >= ?1').bind(since),
+  ]);
+  if (mine.results[0].n >= MAX_FEEDBACK_PER_IP_PER_DAY) return json({ error: 'Thanks! That\'s plenty for today.' }, 429);
+  // Copy-paste floods and a hard daily ceiling keep a bot from filling the table.
+  if (dup.results[0].n > 0) return json({ ok: true });
+  if (all.results[0].n >= MAX_FEEDBACK_PER_DAY) return json({ error: 'We\'re getting a lot of feedback right now. Please try again tomorrow.' }, 429);
   await env.DB.prepare('INSERT INTO feedback (ip_hash, text, created_at) VALUES (?1, ?2, ?3)').bind(ipHash, text, Date.now()).run();
   return json({ ok: true });
 }
@@ -258,6 +268,15 @@ async function turnstileOk(env, token, ip) {
 function sameOrigin(req) {
   const origin = req.headers.get('Origin');
   return !origin || origin === new URL(req.url).origin;
+}
+
+// Keyboard mash, repeated characters, or text that's mostly symbols.
+function looksLikeJunk(text) {
+  const letters = (text.match(/[a-z]/gi) || []).length;
+  if (letters < text.length * 0.5) return true;
+  if (/(.)\1{7,}/.test(text)) return true;
+  const words = text.toLowerCase().split(/\s+/).filter(Boolean);
+  return words.length >= 4 && new Set(words).size / words.length < 0.3;
 }
 
 function clean(v, max) {
