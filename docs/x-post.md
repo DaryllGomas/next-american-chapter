@@ -2,7 +2,7 @@
 
 > Ready to paste. Post the main post, then reply to it with Reply 1, then reply to that with Reply 2.
 > Handles were confirmed by the two fact-checks (docs/fact-check-2026-10-18.md and docs/fact-check-mission-2026-10-18.md).
-> AI picks with no confirmed personal X account aren't tagged: Young, Auguste, Tabassi, Rus, Haggerty, Torres Small,
+> AI picks with no confirmed personal X account aren't tagged: Young, Auguste, Yelick, Tabassi, Rus, Haggerty, Torres Small, Melroy,
 > Regan, Wormuth, Horowitz, L. Smith, Whitehead. Don't tag office accounts (@JusticeOIG, @OIGFedCFPB) or the impersonator @Scott_Bessent.
 
 ## Post
@@ -25,12 +25,10 @@ Gov delivery @pahlkadot
 Health @kodykinsley
 Medicine @EricTopol
 Education @salkhanacademy
-AI science @drfeifei
 
 ## Reply 2
 
 Energy @JigarShahDC
-Space @JimBridenstine
 State @JonHuntsman
 Abundance @patrickc
 AI foresight @Yoshua_Bengio
