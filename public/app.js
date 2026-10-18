@@ -211,7 +211,7 @@ async function refreshTally() {
       }
       markPressed(card, myVotes[card.dataset.seat]);
     }
-    $('#updated').textContent = `Tallies refresh every 30 seconds. Last update ${new Date(updatedAt).toLocaleTimeString()}.`;
+    $('#updated').textContent = `Tallies update when you vote or reload. Last update ${new Date(updatedAt).toLocaleTimeString()}.`;
   } catch {
     $('#updated').textContent = 'Live tallies are unavailable right now.';
   }

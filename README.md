@@ -1,34 +1,49 @@
 # The Balanced Ticket
 
-**A hypothetical, cross-partisan team for America's next chapter. Not left, not right. The public votes on every seat.**
+**Not left. Not right. One country.** An open-source, AI-powered people's ticket for a hypothetical 2028–2032
+administration. Vote on every seat, or write in your own.
 
-It started when Matthew McConaughey posted a video (October 2026) arguing for independents who can force
-Democrats and Republicans to work together. The question: if he were president, who would be on the team to
-deliver AI, energy, healthcare, education and real opportunity for the people who get left behind?
+**Vote:** https://next-american-chapter.next-american-chapter.workers.dev
 
-Claude and ChatGPT argued it out and landed on a starting slate. Now it's yours:
+> "My hope here is that we can find a common ground, break through any obstacles that may have kept us apart."
+> Palmer Joss (Matthew McConaughey), *Contact*, 1997
 
-- **Two seats are set:** Matthew McConaughey (president) and Elon Musk (outside backer, no government role).
-- **Every other seat is open:** thumbs up, thumbs down, or suggest someone else and say why.
-- **Balance is the point.** The lean of every pick is labeled, and the ledger at the top shows the mix.
+## What this is
+
+In October 2026, Matthew McConaughey posted a video asking people to consider independent candidates who could get both
+parties working together. This project asks the next question: if there were an independent ticket, who should be on the
+team?
+
+- **The picks:** Claude, ChatGPT and Gemini each picked the strongest person for every seat, blind, judged only on track
+  record: speed, skill with AI, results for people with the fewest opportunities, a clean record, readiness to serve
+  through 2028–2032, and trust across differences. Party, gender and race were not scored. Where they agreed, that's the
+  AI pick, with runners-up beside it. The whole process is in [`docs/how-we-got-here.md`](docs/how-we-got-here.md).
+- **The lead:** McConaughey starts as the strong lead for president. Like every seat, it's open to write-ins.
+- **The backer:** Elon Musk announced the America Party in 2025 and reportedly shelved it. In this scenario, he revives it
+  to put an independent ticket on the ballot, with no government job and no say over appointments.
+- **The people decide:** vote for any pick, or write in your own with a reason. An AI sniff test checks that each write-in
+  is a real person with a real reason, without judging their politics. Names people keep writing in join the list and rise
+  by votes. AI reviews the votes, write-ins and feedback periodically and updates the team.
 
 Nobody named has endorsed this, agreed to a role, or been asked. It's an independent citizen project.
 
 ## Change the slate
 
-The slate lives in [`public/slate.json`](public/slate.json). To propose a different pick, alternate or seat, open a
-pull request that edits it, and say why in the description. The two set seats aren't up for change.
+The slate lives in [`public/slate.json`](public/slate.json). To propose a different pick, runner-up or seat, open a pull
+request that edits it, and say why in the description, with sources. Every pull request is checked automatically and
+reviewed before it's merged.
 
 ## How it works
 
 | Piece | What |
 |---|---|
 | `public/` | The static page (`index.html`, `app.js`, `styles.css`), `slate.json`, and `img/` (banner and share image) |
-| `src/worker.js` | Cloudflare Worker: `/api/vote`, `/api/tally`, `/api/config`; serves `public/` for everything else |
-| `schema.sql` | D1 (SQLite) tables: `votes` and `alternatives` |
+| `src/worker.js` | Cloudflare Worker: `/api/vote`, `/api/tally`, `/api/feedback`, `/api/config`, the AI sniff test; serves `public/` for everything else |
+| `schema.sql` | D1 (SQLite) tables: `votes`, `alternatives` (write-ins) and `feedback` |
 | `wrangler.toml` | Worker config. Secrets are set with `wrangler secret put`, never committed |
 
-Everything runs on Cloudflare's free plan: Workers, D1 and Turnstile.
+Everything runs on Cloudflare's free plan: Workers, D1, Workers AI and Turnstile. Security headers (CSP, HSTS, no framing)
+are set in `public/_headers` and on every API response.
 
 ### Anti-gaming (best effort, not bot-proof)
 
@@ -114,14 +129,11 @@ Remove anything defamatory, personal, spammy or with contact details.
 
 ## Where it runs
 
-- Code: `~/Projects/sites/next-american-chapter` on thor.
-- Live: Cloudflare Worker `next-american-chapter` (not deployed yet).
-- GitHub: `DaryllGomas/next-american-chapter` (public, not created yet).
-- Background: the ChatGPT thread "McConaughey Administration Plan" and the Claude/ChatGPT back-and-forth that
-  produced the slate.
+- Live: Cloudflare Worker `next-american-chapter` with D1 database `next-american-chapter`.
+- Source of truth: this repository. `main` only changes through reviewed pull requests that pass the `check` workflow.
 
 ## The banner
 
-`public/img/banner.{webp,jpg}` is the dawn header Daryll made with ChatGPT on 2026-10-18 (the "Meeting Ground"
+`public/img/banner.{webp,jpg}` is the dawn header made with ChatGPT on 2026-10-18 (the "Meeting Ground"
 direction, plus a rising sun and a boat on the river). The original 2048×768 PNG is in `docs/design/`. `img/og.jpg` is a
 1200×630 center crop used as the share card on X. Phones get a centered crop of the banner so the title stays readable.
