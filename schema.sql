@@ -22,3 +22,12 @@ CREATE TABLE IF NOT EXISTS alternatives (
   PRIMARY KEY (seat, voter_hash)
 );
 CREATE INDEX IF NOT EXISTS alternatives_seat ON alternatives (seat, name_key);
+
+-- Open feedback on the whole project. Not shown on the page; exported for an AI digest (scripts/export-feedback.py).
+CREATE TABLE IF NOT EXISTS feedback (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  ip_hash     TEXT NOT NULL,
+  text        TEXT NOT NULL,
+  created_at  INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS feedback_ip ON feedback (ip_hash, created_at);

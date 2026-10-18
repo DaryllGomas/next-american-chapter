@@ -5,7 +5,7 @@ const slate = JSON.parse(readFileSync(new URL('../public/slate.json', import.met
 const errors = [];
 const ids = new Set();
 
-if (!Array.isArray(slate.fixed) || slate.fixed.length !== 2) errors.push('fixed must list exactly the two set seats');
+if (!Array.isArray(slate.fixed) || slate.fixed.length > 2) errors.push('fixed lists at most two set seats');
 for (const s of slate.seats ?? []) {
   if (!/^[a-z0-9-]+$/.test(s.id ?? '')) errors.push(`bad seat id: ${s.id}`);
   if (ids.has(s.id)) errors.push(`duplicate seat id: ${s.id}`);

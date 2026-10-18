@@ -9,6 +9,10 @@
 Matthew McConaughey just posted a video urging people to consider independent candidates, so that Democrats and
 Republicans *have* to work together. He endorsed no one, and the video isn't about him running.
 
+We've had strong third-party candidates before. Perot won almost 19% in 1992. Nader ran in 2000. It never fully came
+through. Meanwhile, both parties keep getting pulled to their edges, and most of us are left in the middle without a
+ticket. This is an attempt at the middle road.
+
 I took that seriously, and went one step further. If McConaughey were president, who would actually be on the
 team?
 

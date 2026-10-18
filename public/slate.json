@@ -3,19 +3,35 @@
   "repo": "https://github.com/DaryllGomas/next-american-chapter",
   "fixed": [
     {
-      "id": "president",
-      "role": "President",
-      "name": "Matthew McConaughey",
-      "why": "The front man: calm, empathetic, and talks to everybody. He's argued for independents who can force both parties to work together."
-    },
-    {
       "id": "backer",
-      "role": "Outside backer · no government role",
+      "role": "America Party backer · no government role",
       "name": "Elon Musk",
-      "why": "Funding, a megaphone and industrial-scale know-how. Kept outside government with no say over appointments, so no company writes its own rules."
+      "why": "Musk announced the America Party in 2025 and reportedly shelved it. In this imagined version, he brings it back to help an independent ticket reach the ballot, with funding, ballot access and a wider voice. No government job, and no say over appointments."
     }
   ],
   "seats": [
+    {
+      "id": "president",
+      "seat": "President",
+      "mission": "Lead the country and bring it back together.",
+      "confidence": "clear",
+      "badge": "Strong lead",
+      "candidates": [
+        {
+          "name": "Matthew McConaughey",
+          "bio": "Oscar-winning actor and University of Texas professor of practice; argues for independents who can force both parties to work together.",
+          "evidence": "The idea this whole project started from: his October 2026 video urging people to back independent candidates. Think someone else should lead? Write them in."
+        },
+        {
+          "name": "Andrew Yang",
+          "bio": "Co-founded the Forward Party for independents; as a 2020 presidential candidate he made AI-driven job loss a national issue."
+        },
+        {
+          "name": "Dan Osborn",
+          "bio": "Navy veteran and former union local president who led the 2021 Kellogg's strike; running for U.S. Senate in Nebraska as an independent."
+        }
+      ]
+    },
     {
       "id": "vice-president",
       "seat": "Vice President",
