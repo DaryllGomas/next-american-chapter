@@ -4,7 +4,7 @@
 
 ---
 
-# The Balance Ticket: not left, not right
+# The Balanced Ticket: not left, not right
 
 Matthew McConaughey just posted a video asking a simple question: what if enough independents won seats that
 Democrats and Republicans *had* to work together?

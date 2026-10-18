@@ -1,4 +1,4 @@
-# The Balance Ticket
+# The Balanced Ticket
 
 **A hypothetical, cross-partisan team for America's next chapter. Not left, not right. The public votes on every seat.**
 
