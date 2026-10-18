@@ -74,7 +74,11 @@ function renderSeats() {
     markPressed(card, myVotes[seat]);
     for (const btn of card.querySelectorAll('.actions .btn')) {
       btn.addEventListener('click', () => {
-        if (btn.dataset.choice === 'alt') {
+        // Clicking your current choice again takes the vote back.
+        if (btn.getAttribute('aria-pressed') === 'true') {
+          $('.alt-form', card).classList.remove('open');
+          submit(card, { seat, choice: 'none' });
+        } else if (btn.dataset.choice === 'alt') {
           $('.alt-form', card).classList.toggle('open');
           $('.alt-form input', card).focus();
         } else {
@@ -113,11 +117,15 @@ async function submit(card, payload) {
     });
     const out = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(out.error || 'Something went wrong.');
-    myVotes[payload.seat] = payload.choice;
+    if (payload.choice === 'none') delete myVotes[payload.seat];
+    else myVotes[payload.seat] = payload.choice;
     saveMyVotes();
     markPressed(card, payload.choice);
     $('.alt-form', card).classList.remove('open');
-    toast(payload.choice === 'alt' ? 'Suggestion counted. Thanks for the reason.' : 'Vote counted. You can change it anytime.');
+    toast({
+      none: 'Vote removed.',
+      alt: 'Suggestion counted. Thanks for the reason.',
+    }[payload.choice] || 'Vote counted. Click it again to take it back.');
     setTimeout(refreshTally, 1500);
   } catch (err) {
     toast(err.message);

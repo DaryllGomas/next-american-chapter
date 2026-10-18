@@ -42,7 +42,7 @@ async function vote(req, env) {
   const { seat, choice, token, website } = body;
   if (website) return json({ ok: true }); // honeypot field: humans never see it
   if (!VOTABLE.has(seat)) return json({ error: 'unknown seat' }, 400);
-  if (!['up', 'down', 'alt'].includes(choice)) return json({ error: 'bad choice' }, 400);
+  if (!['up', 'down', 'alt', 'none'].includes(choice)) return json({ error: 'bad choice' }, 400);
 
   let altName = '';
   let reason = '';
@@ -67,6 +67,16 @@ async function vote(req, env) {
   const day = new Date().toISOString().slice(0, 10);
   const ipHash = await sha256(`${env.HASH_SALT}|ip|${day}|${ip}`);
   const dayStart = Date.parse(day);
+
+  // Taking a vote back: only possible for a browser that already voted, so no cap check needed.
+  if (choice === 'none') {
+    if (setCookie) return json({ ok: true, seat, choice });
+    await env.DB.batch([
+      env.DB.prepare('DELETE FROM votes WHERE seat = ?1 AND voter_hash = ?2').bind(seat, voterHash),
+      env.DB.prepare('DELETE FROM alternatives WHERE seat = ?1 AND voter_hash = ?2').bind(seat, voterHash),
+    ]);
+    return json({ ok: true, seat, choice });
+  }
 
   const caps = await env.DB.prepare(
     `SELECT
