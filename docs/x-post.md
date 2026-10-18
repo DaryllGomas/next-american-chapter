@@ -9,9 +9,9 @@
 
 @McConaughey says independents could force both parties to work together. Who'd be on the team?
 
-Three AIs each picked, blind, the people who could actually deliver. No quotas.
+Three AIs each picked, blind, the people who could actually deliver.
 
-Vote on every seat, or write in your own. @elonmusk, back the best team.
+Vote on every seat, or write in your own. @elonmusk, a ticket for the America Party?
 
 https://next-american-chapter.next-american-chapter.workers.dev
 
