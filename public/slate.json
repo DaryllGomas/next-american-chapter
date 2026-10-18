@@ -25,7 +25,7 @@
         {
           "name": "Spencer Cox",
           "bio": "Governor of Utah since 2021; chaired the National Governors Association and launched its Disagree Better initiative.",
-          "evidence": "Picked by two of the three AIs independently and listed by the third; governs with high approval and AAA credit ratings."
+          "evidence": "Picked by two of the three AIs independently and listed by the third; reelected in 2024, and Utah holds AAA ratings from all three agencies."
         },
         {
           "name": "Andy Beshear",
@@ -46,7 +46,7 @@
         {
           "name": "Jennifer Pahlka",
           "bio": "Founded Code for America and was U.S. deputy CTO; helped create the U.S. Digital Service.",
-          "evidence": "Built the model for fixing government services that federal, state and local agencies now use."
+          "evidence": "Helped build the approach to fixing government services that many federal, state and local agencies now use."
         },
         {
           "name": "Mina Hsiang",
@@ -54,7 +54,7 @@
         },
         {
           "name": "Mikey Dickerson",
-          "bio": "Led the 2013 HealthCare.gov rescue and became the first administrator of the U.S. Digital Service."
+          "bio": "Was the hands-on engineering lead of the 2013 HealthCare.gov rescue and became the first administrator of the U.S. Digital Service."
         }
       ]
     },
@@ -87,7 +87,7 @@
       "candidates": [
         {
           "name": "Mitch Daniels",
-          "bio": "Former OMB director, two-term Indiana governor and Purdue president who froze tuition for a decade.",
+          "bio": "Former OMB director and two-term Indiana governor; as Purdue president he froze tuition for a decade, and he returned as interim president in 2026.",
           "evidence": "The only name on all three AIs' lists; turned a state deficit into a surplus as governor."
         },
         {
@@ -113,7 +113,7 @@
         },
         {
           "name": "Julie Su",
-          "bio": "Former California labor commissioner and acting U.S. Labor Secretary; helped settle the 2023 West Coast ports deal."
+          "bio": "NYC deputy mayor for economic justice, former California labor commissioner and acting U.S. Labor Secretary; helped settle the 2023 West Coast ports deal."
         },
         {
           "name": "Alex Acosta",
@@ -130,11 +130,11 @@
         {
           "name": "Byron Auguste",
           "bio": "Co-founded Opportunity@Work and was deputy director of the National Economic Council.",
-          "evidence": "Built the movement getting major employers to hire on skills instead of degrees."
+          "evidence": "Helped lead the movement getting major employers to hire on skills instead of degrees."
         },
         {
           "name": "David Autor",
-          "bio": "MIT economist and a leading researcher on how automation changes jobs and wages."
+          "bio": "Head of MIT's economics department and a leading researcher on how automation changes jobs and wages."
         },
         {
           "name": "Cynthia Breazeal",
@@ -150,7 +150,7 @@
       "candidates": [
         {
           "name": "Mark McClellan",
-          "bio": "Physician-economist who ran both the FDA and Medicare/Medicaid (CMS); founded the Duke-Margolis Center for Health Policy.",
+          "bio": "Physician-economist who ran both the FDA and Medicare/Medicaid (CMS); founding director, now co-director, of the Duke-Margolis Institute for Health Policy.",
           "evidence": "One of very few people to have run both FDA and CMS; respected across both parties."
         },
         {
@@ -159,7 +159,7 @@
         },
         {
           "name": "Kody Kinsley",
-          "bio": "North Carolina health secretary 2022–2024 who rolled out its Medicaid expansion."
+          "bio": "North Carolina health secretary 2022–2025 who rolled out its Medicaid expansion."
         }
       ]
     },
@@ -213,7 +213,7 @@
       "candidates": [
         {
           "name": "Fei-Fei Li",
-          "bio": "Stanford professor, co-director of Stanford HAI, creator of ImageNet and founder of World Labs.",
+          "bio": "Stanford professor, founding director of Stanford HAI, creator of ImageNet and co-founder and CEO of World Labs.",
           "evidence": "Two of three AIs picked her; ImageNet helped trigger the modern AI boom."
         },
         {
@@ -234,7 +234,7 @@
       "candidates": [
         {
           "name": "Elham Tabassi",
-          "bio": "NIST scientist and lead architect of the NIST AI Risk Management Framework; founding CTO of the U.S. AI Safety Institute.",
+          "bio": "Former NIST chief AI adviser and lead architect of its AI Risk Management Framework; founding CTO of the U.S. AI Safety Institute. Now at Brookings.",
           "evidence": "Wrote the practical AI risk framework that industry already uses voluntarily."
         },
         {
@@ -242,8 +242,8 @@
           "bio": "NIST director 2022–2024, when it released the AI Risk Management Framework; now CEO of ANSI."
         },
         {
-          "name": "Elizabeth Kelly",
-          "bio": "Founding director of the U.S. AI Safety Institute."
+          "name": "Arvind Narayanan",
+          "bio": "Princeton computer science professor and co-author of AI Snake Oil; studies how to test AI claims and real-world limits."
         }
       ]
     },
@@ -255,7 +255,7 @@
       "candidates": [
         {
           "name": "Jigar Shah",
-          "bio": "Ran the DOE Loan Programs Office 2021–2025; co-founded SunEdison and Generate Capital.",
+          "bio": "Ran the DOE Loan Programs Office 2021–2025; founded SunEdison and co-founded Generate Capital.",
           "evidence": "Two of three AIs picked him; his office closed about $60 billion in energy project loans."
         },
         {
@@ -318,12 +318,12 @@
       "candidates": [
         {
           "name": "Tom Vilsack",
-          "bio": "Former Iowa governor and two-time U.S. Agriculture Secretary.",
-          "evidence": "All three AIs listed him; the longest-serving Agriculture Secretary in over a century."
+          "bio": "Former Iowa governor and two-time U.S. Agriculture Secretary; now CEO of the World Food Prize Foundation.",
+          "evidence": "All three AIs listed him; second only to James \"Tama Jim\" Wilson as the longest-serving Agriculture Secretary."
         },
         {
           "name": "Xochitl Torres Small",
-          "bio": "Former congresswoman and USDA deputy secretary who ran Rural Development."
+          "bio": "Former congresswoman who led USDA Rural Development, then served as deputy agriculture secretary. Now heads the Quivira Coalition."
         },
         {
           "name": "Sonny Perdue",
@@ -344,7 +344,7 @@
         },
         {
           "name": "Michael Regan",
-          "bio": "EPA administrator 2021–2025 and former North Carolina environment secretary."
+          "bio": "EPA administrator 2021–2024 and former North Carolina environment secretary."
         },
         {
           "name": "Andrew Wheeler",
@@ -369,7 +369,7 @@
         },
         {
           "name": "Jared Isaacman",
-          "bio": "NASA administrator since December 2025; commanded Inspiration4 and Polaris Dawn. Close ties to SpaceX."
+          "bio": "NASA administrator since December 2025; commanded Inspiration4 and Polaris Dawn, both private SpaceX missions he financed."
         }
       ]
     },
@@ -382,7 +382,7 @@
         {
           "name": "Michèle Flournoy",
           "bio": "Former undersecretary of defense for policy and co-founder of the Center for a New American Security.",
-          "evidence": "Two of three AIs listed her; decades of senior Pentagon strategy work."
+          "evidence": "Two of three AIs listed her; decades of defense strategy work, including senior Pentagon posts under Clinton and Obama."
         },
         {
           "name": "Jim Mattis",
@@ -390,7 +390,7 @@
         },
         {
           "name": "Christine Wormuth",
-          "bio": "Secretary of the Army 2021–2025, who turned around Army recruiting."
+          "bio": "Secretary of the Army 2021–2025, who overhauled Army recruiting; now president and CEO of the Nuclear Threat Initiative."
         }
       ]
     },
@@ -402,8 +402,8 @@
       "candidates": [
         {
           "name": "William J. Burns",
-          "bio": "Career diplomat: deputy secretary of state, ambassador to Russia and CIA director under presidents of both parties.",
-          "evidence": "Two of three AIs picked him; led the secret 2013 U.S.-Iran talks."
+          "bio": "Career diplomat who served presidents of both parties as deputy secretary of state and ambassador to Russia; CIA director 2021–2025.",
+          "evidence": "Two of three AIs picked him; co-led the secret 2013 U.S.-Iran talks."
         },
         {
           "name": "Kurt Campbell",
@@ -411,7 +411,7 @@
         },
         {
           "name": "Marco Rubio",
-          "bio": "Secretary of State since 2025 and former senator on the Foreign Relations and Intelligence committees."
+          "bio": "Secretary of State and national security adviser since 2025; former senator on the Foreign Relations and Intelligence committees."
         }
       ]
     },
@@ -423,7 +423,7 @@
       "candidates": [
         {
           "name": "Michael Horowitz",
-          "bio": "Justice Department inspector general under Obama, Trump and Biden.",
+          "bio": "Federal Reserve inspector general since 2025; previously Justice Department inspector general under Obama, Trump and Biden.",
           "evidence": "Investigated the FBI and DOJ across administrations of both parties."
         },
         {
@@ -444,12 +444,12 @@
       "candidates": [
         {
           "name": "Linda K. Smith",
-          "bio": "Helped build the U.S. military childcare system; later led federal early-childhood policy and child care work at the Bipartisan Policy Center.",
-          "evidence": "The military childcare system she helped build is the government's longest-running quality childcare at scale."
+          "bio": "Helped build the U.S. military childcare system; later led federal early-childhood policy at HHS and now directs policy at the Buffett Early Childhood Institute.",
+          "evidence": "The military childcare system she helped build is widely seen as a national model for quality childcare at scale."
         },
         {
           "name": "Ai-jen Poo",
-          "bio": "Co-founded the National Domestic Workers Alliance and Caring Across Generations."
+          "bio": "Leads the National Domestic Workers Alliance and co-founded Caring Across Generations."
         },
         {
           "name": "Jessica Sager",
@@ -466,7 +466,7 @@
         {
           "name": "Donald Whitehead",
           "bio": "Was homeless for five years; now executive director of the National Coalition for the Homeless.",
-          "evidence": "Two of three AIs picked him; went from homelessness to running shelters to national policy."
+          "evidence": "Two of three AIs picked him; went from homelessness to leading homeless-service programs to national policy."
         },
         {
           "name": "Mark Horvath",
@@ -508,7 +508,7 @@
         {
           "name": "Yoshua Bengio",
           "bio": "Turing Award winner and founder of Mila; chaired the 2026 International AI Safety Report.",
-          "evidence": "Two of three AIs listed him; led the largest international scientific review of AI risk."
+          "evidence": "Two of three AIs listed him; led what its authors call the largest global collaboration on AI safety to date."
         },
         {
           "name": "Stuart Russell",
