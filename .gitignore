@@ -1,3 +1,6 @@
 .dev.vars
 .wrangler/
 node_modules/
+
+# Private research notes (fact-check reports name sensitive details); kept local, never published
+private/
