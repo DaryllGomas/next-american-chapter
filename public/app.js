@@ -62,7 +62,7 @@ function renderSeats() {
     <article class="card seat" data-seat="${esc(s.id)}">
       <div class="card-top">
         <div class="role">${esc(s.seat)}</div>
-        <span class="confidence ${s.confidence === 'clear' ? 'clear' : 'close'}">${s.confidence === 'clear' ? 'Clear pick' : 'Close call'}</span>
+        ${s.badge ? '' : `<span class="confidence ${s.confidence === 'clear' ? 'clear' : 'close'}">${s.confidence === 'clear' ? 'Clear pick' : 'Close call'}</span>`}
       </div>
       <div class="mission">${esc(s.mission)}</div>
       <ol class="candidates">
@@ -124,6 +124,8 @@ function renderSeats() {
 async function submit(card, payload) {
   const buttons = card.querySelectorAll('button');
   buttons.forEach((b) => (b.disabled = true));
+  card.classList.add('pending');
+  toast(payload.choice === 'none' ? 'Removing your vote…' : 'Counting your vote…');
   try {
     const token = await humanCheck();
     const res = await fetch('/api/vote', {
@@ -144,6 +146,7 @@ async function submit(card, payload) {
     toast(err.message);
   } finally {
     buttons.forEach((b) => (b.disabled = false));
+    card.classList.remove('pending');
   }
 }
 

@@ -6,7 +6,7 @@
       "id": "backer",
       "role": "America Party backer · no government role",
       "name": "Elon Musk",
-      "why": "Musk announced the America Party in 2025. In this scenario, it's the vehicle that puts an independent ticket on the ballot, with funding, ballot access and a megaphone. He holds no government job and has no say over who's appointed."
+      "why": "Musk announced the America Party in 2025, then reportedly shelved it. In this scenario he revives it to put an independent ticket on the ballot, with funding, ballot access and a megaphone. No government job, no say over appointments."
     }
   ],
   "seats": [
@@ -21,6 +21,14 @@
           "name": "Matthew McConaughey",
           "bio": "Oscar-winning actor and University of Texas professor of practice; argues for independents who can force both parties to work together.",
           "evidence": "The idea this whole project started from: his October 2026 video urging people to back independent candidates. Think someone else should lead? Write them in."
+        },
+        {
+          "name": "Andrew Yang",
+          "bio": "Co-founded the Forward Party for independents; as a 2020 presidential candidate he made AI-driven job loss a national issue."
+        },
+        {
+          "name": "Dan Osborn",
+          "bio": "Navy veteran and former union local president who led the 2021 Kellogg's strike; running for U.S. Senate in Nebraska as an independent."
         }
       ]
     },
