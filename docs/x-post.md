@@ -7,11 +7,11 @@
 
 ## Post
 
-@McConaughey says independents could force both parties to work together. Who'd be on the team?
+@McConaughey says independents could help both parties work together. What if we built a team around that?
 
-Three AIs each picked, blind, the people who could actually deliver.
+Claude, ChatGPT and Gemini picked independently. Vote on every seat or write in your own.
 
-Vote on every seat, or write in your own. @elonmusk, a ticket for the America Party?
+@elonmusk, could the America Party put it on the ballot?
 
 https://next-american-chapter.next-american-chapter.workers.dev
 
