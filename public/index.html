@@ -60,12 +60,13 @@
       <p><strong>This is an independent citizen project.</strong> Nobody named here has endorsed it, agreed to a role, or been asked
         yet. Matthew McConaughey's October 2026 video urged people to consider independent candidates. It endorsed no one and wasn't
         about him running. This page is a hypothetical built on that idea.</p>
-      <p><strong>How the picks were made.</strong> Claude, ChatGPT and Grok each picked the strongest person for every seat on
-        their own, without seeing each other's answers. They judged only the record: results in comparable jobs, competence,
-        integrity, and working across the aisle. Party, gender, race and "balance" were deliberately left out. The AI pick is
-        where they agreed, or what they settled on after arguing it out. The other top picks are the strongest runners-up.
-        "Close call" means it was genuinely hard to choose. Think we got one wrong? Vote, suggest someone else, or open a pull
-        request on GitHub.</p>
+      <p><strong>How the picks were made.</strong> Think of it as a general picking a team for one mission: AI everywhere it
+        helps, cheap and abundant power, healthcare and education people can actually get, lifting the people who've been left
+        behind, and clean, open government. Claude, ChatGPT and Gemini each picked the strongest person for every seat on their
+        own, without seeing each other's answers. They scored speed, AI fluency, results for people at the bottom, a clean
+        record, being ready to serve all of 2028–2032, and trust across the divide. Party, gender, race and "balance" counted
+        for nothing. The AI pick is where they agreed, or the strongest evidence when they split. "Close call" means it was
+        genuinely hard. Think we got one wrong? Vote, write in your own, or open a pull request on GitHub.</p>
       <p><strong>How voting works.</strong> One vote per seat per browser. Change it anytime, or click your choice again to take it back. Every vote passes a Cloudflare human check,
         and each network has a daily cap. We don't store IP addresses, only a hash that changes every day. It's not bot-proof. Nothing
         is. If we see gaming, we'll tighten it and say so.</p>
@@ -81,7 +82,13 @@
     <a id="repo-link" href="#">GitHub</a>
   </footer>
 
-  <div id="turnstile" class="turnstile"></div>
+  <div id="check" class="check" hidden>
+    <div class="check-box" role="dialog" aria-modal="true" aria-labelledby="check-h">
+      <p id="check-h" class="check-h">Quick check that you're a person</p>
+      <div id="turnstile"></div>
+      <p class="check-note">This keeps bots from stuffing the vote.</p>
+    </div>
+  </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="app.js" type="module"></script>
 </body>

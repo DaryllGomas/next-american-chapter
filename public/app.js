@@ -131,11 +131,18 @@ function humanCheck() {
       action: 'vote',
       appearance: 'interaction-only',
       execution: 'execute',
-      callback: (t) => resolve(t),
-      'error-callback': () => reject(new Error('Human check failed. Refresh and try again.')),
+      callback: (t) => { showCheck(false); resolve(t); },
+      'error-callback': () => { showCheck(false); reject(new Error('Human check failed. Refresh and try again.')); },
+      // Most people pass invisibly. When Cloudflare does need a click, show it front and center.
+      'before-interactive-callback': () => showCheck(true),
+      'after-interactive-callback': () => showCheck(false),
     });
     window.turnstile.execute(widgetId);
   });
+}
+
+function showCheck(on) {
+  $('#check').hidden = !on;
 }
 
 async function refreshTally() {

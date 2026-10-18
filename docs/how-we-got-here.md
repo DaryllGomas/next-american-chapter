@@ -69,3 +69,25 @@ limit and couldn't review it. That limit resets 2026-10-20.
 
 **Each AI's own lean showed up in its blind picks.** ChatGPT leaned toward recent Biden-era officials, and Grok
 included sitting Trump officials. Merging three blind lists is what cancels that out.
+
+## Round 5: the mission team (2026-10-18)
+
+Daryll: "If I'm a general, who are the people I want in my troop to accomplish this mission?" Round 4 picked the
+strongest résumés. This round picks the people who can carry out the vision.
+
+**Scorecard:** SPEED, AI FLUENCY, LIFTS THE BOTTOM, CLEAN, READY (able to serve all of 2028–2032, no Musk conflicts) and
+BRIDGES.
+
+**Blind voters:** Claude, ChatGPT (a temporary chat with no memory) and Gemini. Grok was out until Oct 20, so Gemini
+took its place. Gemini's list had a few names that couldn't be verified, so only real people were counted.
+
+**Merge:** a name on two or more lists wins the seat. Splits went to the strongest evidence.
+
+**Biggest changes:**
+- Shalanda Young (OMB): Daniels would be 79 in 2028.
+- Jon Huntsman (State): ambassador under Obama and Trump.
+- Patrick Collison (Abundance): picked over Diamandis, who is now a runner-up.
+- Christine Wormuth (Defense): Flournoy fails CLEAN.
+- Michael Regan (Environment) and Xochitl Torres Small (Agriculture).
+- New builder runners-up: Amanda Renteria, Rachel Carlson, Alex Oshmyansky (Cost Plus Drugs), Daniel Yang (Kaiser AI),
+  Melonee Wise, Will Roper and Kathleen Hicks.
