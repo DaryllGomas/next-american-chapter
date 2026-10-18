@@ -1,0 +1,501 @@
+{
+  "version": "1.0",
+  "repo": "https://github.com/DaryllGomas/next-american-chapter",
+  "fixed": [
+    {
+      "id": "president",
+      "role": "President",
+      "name": "Matthew McConaughey",
+      "why": "The front man: calm, empathetic, and talks to everybody. He's argued for independents who can force both parties to work together."
+    },
+    {
+      "id": "backer",
+      "role": "Outside backer · no government role",
+      "name": "Elon Musk",
+      "why": "Funding, a megaphone and industrial-scale know-how. Kept outside government with no say over appointments, so no company writes its own rules."
+    }
+  ],
+  "seats": [
+    {
+      "id": "vice-president",
+      "seat": "Vice President",
+      "mission": "Bridge political divides and lead cross-party cooperation.",
+      "pick": {
+        "name": "Spencer Cox",
+        "lean": "R",
+        "why": "Utah governor who launched the National Governors Association's Disagree Better initiative and appeared with McConaughey in 2024."
+      },
+      "alternates": [
+        {
+          "name": "Jared Polis",
+          "lean": "L"
+        },
+        {
+          "name": "Laura Kelly",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "government-delivery",
+      "seat": "Government Delivery",
+      "mission": "Make federal services simpler, faster, and accountable.",
+      "pick": {
+        "name": "Jennifer Pahlka",
+        "lean": "C",
+        "why": "Founded Code for America, helped establish the U.S. Digital Service, and wrote Recoding America about improving government delivery."
+      },
+      "alternates": [
+        {
+          "name": "John Bridgeland",
+          "lean": "R"
+        },
+        {
+          "name": "Aneesh Chopra",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "treasury",
+      "seat": "Treasury",
+      "mission": "Maintain financial stability and expand economic opportunity.",
+      "pick": {
+        "name": "Lael Brainard",
+        "lean": "L",
+        "why": "Served as Federal Reserve vice chair and governor, Treasury undersecretary, and White House National Economic Council director."
+      },
+      "alternates": [
+        {
+          "name": "Neel Kashkari",
+          "lean": "R"
+        },
+        {
+          "name": "Roger Ferguson",
+          "lean": "C"
+        }
+      ]
+    },
+    {
+      "id": "federal-budget",
+      "seat": "Federal Budget / OMB",
+      "mission": "Control costs, evaluate spending, and fund national priorities.",
+      "pick": {
+        "name": "Mitch Daniels",
+        "lean": "R",
+        "why": "Served as federal OMB director, Indiana governor, and Purdue University president, where he froze tuition."
+      },
+      "alternates": [
+        {
+          "name": "Maya MacGuineas",
+          "lean": "Ind"
+        },
+        {
+          "name": "Gene Sperling",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "labor",
+      "seat": "Labor / Worker Strategy",
+      "mission": "Protect worker opportunity as technology transforms employment.",
+      "pick": {
+        "name": "Oren Cass",
+        "lean": "R",
+        "why": "Founded American Compass, which develops conservative proposals focused on domestic industry, employment, and working families."
+      },
+      "alternates": [
+        {
+          "name": "Julie Su",
+          "lean": "L"
+        },
+        {
+          "name": "Scott Winship",
+          "lean": "R"
+        }
+      ]
+    },
+    {
+      "id": "workforce-transition",
+      "seat": "AI Workforce Transition",
+      "mission": "Help displaced workers retrain, recover, and find opportunity.",
+      "pick": {
+        "name": "David Autor",
+        "lean": "Ind",
+        "why": "MIT economist whose research examines automation, labor markets, job quality, and wages."
+      },
+      "alternates": [
+        {
+          "name": "Brent Orrell",
+          "lean": "R"
+        },
+        {
+          "name": "Harry Holzer",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "healthcare-affordability",
+      "seat": "Healthcare Affordability",
+      "mission": "Expand access to affordable healthcare and reduce patient costs.",
+      "pick": {
+        "name": "Avik Roy",
+        "lean": "R",
+        "why": "Founded the Foundation for Research on Equal Opportunity and developed market-oriented proposals for coverage and affordability."
+      },
+      "alternates": [
+        {
+          "name": "Andy Slavitt",
+          "lean": "L"
+        },
+        {
+          "name": "Josh Green",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "clinical-ai",
+      "seat": "Clinical AI / Medicine",
+      "mission": "Apply validated AI to improve diagnosis, treatment, and care.",
+      "pick": {
+        "name": "Eric Topol",
+        "lean": "Ind",
+        "why": "Cardiologist and medical researcher who has published extensively on AI in medicine and digital health."
+      },
+      "alternates": [
+        {
+          "name": "Atul Gawande",
+          "lean": "L"
+        },
+        {
+          "name": "Marty Makary",
+          "lean": "R"
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "seat": "Education / AI Tutors",
+      "mission": "Expand personalized learning and affordable lifelong education.",
+      "pick": {
+        "name": "Sal Khan",
+        "lean": "Ind",
+        "why": "Founded Khan Academy, which provides free education, and built Khanmigo, an AI-assisted tutor."
+      },
+      "alternates": [
+        {
+          "name": "Margaret Spellings",
+          "lean": "R"
+        },
+        {
+          "name": "Arne Duncan",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "ai-innovation",
+      "seat": "AI Science / Innovation",
+      "mission": "Advance American AI research and responsible development.",
+      "pick": {
+        "name": "Fei-Fei Li",
+        "lean": "Ind",
+        "why": "Led the ImageNet project, co-directed Stanford's Human-Centered AI institute, and founded World Labs."
+      },
+      "alternates": [
+        {
+          "name": "Andrew Ng",
+          "lean": "Ind"
+        },
+        {
+          "name": "Daphne Koller",
+          "lean": "Ind"
+        }
+      ]
+    },
+    {
+      "id": "ai-accountability",
+      "seat": "AI Accountability / Rights",
+      "mission": "Protect civil liberties, privacy, and accountability in AI.",
+      "pick": {
+        "name": "Alondra Nelson",
+        "lean": "L",
+        "why": "Served as acting White House science adviser and led work on the Blueprint for an AI Bill of Rights."
+      },
+      "alternates": [
+        {
+          "name": "Arvind Narayanan",
+          "lean": "Ind"
+        },
+        {
+          "name": "Adam Thierer",
+          "lean": "R"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "seat": "Energy / Power Build-Out",
+      "mission": "Expand affordable, reliable power and modernize the grid.",
+      "pick": {
+        "name": "Jigar Shah",
+        "lean": "L",
+        "why": "Directed the Department of Energy Loan Programs Office and co-founded SunEdison and Generate Capital."
+      },
+      "alternates": [
+        {
+          "name": "Chris Wright",
+          "lean": "R"
+        },
+        {
+          "name": "Kathryn Huff",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "robotics",
+      "seat": "Robotics / Automation",
+      "mission": "Develop useful robotics while preparing workers and industries.",
+      "pick": {
+        "name": "Daniela Rus",
+        "lean": "Ind",
+        "why": "MIT professor and director of CSAIL whose research covers robotics, autonomous systems, and machine learning."
+      },
+      "alternates": [
+        {
+          "name": "Palmer Luckey",
+          "lean": "R"
+        },
+        {
+          "name": "Gill Pratt",
+          "lean": "Ind"
+        }
+      ]
+    },
+    {
+      "id": "housing",
+      "seat": "Housing / Homelessness",
+      "mission": "Increase housing access, affordability, and pathways out of homelessness.",
+      "pick": {
+        "name": "Rosanne Haggerty",
+        "lean": "Ind",
+        "why": "Founded Common Ground and Community Solutions, which develop housing and community approaches to homelessness."
+      },
+      "alternates": [
+        {
+          "name": "Scott Turner",
+          "lean": "R"
+        },
+        {
+          "name": "Diane Yentel",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "agriculture-rural",
+      "seat": "Agriculture / Rural America",
+      "mission": "Strengthen farming, rural healthcare, infrastructure, and opportunity.",
+      "pick": {
+        "name": "Heidi Heitkamp",
+        "lean": "L",
+        "why": "Represented North Dakota in the Senate, served as its attorney general, and founded the rural-focused One Country Project."
+      },
+      "alternates": [
+        {
+          "name": "Mike Johanns",
+          "lean": "R"
+        },
+        {
+          "name": "Zippy Duvall",
+          "lean": "Ind"
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "seat": "Environment / Climate",
+      "mission": "Protect natural resources while supporting responsible development.",
+      "pick": {
+        "name": "Christine Todd Whitman",
+        "lean": "C",
+        "why": "Republican former New Jersey governor who ran the EPA under President George W. Bush; now works on cross-party reform."
+      },
+      "alternates": [
+        {
+          "name": "Gina McCarthy",
+          "lean": "L"
+        },
+        {
+          "name": "Katharine Hayhoe",
+          "lean": "Ind"
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "seat": "Space / NASA",
+      "mission": "Advance exploration, scientific discovery, and commercial capability.",
+      "pick": {
+        "name": "Jared Isaacman",
+        "lean": "Ind",
+        "why": "Founded Shift4, commanded the Inspiration4 and Polaris Dawn missions, and became NASA administrator in December 2025."
+      },
+      "alternates": [
+        {
+          "name": "Pam Melroy",
+          "lean": "L"
+        },
+        {
+          "name": "Jim Bridenstine",
+          "lean": "R"
+        }
+      ]
+    },
+    {
+      "id": "national-security",
+      "seat": "Defense / National Security",
+      "mission": "Protect national security and prepare for emerging threats.",
+      "pick": {
+        "name": "H. R. McMaster",
+        "lean": "R",
+        "why": "Retired Army lieutenant general, former White House national security adviser, and author on military strategy."
+      },
+      "alternates": [
+        {
+          "name": "Michèle Flournoy",
+          "lean": "L"
+        },
+        {
+          "name": "William McRaven",
+          "lean": "Ind"
+        }
+      ]
+    },
+    {
+      "id": "diplomacy",
+      "seat": "State / Diplomacy",
+      "mission": "Maintain alliances, pursue diplomacy, and protect American interests.",
+      "pick": {
+        "name": "William J. Burns",
+        "lean": "C",
+        "why": "Career diplomat who served as deputy secretary of state, ambassador to Russia, and CIA director under presidents of both parties."
+      },
+      "alternates": [
+        {
+          "name": "Condoleezza Rice",
+          "lean": "R"
+        },
+        {
+          "name": "Wendy Sherman",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "justice",
+      "seat": "Justice / Anti-Corruption",
+      "mission": "Strengthen independent oversight, equal justice, and accountability.",
+      "pick": {
+        "name": "Michael Horowitz",
+        "lean": "Ind",
+        "why": "Served as Justice Department inspector general under Presidents Obama, Trump and Biden."
+      },
+      "alternates": [
+        {
+          "name": "J. Michael Luttig",
+          "lean": "C"
+        },
+        {
+          "name": "Sally Yates",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "families",
+      "seat": "Families / Care Economy",
+      "mission": "Support caregivers, children, and working families.",
+      "pick": {
+        "name": "Ai-jen Poo",
+        "lean": "L",
+        "why": "Co-founded the National Domestic Workers Alliance and Caring Across Generations, advocating for care workers and family caregivers."
+      },
+      "alternates": [
+        {
+          "name": "Linda Smith",
+          "lean": "R"
+        },
+        {
+          "name": "Anne Mosle",
+          "lean": "Ind"
+        }
+      ]
+    },
+    {
+      "id": "lived-experience",
+      "seat": "Lived Experience / Opportunity",
+      "mission": "Give people facing poverty, displacement and exclusion a real voice in policy.",
+      "pick": {
+        "name": "Mark Horvath",
+        "lean": "Ind",
+        "why": "Experienced homelessness himself and founded Invisible People in 2008 to tell the stories of unhoused people."
+      },
+      "alternates": [
+        {
+          "name": "Donald Whitehead",
+          "lean": "Ind"
+        },
+        {
+          "name": "Liz Murray",
+          "lean": "Ind"
+        }
+      ]
+    },
+    {
+      "id": "abundance-council",
+      "seat": "Abundance Council · outside adviser",
+      "mission": "Explore emerging technologies that could expand prosperity and access.",
+      "pick": {
+        "name": "Peter Diamandis",
+        "lean": "Ind",
+        "why": "Founded XPRIZE, co-founded Singularity University, and hosts the Moonshots podcast."
+      },
+      "alternates": [
+        {
+          "name": "Salim Ismail",
+          "lean": "Ind"
+        },
+        {
+          "name": "Vinod Khosla",
+          "lean": "L"
+        }
+      ]
+    },
+    {
+      "id": "ai-foresight-council",
+      "seat": "AI Foresight Council · outside adviser",
+      "mission": "Assess long-term AI capabilities, risks, and economic consequences.",
+      "pick": {
+        "name": "Alexander Wissner-Gross",
+        "lean": "Ind",
+        "why": "Physicist, computer scientist and entrepreneur; a regular co-host of the Moonshots podcast."
+      },
+      "alternates": [
+        {
+          "name": "Dave Blundin",
+          "lean": "Ind"
+        },
+        {
+          "name": "Erik Brynjolfsson",
+          "lean": "Ind"
+        }
+      ]
+    }
+  ],
+  "council": []
+}

@@ -1,0 +1,22 @@
+name = "next-american-chapter"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "next-american-chapter"
+database_id = "REPLACE_AFTER_wrangler_d1_create"
+
+[vars]
+# Public site key. The local dev value is Cloudflare's always-pass test key; set the real one before deploying.
+TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
+
+# Secrets (wrangler secret put ...), never committed:
+#   TURNSTILE_SECRET  Turnstile secret key
+#   HASH_SALT         long random string; changing it resets everyone's "already voted" state
+# For local dev they come from .dev.vars (see .dev.vars.example).

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Balance Ticket</title>
+  <meta name="description" content="A hypothetical, cross-partisan team for America's next chapter. Not left, not right. Vote on every seat or suggest someone better.">
+  <meta property="og:title" content="The Balance Ticket">
+  <meta property="og:description" content="Not left. Not right. Vote on every seat, or suggest someone better.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <svg class="mark" viewBox="0 0 120 72" aria-hidden="true">
+        <line x1="60" y1="8" x2="60" y2="62" class="post"/>
+        <path d="M44 66 H76" class="post"/>
+        <line x1="14" y1="16" x2="106" y2="16" class="beam"/>
+        <path d="M14 16 L4 40 M14 16 L24 40 M106 16 L96 40 M106 16 L116 40" class="string"/>
+        <path d="M2 40 H26 A12 9 0 0 1 2 40 Z" class="pan left"/>
+        <path d="M94 40 H118 A12 9 0 0 1 94 40 Z" class="pan right"/>
+        <circle cx="60" cy="8" r="4" class="knob"/>
+      </svg>
+      <p class="eyebrow">A hypothetical administration · 2028–2032</p>
+      <h1>The Balance Ticket</h1>
+      <p class="tagline">Not left. Not right.</p>
+      <p class="lede">A team picked for what they've actually built, with the people who've had the least opportunity as
+        the measure of success.</p>
+      <p class="lede small">Two seats are set. <strong>Every other seat is yours to vote on</strong>: thumbs up, thumbs down, or suggest someone better and say why.</p>
+      <div id="ledger" class="ledger" aria-label="Balance of the current picks"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="fixed-h">
+      <h2 id="fixed-h" class="section-h">Set</h2>
+      <div id="fixed" class="fixed"></div>
+    </section>
+
+    <section aria-labelledby="seats-h">
+      <h2 id="seats-h" class="section-h">The team <span class="hint">vote on each seat</span></h2>
+      <div id="seats" class="seats"></div>
+    </section>
+
+    <section id="council-section" aria-labelledby="council-h" hidden>
+      <h2 id="council-h" class="section-h">Outside council <span class="hint">advisers, not officials</span></h2>
+      <div id="council" class="council"></div>
+    </section>
+
+    <section class="fine">
+      <h2 class="section-h">The fine print</h2>
+      <p><strong>This is an independent citizen project.</strong> Nobody named here has endorsed it, agreed to a role, or been asked yet.
+        Names are suggestions about public figures based on their public records.</p>
+      <p><strong>How voting works.</strong> One vote per seat per browser; you can change it. Every vote passes a Cloudflare human check,
+        and each network has a daily cap. We don't store IP addresses, only a hash that changes every day. It's not bot-proof. Nothing
+        is. If we see gaming, we'll tighten it and say so.</p>
+      <p><strong>Suggestions.</strong> A suggested name appears once at least three different people suggest it. Reasons appear after a
+        quick review for spam, links and personal attacks.</p>
+      <p id="updated" class="muted"></p>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <span>Open source. Change the slate by pull request.</span>
+    <a id="repo-link" href="#">GitHub</a>
+  </footer>
+
+  <div id="turnstile" class="turnstile"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
