@@ -46,6 +46,7 @@ function renderSeats() {
               <span class="cand-head">
                 <span class="name">${esc(c.name)}</span>
                 ${i === 0 ? '<span class="ai-pick" title="The pick Claude, ChatGPT and Grok agreed on">AI pick</span>' : ''}
+                ${c.writeIn ? '<span class="write-in" title="Added to the ballot by voters\' write-ins">Write-in</span>' : ''}
                 <span class="pct" data-pct="c${i}"></span>
               </span>
               <span class="bio">${esc(c.bio)}</span>
@@ -55,13 +56,14 @@ function renderSeats() {
           </li>`).join('')}
       </ol>
       <div class="actions">
-        <button class="btn alt" data-choice="alt" aria-pressed="false">Someone else <span class="pct" data-pct="alt"></span></button>
+        <button class="btn alt" data-choice="alt" aria-pressed="false">✍️ Write in your own <span class="pct" data-pct="alt"></span></button>
       </div>
       <form class="alt-form" novalidate>
-        <input name="altName" maxlength="80" placeholder="Who instead?" autocomplete="off" required>
-        <textarea name="reason" maxlength="500" placeholder="Why them? What have they actually done?" required></textarea>
+        <input name="altName" maxlength="80" placeholder="Who would you put in this seat?" autocomplete="off" required>
+        <textarea name="reason" maxlength="500" placeholder="Why them? What have they actually done?"></textarea>
+        <p class="form-note">Write-ins that enough people back get added to the ballot.</p>
         <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
-        <button class="btn submit" type="submit">Submit suggestion</button>
+        <button class="btn submit" type="submit">Submit write-in</button>
       </form>
       <p class="your-vote" hidden></p>
       <div class="suggested" hidden></div>
@@ -110,7 +112,7 @@ async function submit(card, payload) {
     saveMyVotes();
     markPressed(card, payload.choice);
     $('.alt-form', card).classList.remove('open');
-    toast({ none: 'Vote removed.', alt: 'Suggestion counted. Thanks for the reason.' }[payload.choice] || 'Vote counted.');
+    toast({ none: 'Vote removed.', alt: `Write-in counted${payload.altName ? `: ${payload.altName}` : ''}.` }[payload.choice] || 'Vote counted.');
     setTimeout(refreshTally, 1500);
   } catch (err) {
     toast(err.message);
@@ -155,8 +157,12 @@ async function refreshTally() {
       if (t.alternatives.length || t.reasons.length) {
         box.hidden = false;
         box.innerHTML = `
-          ${t.alternatives.length ? `<div><b>People are suggesting:</b> ${t.alternatives.map((a) => `${esc(a.name)} (${a.n})`).join(', ')}</div>` : ''}
+          ${t.alternatives.length ? `<div class="writeins"><b>Top write-ins:</b> ${t.alternatives.map((a) =>
+            `<button class="back" data-name="${esc(a.name)}" title="Back this write-in">+ ${esc(a.name)} <span>${a.n}</span></button>`).join(' ')}</div>` : ''}
           ${t.reasons.length ? `<ul>${t.reasons.map((r) => `<li><b>${esc(r.name)}</b>: ${esc(r.reason)}</li>`).join('')}</ul>` : ''}`;
+        for (const b of box.querySelectorAll('.back')) {
+          b.addEventListener('click', () => submit(card, { seat: card.dataset.seat, choice: 'alt', altName: b.dataset.name, reason: '' }));
+        }
       }
     }
     $('#updated').textContent = `Tallies refresh every 30 seconds. Last update ${new Date(updatedAt).toLocaleTimeString()}.`;
@@ -173,7 +179,7 @@ function markPressed(card, choice) {
     note.hidden = true;
     return;
   }
-  const name = choice === 'alt' ? 'someone else' : seat.candidates[Number(choice.slice(1))]?.name;
+  const name = choice === 'alt' ? 'your write-in' : seat.candidates[Number(choice.slice(1))]?.name;
   note.hidden = false;
   note.textContent = `Your vote: ${name}. Tap it again to undo.`;
 }

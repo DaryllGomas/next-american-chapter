@@ -70,7 +70,23 @@ Then `npx wrangler deploy`.
 After the first deploy, set the share image tags (`og:image`, `twitter:image` in `public/index.html`) to the full live
 URL, e.g. `https://<host>/img/og.jpg`. X ignores relative image URLs.
 
-## Moderate suggestions
+## Write-ins
+
+Anyone can write in their own pick for any seat, with a reason. Once 3 different people write in the same name (case and
+spacing don't matter), it shows on that seat's "Top write-ins" board and others can back it with one tap, no reason needed.
+
+When a write-in has strong support, put it on the ballot:
+
+```bash
+scripts/write-ins.py list --min 25                       # top write-ins on the live site
+scripts/write-ins.py promote treasury "Jane Doe" --bio "Two short, sourced sentences." --dry-run
+scripts/write-ins.py promote treasury "Jane Doe" --bio "..."  # adds her to slate.json, converts her write-in votes
+npx wrangler deploy
+```
+
+Promoted people get a "Write-in" badge, and everyone who wrote them in keeps their vote. Check the bio before you promote.
+
+## Moderate write-in reasons
 
 ```bash
 # See pending reasons

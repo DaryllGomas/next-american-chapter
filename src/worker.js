@@ -8,7 +8,7 @@ const CHOICES = Object.fromEntries(
 );
 const MAX_PER_IP_PER_SEAT_PER_DAY = 25; // households, offices and phone carriers share IPs
 const MAX_PER_IP_PER_DAY = 400;
-const ALT_MIN_BACKERS = 3; // an alternative name is shown once this many different voters typed it
+const ALT_MIN_BACKERS = 3; // a write-in shows on the board once this many different voters typed it
 const TALLY_CACHE_SECONDS = 30;
 const COOKIE = 'nac_vid';
 
@@ -54,8 +54,13 @@ async function vote(req, env) {
     altName = clean(body.altName, 80);
     reason = clean(body.reason, 500);
     if (altName.length < 3) return json({ error: 'Add a name.' }, 400);
-    if (reason.length < 15) return json({ error: 'Add a short reason why.' }, 400);
     if (/https?:|www\./i.test(altName + reason)) return json({ error: 'No links, please.' }, 400);
+    // A new write-in needs a reason. Backing a write-in that's already on the board doesn't.
+    if (reason.length < 15) {
+      const row = await env.DB.prepare('SELECT COUNT(*) AS n FROM alternatives WHERE seat = ?1 AND name_key = ?2')
+        .bind(seat, nameKey(altName)).first();
+      if (row.n < ALT_MIN_BACKERS) return json({ error: 'Add a short reason why.' }, 400);
+    }
   }
 
   const ip = req.headers.get('CF-Connecting-IP') || '';
