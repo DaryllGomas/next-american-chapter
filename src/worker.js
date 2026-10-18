@@ -8,7 +8,7 @@ const CHOICES = Object.fromEntries(
 );
 const MAX_PER_IP_PER_SEAT_PER_DAY = 25; // households, offices and phone carriers share IPs
 const MAX_PER_IP_PER_DAY = 400;
-const ALT_MIN_BACKERS = 3; // a write-in shows on the board once this many different voters typed it
+const ALT_MIN_BACKERS = 3; // a write-in joins the seat's list once this many different voters typed it (and one passed the sniff test)
 const TALLY_CACHE_SECONDS = 30;
 const MAX_FEEDBACK_PER_IP_PER_DAY = 10;
 const COOKIE = 'nac_vid';
@@ -171,7 +171,7 @@ async function tally(req, env, ctx) {
     env.DB.prepare('SELECT seat, choice, COUNT(*) AS n FROM votes GROUP BY seat, choice'),
     env.DB.prepare(
       `SELECT seat, name_key, MIN(name) AS name, COUNT(*) AS n FROM alternatives
-       GROUP BY seat, name_key HAVING n >= ?1 ORDER BY n DESC`
+       GROUP BY seat, name_key HAVING n >= ?1 AND MAX(approved) = 1 ORDER BY n DESC`
     ).bind(ALT_MIN_BACKERS),
     env.DB.prepare(
       `SELECT seat, name, reason FROM alternatives WHERE approved = 1 ORDER BY created_at DESC LIMIT 200`
@@ -189,7 +189,7 @@ async function tally(req, env, ctx) {
   }
   for (const r of alts.results) {
     const s = seats[r.seat];
-    if (s && s.alternatives.length < 5) s.alternatives.push({ name: r.name, n: r.n });
+    if (s && s.alternatives.length < 6) s.alternatives.push({ name: r.name, n: r.n });
   }
   for (const r of reasons.results) {
     const s = seats[r.seat];

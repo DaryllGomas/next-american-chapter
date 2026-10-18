@@ -179,3 +179,8 @@ button, input, textarea { font: inherit; color: inherit; }
 .fb-form { display: flex; flex-direction: column; gap: 8px; max-width: 640px; }
 .fb-form textarea { width: 100%; min-height: 96px; border: 1px solid var(--line); border-radius: 10px; padding: 10px; background: var(--card); resize: vertical; }
 .fb-form .submit { align-self: flex-start; background: var(--ink); color: var(--paper); border-color: var(--ink); padding: 9px 18px; }
+
+/* Write-ins rise with votes */
+.candidates li.leading .candidate { border-color: var(--ink); }
+.candidates li.leading .cand-head::after { content: "Leading"; order: 3; font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--up); }
+.writein-row .bio { color: var(--muted); }
