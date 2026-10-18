@@ -285,6 +285,12 @@ async function sha256(s) {
 function json(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { 'Content-Type': 'application/json; charset=utf-8', 'X-Content-Type-Options': 'nosniff', ...headers },
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'X-Content-Type-Options': 'nosniff',
+      'Cache-Control': 'no-store',
+      'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+      ...headers,
+    },
   });
 }
