@@ -7,7 +7,7 @@
 
 ## Post
 
-@McConaughey says independents could force both parties to work together. So who'd be on the team?
+@McConaughey says independents could force both parties to work together. Who'd be on the team?
 
 Three AIs each picked the best person for 24 seats, blind. No quotas, just records.
 
