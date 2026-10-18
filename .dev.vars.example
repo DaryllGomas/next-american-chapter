@@ -1,3 +1,4 @@
 # Copy to .dev.vars for `npx wrangler dev`. These are Cloudflare's public always-pass test values.
 TURNSTILE_SECRET=1x0000000000000000000000000000000AA
 HASH_SALT=local-dev-salt-change-me
+TURNSTILE_SITE_KEY=1x00000000000000000000AA

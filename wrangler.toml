@@ -10,11 +10,11 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "next-american-chapter"
-database_id = "REPLACE_AFTER_wrangler_d1_create"
+database_id = "1a2dde92-d80f-4269-903d-7c0b3f1872d8"
 
 [vars]
-# Public site key. The local dev value is Cloudflare's always-pass test key; set the real one before deploying.
-TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
+# Public Turnstile site key for the live site. Local dev overrides it with the always-pass test key in .dev.vars.
+TURNSTILE_SITE_KEY = "0x4AAAAAAFan8SjxqatAyOf9"
 
 # Secrets (wrangler secret put ...), never committed:
 #   TURNSTILE_SECRET  Turnstile secret key
