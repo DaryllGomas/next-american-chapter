@@ -6,7 +6,7 @@
   <title>The Balanced Ticket</title>
   <meta name="description" content="Not left. Not right. One country. A hypothetical team picked on merit by three AIs. Vote on every seat or suggest someone better.">
   <meta property="og:title" content="The Balanced Ticket">
-  <meta property="og:description" content="Not left. Not right. One country. Three AIs picked the strongest person for every seat. Now you vote.">
+  <meta property="og:description" content="Not left. Not right. One country. An open-source team, picked blind by three AIs on track records. Now we all vote.">
   <meta property="og:url" content="https://next-american-chapter.next-american-chapter.workers.dev/">
   <meta property="og:image" content="https://next-american-chapter.next-american-chapter.workers.dev/img/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=11">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
@@ -32,16 +32,33 @@
   </header>
 
   <section class="intro wrap">
-    <p class="eyebrow">A hypothetical administration · 2028–2032</p>
-    <p class="lede">A team picked for what they've actually built, with the people who've had the least opportunity as the
-      measure of success.</p>
-    <p class="lede small">Not picked for party, not picked for show. Just the strongest record for each job. Two seats are set.
-      <strong>For every other seat, vote for the AI pick, one of the other top picks, or write in your own and say why.</strong></p>
+    <a class="os-badge" href="https://github.com/DaryllGomas/next-american-chapter">Open source · AI powered</a>
+    <p class="eyebrow">An open-source, AI-powered, hypothetical administration · 2028–2032</p>
+    <p class="lede">What if we chose a team for what they've done, and judged its success by how much it helps the people who've
+      had the fewest chances?</p>
+    <p class="lede open">This isn't one person's list or any party's. It's an open-source, AI-powered democracy experiment that
+      belongs to everyone. AI made the first picks. Now you can vote, suggest someone else, and tell us why. Your feedback goes
+      back through AI to help shape the next version. Every pick, rule and line of code is public on
+      <a href="https://github.com/DaryllGomas/next-american-chapter">GitHub</a>.</p>
+    <p class="lede small">No party test. No quotas. Just the strongest track record for each job. For this hypothetical ticket,
+      McConaughey starts as a strong lead for president. <strong>Vote for any pick in every seat, or write in someone you think
+      is better and tell us why.</strong></p>
+  </section>
+
+  <section class="why-section wrap" aria-labelledby="why-h">
+    <h2 id="why-h" class="section-h">Why this exists</h2>
+    <blockquote class="epigraph">"My hope here is that we can find a common ground…"<cite>Palmer Joss (Matthew McConaughey), <i>Contact</i>, 1997</cite></blockquote>
+    <p>America has seen independent and third-party runs before. Ross Perot won almost 19% of the vote in 1992. Ralph Nader ran
+      in 2000. Neither gave voters a lasting third choice. Today, both major parties face pressure from their edges, while many
+      people are looking for a way to meet in the middle.</p>
+    <p>This is one idea for that middle road: not left against right, but one country working together. Start with people who
+      have done the work, then let everyone vote, suggest changes, and add names. Balance is not a quota. It's what we're
+      working toward.</p>
   </section>
 
   <main class="wrap">
     <section aria-labelledby="fixed-h">
-      <h2 id="fixed-h" class="section-h">Set</h2>
+      <h2 id="fixed-h" class="section-h">The backer</h2>
       <div id="fixed" class="fixed"></div>
     </section>
 
@@ -55,31 +72,44 @@
       <div id="council" class="council"></div>
     </section>
 
+    <section class="feedback" aria-labelledby="fb-h">
+      <h2 id="fb-h" class="section-h">Make it better</h2>
+      <p class="lede small">Missing a seat? A pick you'd swap? An idea for the mission? Tell us. AI reads every note, sums up what
+        people keep saying, and the next version of the team is built from it.</p>
+      <form id="fb-form" class="fb-form" novalidate>
+        <textarea name="text" maxlength="1500" placeholder="Your idea, and why" required></textarea>
+        <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+        <button class="btn submit" type="submit">Send feedback</button>
+      </form>
+    </section>
+
     <section class="fine">
       <h2 class="section-h">The fine print</h2>
       <p><strong>This is an independent citizen project.</strong> Nobody named here has endorsed it, agreed to a role, or been asked
         yet. Matthew McConaughey's October 2026 video urged people to consider independent candidates. It endorsed no one and wasn't
         about him running. This page is a hypothetical built on that idea.</p>
-      <p><strong>How the picks were made.</strong> Think of it as a general picking a team for one mission: AI everywhere it
-        helps, cheap and abundant power, healthcare and education people can actually get, lifting the people who've been left
-        behind, and clean, open government. Claude, ChatGPT and Gemini each picked the strongest person for every seat on their
-        own, without seeing each other's answers. They scored speed, AI fluency, results for people at the bottom, a clean
-        record, being ready to serve all of 2028–2032, and trust across the divide. Party, gender and race counted
-        for nothing. The AI pick is where they agreed, or the strongest evidence when they split. "Close call" means it was
-        genuinely hard. Every pick would have to publicly disclose their holdings and step aside from anything touching their own
-        business or the backer's. Think we got one wrong? Vote, write in your own, or open a pull request on GitHub.</p>
+      <p><strong>How the picks were made.</strong> Imagine picking a team for one shared mission: using AI where it helps, making
+        power cheap and plentiful, making healthcare and education easier to reach, opening doors for people left behind, and
+        keeping government clean and open. Claude, ChatGPT and Gemini each chose someone for every seat independently, without
+        seeing the others' answers. They scored six things: speed, skill with AI, results for people with the fewest
+        opportunities, a clean record, readiness to serve through 2028–2032, and trust across differences. Party, gender and race
+        were not scored. When they agreed, that became the pick. When they split, the strongest evidence decided. "Close call"
+        means exactly that. Every nominee would publicly disclose their holdings and step away from decisions affecting their
+        business or the backer's. Disagree with a choice? Vote, write in a name, or propose a change through a GitHub pull
+        request.</p>
       <p><strong>How voting works.</strong> One vote per seat per browser. Change it anytime, or click your choice again to take it back. Every vote passes a Cloudflare human check,
         and each network has a daily cap. We don't store IP addresses, only a hash that changes every day. It's not bot-proof. Nothing
         is. If we see gaming, we'll tighten it and say so.</p>
-      <p><strong>Write-ins.</strong> Anyone can write in their own pick for any seat. Once three different people write in the
-        same name, it shows on that seat's board and others can back it with one tap. Write-ins with strong support get added to
-        the ballot as a top pick. Reasons appear after a quick review for spam, links and personal attacks.</p>
+      <p><strong>Write-ins.</strong> Anyone can write in their own pick for any seat. An AI gives each new write-in a quick sniff
+        test (a real person, a real reason, no abuse) without judging their politics. Once three different people write in the
+        same name, it joins that seat's list and anyone can back it with one tap. Once a seat has 10 or more votes, its list
+        sorts by votes, so whoever people keep writing in rises to the top, past the AI picks if that's what voters want. Reasons that pass the sniff test show on the seat.</p>
       <p id="updated" class="muted"></p>
     </section>
   </main>
 
   <footer class="wrap foot">
-    <span>Open source. Change the slate by pull request.</span>
+    <span>Open source and AI powered. Not one person, not one party: all of us. Change the slate by pull request.</span>
     <a id="repo-link" href="#">GitHub</a>
   </footer>
 
@@ -91,6 +121,6 @@
     </div>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js" type="module"></script>
+  <script src="app.js?v=8" type="module"></script>
 </body>
 </html>

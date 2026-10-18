@@ -12,6 +12,10 @@ binding = "DB"
 database_name = "next-american-chapter"
 database_id = "1a2dde92-d80f-4269-903d-7c0b3f1872d8"
 
+# Workers AI: the write-in sniff test (free daily allowance).
+[ai]
+binding = "AI"
+
 [vars]
 # Public Turnstile site key for the live site. Local dev overrides it with the always-pass test key in .dev.vars.
 TURNSTILE_SITE_KEY = "0x4AAAAAAFan8SjxqatAyOf9"

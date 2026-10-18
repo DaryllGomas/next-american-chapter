@@ -72,7 +72,10 @@ URL, e.g. `https://<host>/img/og.jpg`. X ignores relative image URLs.
 
 ## Write-ins
 
-Anyone can write in their own pick for any seat, with a reason. Once 3 different people write in the same name (case and
+Anyone can write in their own pick for any seat, with a reason. Each new write-in gets an AI sniff test (Workers AI,
+`@cf/meta/llama-3.3-70b-instruct-fp8-fast`): it must be a real, identifiable public person, with a reason that isn't spam,
+abuse or defamation. Politics and merit aren't judged. Passing reasons show on the seat right away. If the AI is
+unavailable, the write-in is kept but its reason stays hidden until reviewed. Once 3 different people write in the same name (case and
 spacing don't matter), it shows on that seat's "Top write-ins" board and others can back it with one tap, no reason needed.
 
 When a write-in has strong support, put it on the ballot:
@@ -85,6 +88,16 @@ npx wrangler deploy
 ```
 
 Promoted people get a "Write-in" badge, and everyone who wrote them in keeps their vote. Check the bio before you promote.
+
+## Feedback and the AI digest
+
+The "Make it better" box stores open feedback (not shown on the page). To fold what people said into the next version:
+
+```bash
+scripts/export-feedback.py > feedback-export.md   # votes, write-ins with reasons, and all feedback
+```
+
+Paste it into ChatGPT, Claude or Grok and ask for a seat-by-seat summary of what people want changed.
 
 ## Moderate write-in reasons
 

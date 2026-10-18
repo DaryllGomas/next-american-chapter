@@ -8,8 +8,9 @@ const CHOICES = Object.fromEntries(
 );
 const MAX_PER_IP_PER_SEAT_PER_DAY = 25; // households, offices and phone carriers share IPs
 const MAX_PER_IP_PER_DAY = 400;
-const ALT_MIN_BACKERS = 3; // a write-in shows on the board once this many different voters typed it
+const ALT_MIN_BACKERS = 3; // a write-in joins the seat's list once this many different voters typed it (and one passed the sniff test)
 const TALLY_CACHE_SECONDS = 30;
+const MAX_FEEDBACK_PER_IP_PER_DAY = 10;
 const COOKIE = 'nac_vid';
 
 export default {
@@ -24,6 +25,9 @@ export default {
       }
       if (url.pathname === '/api/vote' && req.method === 'POST') {
         return vote(req, env);
+      }
+      if (url.pathname === '/api/feedback' && req.method === 'POST') {
+        return feedback(req, env);
       }
       if (url.pathname.startsWith('/api/')) return json({ error: 'not found' }, 404);
       return env.ASSETS.fetch(req);
@@ -99,6 +103,16 @@ async function vote(req, env) {
     return json({ error: 'Too many votes from this network today. Try again tomorrow.' }, 429);
   }
 
+  // New write-ins (with a reason) get an AI sniff test. Backing one that's already on the board doesn't need it.
+  let approved = 0;
+  if (choice === 'alt' && reason.length >= 15) {
+    const verdict = await sniffTest(env, seatName(seat), altName, reason);
+    if (verdict.ok === false) {
+      return json({ error: `That write-in didn't pass the sniff test: ${verdict.why || "it doesn't look like a real, serious pick."}` }, 422);
+    }
+    approved = verdict.ok === true ? 1 : 0; // null means the AI was unavailable: keep it, but hide the reason until reviewed
+  }
+
   const now = Date.now();
   const stmts = [
     env.DB.prepare(
@@ -109,9 +123,9 @@ async function vote(req, env) {
   if (choice === 'alt') {
     stmts.push(
       env.DB.prepare(
-        `INSERT INTO alternatives (seat, voter_hash, name, name_key, reason, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6)
-         ON CONFLICT (seat, voter_hash) DO UPDATE SET name = ?3, name_key = ?4, reason = ?5, approved = 0, created_at = ?6`
-      ).bind(seat, voterHash, altName, nameKey(altName), reason, now)
+        `INSERT INTO alternatives (seat, voter_hash, name, name_key, reason, approved, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?7, ?6)
+         ON CONFLICT (seat, voter_hash) DO UPDATE SET name = ?3, name_key = ?4, reason = ?5, approved = ?7, created_at = ?6`
+      ).bind(seat, voterHash, altName, nameKey(altName), reason, now, approved)
     );
   } else {
     stmts.push(env.DB.prepare('DELETE FROM alternatives WHERE seat = ?1 AND voter_hash = ?2').bind(seat, voterHash));
@@ -125,6 +139,28 @@ async function vote(req, env) {
   return json({ ok: true, seat, choice }, 200, headers);
 }
 
+async function feedback(req, env) {
+  if (!sameOrigin(req)) return json({ error: 'bad origin' }, 403);
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return json({ error: 'bad request' }, 400);
+  }
+  if (body.website) return json({ ok: true }); // honeypot
+  const text = clean(body.text, 1500);
+  if (text.length < 10) return json({ error: 'Say a little more.' }, 400);
+  if (/https?:|www\./i.test(text)) return json({ error: 'No links, please.' }, 400);
+  const ip = req.headers.get('CF-Connecting-IP') || '';
+  if (!(await turnstileOk(env, body.token, ip))) return json({ error: 'Human check failed. Refresh and try again.' }, 403);
+  const day = new Date().toISOString().slice(0, 10);
+  const ipHash = await sha256(`${env.HASH_SALT}|ip|${day}|${ip}`);
+  const n = await env.DB.prepare('SELECT COUNT(*) AS n FROM feedback WHERE ip_hash = ?1').bind(ipHash).first();
+  if (n.n >= MAX_FEEDBACK_PER_IP_PER_DAY) return json({ error: 'Thanks! That\'s plenty for today.' }, 429);
+  await env.DB.prepare('INSERT INTO feedback (ip_hash, text, created_at) VALUES (?1, ?2, ?3)').bind(ipHash, text, Date.now()).run();
+  return json({ ok: true });
+}
+
 async function tally(req, env, ctx) {
   const cache = caches.default;
   const key = new Request(new URL('/api/tally', req.url).toString());
@@ -135,7 +171,7 @@ async function tally(req, env, ctx) {
     env.DB.prepare('SELECT seat, choice, COUNT(*) AS n FROM votes GROUP BY seat, choice'),
     env.DB.prepare(
       `SELECT seat, name_key, MIN(name) AS name, COUNT(*) AS n FROM alternatives
-       GROUP BY seat, name_key HAVING n >= ?1 ORDER BY n DESC`
+       GROUP BY seat, name_key HAVING n >= ?1 AND MAX(approved) = 1 ORDER BY n DESC`
     ).bind(ALT_MIN_BACKERS),
     env.DB.prepare(
       `SELECT seat, name, reason FROM alternatives WHERE approved = 1 ORDER BY created_at DESC LIMIT 200`
@@ -153,7 +189,7 @@ async function tally(req, env, ctx) {
   }
   for (const r of alts.results) {
     const s = seats[r.seat];
-    if (s && s.alternatives.length < 5) s.alternatives.push({ name: r.name, n: r.n });
+    if (s && s.alternatives.length < 6) s.alternatives.push({ name: r.name, n: r.n });
   }
   for (const r of reasons.results) {
     const s = seats[r.seat];
@@ -165,6 +201,47 @@ async function tally(req, env, ctx) {
   });
   ctx.waitUntil(cache.put(key, res.clone()));
   return res;
+}
+
+function seatName(id) {
+  return slate.seats.find((s) => s.id === id)?.seat || id;
+}
+
+// Workers AI screens write-ins. It's a sniff test, not a judgment of merit: voters decide merit.
+// Returns { ok: true }, { ok: false, why }, or { ok: null } when the model can't be reached.
+async function sniffTest(env, seat, name, reason) {
+  if (!env.AI) return { ok: null };
+  const prompt = [
+    'You screen write-in suggestions on a public, nonpartisan civic voting page. People suggest who should fill a seat in a',
+    'hypothetical U.S. administration and say why. Apply a light sniff test only; do not judge politics or merit.',
+    'REJECT if the name is not a real, identifiable person (fictional characters, jokes, gibberish, pets, "me", celebrities',
+    'clearly suggested as a joke), if it names a private individual who is not a public figure, if the reason is spam,',
+    'harassment, slurs, threats, sexual content, or makes defamatory claims about anyone, or if the reason contains',
+    'personal contact details. ACCEPT everything else, including people from any party or ideology and controversial figures.',
+    `Seat: ${seat}`,
+    `Suggested person: ${name}`,
+    `Reason given: ${reason}`,
+    'Reply with only JSON: {"ok": true} or {"ok": false, "why": "<under 15 words, polite, for the voter>"}',
+  ].join('\n');
+  try {
+    const out = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 60,
+      temperature: 0,
+    });
+    // Take the first {...} only; models sometimes add a second object or commentary.
+    // Workers AI may hand back the JSON already parsed, as a string, or in OpenAI chat format.
+    const raw = out?.response ?? out?.choices?.[0]?.message?.content ?? '';
+    let v = typeof raw === 'object' ? raw : null;
+    if (!v) {
+      const m = String(raw).match(/\{[^{}]*\}/);
+      v = m ? JSON.parse(m[0]) : null;
+    }
+    if (v && typeof v.ok === 'boolean') return { ok: v.ok, why: clean(v.why, 140) };
+  } catch (err) {
+    console.error('sniff test failed', err);
+  }
+  return { ok: null };
 }
 
 async function turnstileOk(env, token, ip) {

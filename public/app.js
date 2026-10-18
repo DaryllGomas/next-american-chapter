@@ -1,4 +1,6 @@
 const MY_VOTES_KEY = 'nac-my-votes-v2';
+// Once a seat has this many votes, its list re-sorts by votes, so popular write-ins rise past the AI picks.
+const RISE_AFTER_VOTES = 10;
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -19,6 +21,30 @@ async function init() {
   renderFixed();
   renderSeats();
   refreshTally();
+  $('#fb-form').addEventListener('submit', sendFeedback);
+}
+
+async function sendFeedback(e) {
+  e.preventDefault();
+  const f = e.target;
+  const btn = $('button', f);
+  btn.disabled = true;
+  try {
+    const token = await humanCheck();
+    const res = await fetch('/api/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: f.text.value, website: f.website.value, token }),
+    });
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(out.error || 'Something went wrong.');
+    f.reset();
+    toast('Thanks. It goes into the next version.');
+  } catch (err) {
+    toast(err.message);
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 function renderFixed() {
@@ -36,7 +62,7 @@ function renderSeats() {
     <article class="card seat" data-seat="${esc(s.id)}">
       <div class="card-top">
         <div class="role">${esc(s.seat)}</div>
-        <span class="confidence ${s.confidence === 'clear' ? 'clear' : 'close'}">${s.confidence === 'clear' ? 'Clear pick' : 'Close call'}</span>
+        ${s.badge ? '' : `<span class="confidence ${s.confidence === 'clear' ? 'clear' : 'close'}">${s.confidence === 'clear' ? 'Clear pick' : 'Close call'}</span>`}
       </div>
       <div class="mission">${esc(s.mission)}</div>
       <ol class="candidates">
@@ -45,7 +71,7 @@ function renderSeats() {
             <button class="candidate" data-choice="c${i}" aria-pressed="false">
               <span class="cand-head">
                 <span class="name">${esc(c.name)}</span>
-                ${i === 0 ? '<span class="ai-pick" title="The pick Claude, ChatGPT and Grok agreed on">AI pick</span>' : ''}
+                ${i === 0 ? `<span class="ai-pick" title="${s.badge ? 'Starting pick; voters can write in someone else' : 'The pick the AIs agreed on'}">${esc(s.badge || 'AI pick')}</span>` : ''}
                 ${c.writeIn ? '<span class="write-in" title="Added to the ballot by voters\' write-ins">Write-in</span>' : ''}
                 <span class="pct" data-pct="c${i}"></span>
               </span>
@@ -98,6 +124,8 @@ function renderSeats() {
 async function submit(card, payload) {
   const buttons = card.querySelectorAll('button');
   buttons.forEach((b) => (b.disabled = true));
+  card.classList.add('pending');
+  toast(payload.choice === 'none' ? 'Removing your vote…' : 'Counting your vote…');
   try {
     const token = await humanCheck();
     const res = await fetch('/api/vote', {
@@ -108,9 +136,9 @@ async function submit(card, payload) {
     const out = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(out.error || 'Something went wrong.');
     if (payload.choice === 'none') delete myVotes[payload.seat];
-    else myVotes[payload.seat] = payload.choice;
+    else myVotes[payload.seat] = payload.choice === 'alt' ? `alt:${payload.altName}` : payload.choice;
     saveMyVotes();
-    markPressed(card, payload.choice);
+    markPressed(card, myVotes[payload.seat]);
     $('.alt-form', card).classList.remove('open');
     toast({ none: 'Vote removed.', alt: `Write-in counted${payload.altName ? `: ${payload.altName}` : ''}.` }[payload.choice] || 'Vote counted.');
     setTimeout(refreshTally, 1500);
@@ -118,6 +146,7 @@ async function submit(card, payload) {
     toast(err.message);
   } finally {
     buttons.forEach((b) => (b.disabled = false));
+    card.classList.remove('pending');
   }
 }
 
@@ -173,17 +202,14 @@ async function refreshTally() {
         const n = t.counts[el.dataset.bar] || 0;
         el.style.width = total ? `${(n / total) * 100}%` : '0';
       }
+      renderWriteIns(card, t);
+      riseByVotes(card, t);
       const box = $('.suggested', card);
-      if (t.alternatives.length || t.reasons.length) {
+      if (t.reasons.length) {
         box.hidden = false;
-        box.innerHTML = `
-          ${t.alternatives.length ? `<div class="writeins"><b>Top write-ins:</b> ${t.alternatives.map((a) =>
-            `<button class="back" data-name="${esc(a.name)}" title="Back this write-in">+ ${esc(a.name)} <span>${a.n}</span></button>`).join(' ')}</div>` : ''}
-          ${t.reasons.length ? `<ul>${t.reasons.map((r) => `<li><b>${esc(r.name)}</b>: ${esc(r.reason)}</li>`).join('')}</ul>` : ''}`;
-        for (const b of box.querySelectorAll('.back')) {
-          b.addEventListener('click', () => submit(card, { seat: card.dataset.seat, choice: 'alt', altName: b.dataset.name, reason: '' }));
-        }
+        box.innerHTML = `<b>Why people wrote them in:</b><ul>${t.reasons.map((r) => `<li><b>${esc(r.name)}</b>: ${esc(r.reason)}</li>`).join('')}</ul>`;
       }
+      markPressed(card, myVotes[card.dataset.seat]);
     }
     $('#updated').textContent = `Tallies refresh every 30 seconds. Last update ${new Date(updatedAt).toLocaleTimeString()}.`;
   } catch {
@@ -191,15 +217,65 @@ async function refreshTally() {
   }
 }
 
+// Write-ins with enough backers join the seat's list as full rows that anyone can back with one tap.
+function renderWriteIns(card, t) {
+  const list = $('.candidates', card);
+  list.querySelectorAll('.writein-row').forEach((li) => li.remove());
+  const total = t.total || 0;
+  for (const a of t.alternatives) {
+    const li = document.createElement('li');
+    li.className = 'writein-row';
+    li.dataset.votes = a.n;
+    li.innerHTML = `
+      <button class="candidate" data-writein="${esc(a.name)}" aria-pressed="false">
+        <span class="cand-head">
+          <span class="name">${esc(a.name)}</span>
+          <span class="write-in" title="Added by voters">Write-in</span>
+          <span class="pct">${total ? `${Math.round((a.n / total) * 100)}%` : ''}</span>
+        </span>
+        <span class="bio">Written in by ${a.n} people. Tap to back them.</span>
+        <span class="bar"><span style="width:${total ? (a.n / total) * 100 : 0}%"></span></span>
+      </button>`;
+    $('button', li).addEventListener('click', (e) => {
+      const btn = e.currentTarget;
+      const seat = card.dataset.seat;
+      if (btn.getAttribute('aria-pressed') === 'true') submit(card, { seat, choice: 'none' });
+      else submit(card, { seat, choice: 'alt', altName: a.name, reason: '' });
+    });
+    list.appendChild(li);
+  }
+}
+
+// Sort the seat's list by votes once there's enough signal; the top row gets a "Leading" tag.
+function riseByVotes(card, t) {
+  const rows = [...$('.candidates', card).children];
+  const votes = (li) => {
+    if (li.classList.contains('writein-row')) return Number(li.dataset.votes) || 0;
+    return t.counts[$('[data-choice]', li).dataset.choice] || 0;
+  };
+  const rising = (t.total || 0) >= RISE_AFTER_VOTES;
+  const ranked = rows.map((li, i) => ({ li, v: votes(li), i })).sort((a, b) => (rising ? b.v - a.v : 0) || a.i - b.i);
+  ranked.forEach(({ li }, rank) => {
+    li.style.order = rank;
+    li.classList.toggle('leading', rising && rank === 0 && ranked[0].v > 0);
+  });
+}
+
 function markPressed(card, choice) {
-  for (const b of card.querySelectorAll('[data-choice]')) b.setAttribute('aria-pressed', String(b.dataset.choice === choice));
+  const writeIn = choice?.startsWith('alt:') ? choice.slice(4) : null;
+  for (const b of card.querySelectorAll('[data-choice]')) {
+    b.setAttribute('aria-pressed', String(b.dataset.choice === choice || (b.dataset.choice === 'alt' && !!writeIn)));
+  }
+  for (const b of card.querySelectorAll('[data-writein]')) {
+    b.setAttribute('aria-pressed', String(!!writeIn && b.dataset.writein.toLowerCase() === writeIn.toLowerCase()));
+  }
   const note = $('.your-vote', card);
   const seat = slate.seats.find((s) => s.id === card.dataset.seat);
   if (!choice || choice === 'none') {
     note.hidden = true;
     return;
   }
-  const name = choice === 'alt' ? 'your write-in' : seat.candidates[Number(choice.slice(1))]?.name;
+  const name = writeIn || (choice === 'alt' ? 'your write-in' : seat.candidates[Number(choice.slice(1))]?.name);
   note.hidden = false;
   note.textContent = `Your vote: ${name}. Tap it again to undo.`;
 }
