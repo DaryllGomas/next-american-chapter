@@ -69,3 +69,57 @@ limit and couldn't review it. That limit resets 2026-10-20.
 
 **Each AI's own lean showed up in its blind picks.** ChatGPT leaned toward recent Biden-era officials, and Grok
 included sitting Trump officials. Merging three blind lists is what cancels that out.
+
+## Round 5: the mission team (2026-10-18)
+
+Daryll: "If I'm a general, who are the people I want in my troop to accomplish this mission?" Round 4 picked the
+strongest résumés. This round picks the people who can carry out the vision.
+
+**Scorecard:** SPEED, AI FLUENCY, LIFTS THE BOTTOM, CLEAN, READY (able to serve all of 2028–2032, no Musk conflicts) and
+BRIDGES.
+
+**Blind voters:** Claude, ChatGPT (a temporary chat with no memory) and Gemini. Grok was out until Oct 20, so Gemini
+took its place. Gemini's list had a few names that couldn't be verified, so only real people were counted.
+
+**Merge:** a name on two or more lists wins the seat. Splits went to the strongest evidence.
+
+**Biggest changes:**
+- Shalanda Young (OMB): Daniels would be 79 in 2028.
+- Jon Huntsman (State): ambassador under Obama and Trump.
+- Patrick Collison (Abundance): picked over Diamandis, who is now a runner-up.
+- Christine Wormuth (Defense): Flournoy fails CLEAN.
+- Michael Regan (Environment) and Xochitl Torres Small (Agriculture).
+- New builder runners-up: Amanda Renteria, Rachel Carlson, Alex Oshmyansky (Cost Plus Drugs), Daniel Yang (Kaiser AI),
+  Melonee Wise, Will Roper and Kathleen Hicks.
+
+### Round 5 decisions (Claude, after the mission fact-check)
+
+Daryll: "Those aren't my decisions. They're yours." The calls, made against the scorecard:
+- **Healthcare: Kinsley over McClellan.** McClellan sits on the Johnson & Johnson and Cigna boards, which fails CLEAN
+  for the affordability seat.
+- **Space: Melroy over Bridenstine.** It was a 2–2 tie. Bridenstine is now CEO of Quantum Space (CLEAN) and was
+  confirmed on a party-line vote (BRIDGES).
+- **Abundance: Collison stays.** Musk was an early Stripe investor, but it's an unpaid outside advisory seat, and Fast
+  Grants is the strongest SPEED evidence of any candidate. Diamandis has a Musk tie too: the XPRIZE Carbon Removal
+  prize was funded by Musk's foundation.
+- **Burns stays a State runner-up.** The Feb 2026 Epstein-file reports allege no wrongdoing.
+- **Swapped out:**
+  - Carlson/Romer stepped down as Guild CEO; replaced by Palandjian.
+  - Danielle Brian stepped back from POGO; replaced by Rosenstein.
+  - Prabhakar was listed twice; Barzilay takes her AI science spot.
+  - Henderson has a 2016 ethics censure; replaced by DiCerbo.
+
+### Final review (ChatGPT, fresh temporary chat)
+
+ChatGPT agreed with all four of Claude's calls. Its condition on Collison: public disclosure and recusal. That's now a
+rule for every pick, and it's stated on the page. It proposed three vetoes:
+- **Accepted: AI science goes from Fei-Fei Li to Kathy Yelick.** AMD agreed in Sept 2026 to buy World Labs, and Li is
+  slated to become AMD's chief scientist (READY and CLEAN). Yelick has run Berkeley Lab since July 2026. Li stays a
+  runner-up.
+- **Not accepted: Energy stays with Jigar Shah, not David Turk.** The DOE inspector general's interim concerns were
+  about contractors' conflict controls, and Shah disputed them. No finding against him personally was found. On SPEED,
+  which the power build-out needs most, Shah has the strongest record. Turk was added as a runner-up, and the seat is
+  marked a close call.
+- **Not accepted: Lived experience stays with Donald Whitehead, not Michael Tubbs.** The seat is for someone who has
+  lived poverty and homelessness to review policy. Whitehead was homeless for five years and now leads national
+  homelessness policy work. Tubbs stays a runner-up.

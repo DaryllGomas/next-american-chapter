@@ -125,17 +125,37 @@ async function submit(card, payload) {
 function humanCheck() {
   return new Promise((resolve, reject) => {
     if (!window.turnstile || !siteKey) return reject(new Error('Human check is still loading. Try again in a second.'));
+    // Settle exactly once, and never leave the buttons stuck if Cloudflare goes quiet.
+    let settled = false;
+    const done = (fn, arg) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      showCheck(false);
+      fn(arg);
+    };
+    const fail = (msg) => done(reject, new Error(msg));
+    const timer = setTimeout(() => fail('The human check timed out. Tap your choice again.'), 120000);
     if (widgetId !== null) window.turnstile.remove(widgetId);
     widgetId = window.turnstile.render('#turnstile', {
       sitekey: siteKey,
       action: 'vote',
       appearance: 'interaction-only',
       execution: 'execute',
-      callback: (t) => resolve(t),
-      'error-callback': () => reject(new Error('Human check failed. Refresh and try again.')),
+      callback: (t) => done(resolve, t),
+      'error-callback': () => fail('Human check failed. Refresh and try again.'),
+      'expired-callback': () => fail('The human check expired. Tap your choice again.'),
+      'timeout-callback': () => fail('The human check timed out. Tap your choice again.'),
+      'unsupported-callback': () => fail('This browser can\'t run the human check. Try another browser.'),
+      // Most people pass invisibly. When Cloudflare does need a click, show it front and center.
+      'before-interactive-callback': () => showCheck(true),
     });
     window.turnstile.execute(widgetId);
   });
+}
+
+function showCheck(on) {
+  $('#check').hidden = !on;
 }
 
 async function refreshTally() {
