@@ -108,3 +108,18 @@ Daryll: "Those aren't my decisions. They're yours." The calls, made against the 
   - Danielle Brian stepped back from POGO; replaced by Rosenstein.
   - Prabhakar was listed twice; Barzilay takes her AI science spot.
   - Henderson has a 2016 ethics censure; replaced by DiCerbo.
+
+### Final review (ChatGPT, fresh temporary chat)
+
+ChatGPT agreed with all four of Claude's calls. Its condition on Collison: public disclosure and recusal. That's now a
+rule for every pick, and it's stated on the page. It proposed three vetoes:
+- **Accepted: AI science goes from Fei-Fei Li to Kathy Yelick.** AMD agreed in Sept 2026 to buy World Labs, and Li is
+  slated to become AMD's chief scientist (READY and CLEAN). Yelick has run Berkeley Lab since July 2026. Li stays a
+  runner-up.
+- **Not accepted: Energy stays with Jigar Shah, not David Turk.** The DOE inspector general's interim concerns were
+  about contractors' conflict controls, and Shah disputed them. No finding against him personally was found. On SPEED,
+  which the power build-out needs most, Shah has the strongest record. Turk was added as a runner-up, and the seat is
+  marked a close call.
+- **Not accepted: Lived experience stays with Donald Whitehead, not Michael Tubbs.** The seat is for someone who has
+  lived poverty and homelessness to review policy. Whitehead was homeless for five years and now leads national
+  homelessness policy work. Tubbs stays a runner-up.

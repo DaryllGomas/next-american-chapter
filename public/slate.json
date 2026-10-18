@@ -209,20 +209,20 @@
       "id": "ai-science",
       "seat": "AI Science / Innovation",
       "mission": "Keep America first in AI research.",
-      "confidence": "clear",
+      "confidence": "close call",
       "candidates": [
         {
+          "name": "Kathy Yelick",
+          "bio": "Director of Lawrence Berkeley National Laboratory since July 2026; a leading supercomputing scientist who ran Berkeley Lab's computing division and NERSC.",
+          "evidence": "Fei-Fei Li is headed to AMD, so the final review moved this seat to Yelick, who runs a national lab at the center of supercomputing and AI for science."
+        },
+        {
           "name": "Fei-Fei Li",
-          "bio": "Stanford professor, founding director of Stanford HAI, creator of ImageNet and co-founder and CEO of World Labs.",
-          "evidence": "On all three AIs' lists; ImageNet helped trigger the modern AI boom."
+          "bio": "Stanford professor, founding director of Stanford HAI and creator of ImageNet; slated to become AMD's chief scientist after it buys her company, World Labs."
         },
         {
           "name": "Andrew Ng",
           "bio": "Co-founded Google Brain and Coursera; former chief scientist at Baidu."
-        },
-        {
-          "name": "Regina Barzilay",
-          "bio": "MIT professor and AI researcher; co-leads the Jameel Clinic for machine learning in health."
         }
       ]
     },
@@ -251,7 +251,7 @@
       "id": "energy",
       "seat": "Energy / Power Build-Out",
       "mission": "Cheap, reliable power for the AI age.",
-      "confidence": "clear",
+      "confidence": "close call",
       "candidates": [
         {
           "name": "Jigar Shah",
@@ -263,8 +263,8 @@
           "bio": "U.S. Energy Secretary and former CEO of Liberty Energy."
         },
         {
-          "name": "Kathryn Huff",
-          "bio": "Nuclear engineer and former DOE assistant secretary for nuclear energy; now chairs nuclear engineering at the University of Wisconsin–Madison."
+          "name": "David Turk",
+          "bio": "U.S. deputy energy secretary 2021–2025, running the department day to day; earlier deputy executive director of the International Energy Agency."
         }
       ]
     },
