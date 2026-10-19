@@ -13,6 +13,7 @@ import json
 import re
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -21,8 +22,9 @@ DB = 'next-american-chapter'
 
 
 def name_key(name):
-    # Must match nameKey() in src/worker.js.
-    key = re.sub(r'[^a-z0-9 ]', '', name.lower())
+    # Must match nameKey() in src/worker.js: drop accents, keep letters and digits in any script.
+    plain = ''.join(c for c in unicodedata.normalize('NFKD', name) if not unicodedata.combining(c)).lower()
+    key = ''.join(c for c in plain if c.isalnum() or c == ' ')
     return re.sub(r'\s+', ' ', key).strip()
 
 

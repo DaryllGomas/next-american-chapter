@@ -22,6 +22,12 @@ database_id = "1a2dde92-d80f-4269-903d-7c0b3f1872d8"
 [ai]
 binding = "AI"
 
+# Burst limit per network on voting and feedback (free; counters are per Cloudflare location).
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "1001"
+simple = { limit = 60, period = 60 }
+
 [vars]
 # Public Turnstile site key for the live site. Local dev overrides it with the always-pass test key in .dev.vars.
 TURNSTILE_SITE_KEY = "0x4AAAAAAFan8SjxqatAyOf9"

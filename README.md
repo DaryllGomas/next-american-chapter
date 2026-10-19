@@ -47,13 +47,17 @@ are set in `public/_headers` and on every API response.
 
 ### Anti-gaming (best effort, not bot-proof)
 
-- Every vote needs a fresh **Cloudflare Turnstile** token, verified server side.
+- Voting starts with a **Cloudflare Turnstile** check, verified server side. A passed check earns a signed,
+  HttpOnly pass cookie good for 30 minutes of voting, so people aren't checked on every click.
+- **Burst limit:** 60 votes or feedback posts per minute per network (Cloudflare's rate limiting binding).
 - **One vote per seat per browser**, using a random HttpOnly cookie. Voting again changes your vote.
 - **Per-network caps:** 25 votes per seat and 400 votes in total per IP per day. Bots that clear cookies run into
   the cap, and households and offices still fit under it.
 - **No raw IPs are stored**, only `sha256(salt + day + ip)`, which rotates daily.
 - Honeypot field, same-origin check, length limits, no links in suggestions.
-- Suggested names show only once **3 different voters** typed the same name. Reasons show only after approval.
+- Write-ins: an AI sniff test screens each new one (5 per voter and 40 per network per day). A name joins the
+  seat's list once **3 different voters** typed it and one passed the sniff test, shown under the first approved
+  spelling. Reasons show only for names on the list.
 
 If it gets gamed, tighten the caps, require Turnstile's non-interactive challenge, or add a sign-in. Change it
 and say so on the page.

@@ -17,6 +17,7 @@ Below are the vote totals, every write-in with its reason, and open feedback. Wr
 4. Anything that looks like vote stuffing or coordinated spam.
 Be factual and brief. Do not judge anyone'"'"'s politics.'
 
-claude -p "$prompt" < "$out/$day-raw.md" > "$out/$day.md"
+# The input is public text, so Claude gets no tools at all: a feedback note that says "run this" can't run anything.
+claude -p --tools "" --strict-mcp-config "$prompt" < "$out/$day-raw.md" > "$out/$day.md"
 command -v notify-send >/dev/null && notify-send "Balanced Ticket weekly review" "Report ready: $PWD/$out/$day.md" || true
 echo "$out/$day.md"
