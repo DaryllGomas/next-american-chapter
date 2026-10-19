@@ -113,6 +113,7 @@ button, input, textarea { font: inherit; color: inherit; }
 .check { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; padding: 16px; background: rgba(29, 27, 24, .45); }
 .check[hidden] { display: grid; visibility: hidden; pointer-events: none; }
 .check-box { background: var(--card); border-radius: 16px; padding: 20px 20px 14px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,.25); max-width: 360px; }
+.check-box:focus { outline: none; }
 .check-h { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 18px; margin: 0 0 12px; }
 .check-note { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
 .toast { position: fixed; bottom: 16px; right: 16px; left: 16px; max-width: 360px; margin-left: auto; background: var(--ink); color: var(--paper); padding: 12px 16px; border-radius: 12px; font-size: 14px; opacity: 0; transform: translateY(8px); transition: .2s; pointer-events: none; z-index: 30; }
@@ -125,7 +126,7 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 
 /* Seat cards: the AI pick plus other top picks, each one votable */
-.seats { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.seats { grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); }
 .confidence { font-size: 11px; font-weight: 600; letter-spacing: .06em; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
 .confidence.clear { color: var(--ink); border-color: var(--ink); }
 .candidates { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }

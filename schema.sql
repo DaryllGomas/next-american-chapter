@@ -31,3 +31,10 @@ CREATE TABLE IF NOT EXISTS feedback (
   created_at  INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS feedback_ip ON feedback (ip_hash, created_at);
+
+-- One row per AI sniff test, keyed by voter hash and by daily IP hash, to cap Workers AI calls per day.
+CREATE TABLE IF NOT EXISTS sniffs (
+  who         TEXT NOT NULL,
+  created_at  INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS sniffs_who ON sniffs (who, created_at);
