@@ -114,6 +114,13 @@ scripts/export-feedback.py > feedback-export.md   # votes, write-ins with reason
 
 Paste it into ChatGPT, Claude or Grok and ask for a seat-by-seat summary of what people want changed.
 
+## Weekly AI review
+
+`scripts/weekly-review.sh` runs every Monday at 09:00 on the maintainer's machine (systemd user timer
+`balanced-ticket-review.timer`). It exports votes, write-ins and feedback, has Claude write a short digest (who's leading,
+write-ins with momentum, feedback themes, proposed updates, signs of vote stuffing), and saves it locally. Nothing on the
+live site changes automatically: proposed updates go through a normal pull request.
+
 ## Moderate write-in reasons
 
 ```bash
