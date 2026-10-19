@@ -1,6 +1,12 @@
 name = "next-american-chapter"
 main = "src/worker.js"
 compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Short public address on the bigpicsolutions.com zone; the workers.dev address keeps working too.
+routes = [
+  { pattern = "balancedticket.bigpicsolutions.com", custom_domain = true }
+]
 
 [assets]
 directory = "public"
