@@ -69,27 +69,33 @@ async function vote(req, env) {
   }
 
   const ip = req.headers.get('CF-Connecting-IP') || '';
-  if (!(await turnstileOk(env, token, ip))) {
-    return json({ error: 'Human check failed. Refresh and try again.' }, 403);
-  }
 
   // Voter identity is a random cookie id; clearing cookies gets a new one, which the IP caps bound.
   let vid = readCookie(req, COOKIE);
   const setCookie = !vid || !/^[0-9a-f-]{36}$/.test(vid);
   if (setCookie) vid = crypto.randomUUID();
   const voterHash = await sha256(`${env.HASH_SALT}|voter|${vid}`);
+
+  // One human check covers a voting session: a passed check earns a short-lived signed pass,
+  // so people can vote seat after seat without a check per click.
+  const passHeaders = {};
+  if (!(await hasPass(req, env, vid))) {
+    if (!token) return json({ error: 'Quick human check first.', needCheck: true }, 403);
+    if (!(await turnstileOk(env, token, ip))) return json({ error: 'Human check failed. Try again.', needCheck: true }, 403);
+    passHeaders['Set-Cookie'] = await newPass(env, vid);
+  }
   const day = new Date().toISOString().slice(0, 10);
   const ipHash = await sha256(`${env.HASH_SALT}|ip|${day}|${ip}`);
   const dayStart = Date.parse(day);
 
   // Taking a vote back: only possible for a browser that already voted, so no cap check needed.
   if (choice === 'none') {
-    if (setCookie) return json({ ok: true, seat, choice });
+    if (setCookie) return json({ ok: true, seat, choice }, 200, cookieHeaders(vid, passHeaders['Set-Cookie']));
     await env.DB.batch([
       env.DB.prepare('DELETE FROM votes WHERE seat = ?1 AND voter_hash = ?2').bind(seat, voterHash),
       env.DB.prepare('DELETE FROM alternatives WHERE seat = ?1 AND voter_hash = ?2').bind(seat, voterHash),
     ]);
-    return json({ ok: true, seat, choice });
+    return json({ ok: true, seat, choice }, 200, cookieHeaders(false, passHeaders['Set-Cookie']));
   }
 
   const caps = await env.DB.prepare(
@@ -133,11 +139,7 @@ async function vote(req, env) {
   }
   await env.DB.batch(stmts);
 
-  const headers = {};
-  if (setCookie) {
-    headers['Set-Cookie'] = `${COOKIE}=${vid}; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax`;
-  }
-  return json({ ok: true, seat, choice }, 200, headers);
+  return json({ ok: true, seat, choice }, 200, cookieHeaders(setCookie && vid, passHeaders['Set-Cookie']));
 }
 
 async function feedback(req, env) {
@@ -154,7 +156,13 @@ async function feedback(req, env) {
   if (/https?:|www\.|\.(com|net|org|io|xyz|ru)\b/i.test(text)) return json({ error: 'No links, please.' }, 400);
   if (looksLikeJunk(text)) return json({ error: 'Say a little more, in words.' }, 400);
   const ip = req.headers.get('CF-Connecting-IP') || '';
-  if (!(await turnstileOk(env, body.token, ip))) return json({ error: 'Human check failed. Refresh and try again.' }, 403);
+  const vid = readCookie(req, COOKIE) || '';
+  let passCookie;
+  if (!(await hasPass(req, env, vid))) {
+    if (!body.token) return json({ error: 'Quick human check first.', needCheck: true }, 403);
+    if (!(await turnstileOk(env, body.token, ip))) return json({ error: 'Human check failed. Try again.', needCheck: true }, 403);
+    if (vid) passCookie = await newPass(env, vid);
+  }
   const day = new Date().toISOString().slice(0, 10);
   const ipHash = await sha256(`${env.HASH_SALT}|ip|${day}|${ip}`);
   const since = Date.now() - 86400000;
@@ -168,7 +176,7 @@ async function feedback(req, env) {
   if (dup.results[0].n > 0) return json({ ok: true });
   if (all.results[0].n >= MAX_FEEDBACK_PER_DAY) return json({ error: 'We\'re getting a lot of feedback right now. Please try again tomorrow.' }, 429);
   await env.DB.prepare('INSERT INTO feedback (ip_hash, text, created_at) VALUES (?1, ?2, ?3)').bind(ipHash, text, Date.now()).run();
-  return json({ ok: true });
+  return json({ ok: true }, 200, cookieHeaders(false, passCookie));
 }
 
 async function tally(req, env, ctx) {
@@ -254,6 +262,33 @@ async function sniffTest(env, seat, name, reason) {
   return { ok: null };
 }
 
+const PASS = 'nac_pass';
+const PASS_SECONDS = 30 * 60;
+
+async function newPass(env, vid) {
+  const exp = Math.floor(Date.now() / 1000) + PASS_SECONDS;
+  const sig = await sha256(`${env.HASH_SALT}|pass|${vid}|${exp}`);
+  return `${PASS}=${exp}.${sig}; Path=/; Max-Age=${PASS_SECONDS}; HttpOnly; Secure; SameSite=Lax`;
+}
+
+async function hasPass(req, env, vid) {
+  const raw = readCookie(req, PASS);
+  if (!raw || !vid) return false;
+  const [exp, sig] = raw.split('.');
+  if (!(Number(exp) > Date.now() / 1000)) return false;
+  return sig === (await sha256(`${env.HASH_SALT}|pass|${vid}|${exp}`));
+}
+
+// Set the voter id cookie (new voters) and/or the human-check pass in one response.
+function cookieHeaders(vid, passCookie) {
+  const cookies = [];
+  if (vid) cookies.push(`${COOKIE}=${vid}; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax`);
+  if (passCookie) cookies.push(passCookie);
+  const h = new Headers();
+  for (const c of cookies) h.append('Set-Cookie', c);
+  return h;
+}
+
 async function turnstileOk(env, token, ip) {
   if (typeof token !== 'string' || !token || token.length > 2048) return false;
   const form = new FormData();
@@ -301,15 +336,17 @@ async function sha256(s) {
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
-function json(data, status = 200, headers = {}) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-      'Cache-Control': 'no-store',
-      'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-      ...headers,
-    },
+function json(data, status = 200, extra = {}) {
+  const headers = new Headers({
+    'Content-Type': 'application/json; charset=utf-8',
+    'X-Content-Type-Options': 'nosniff',
+    'Cache-Control': 'no-store',
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
   });
+  const add = extra instanceof Headers ? [...extra] : Object.entries(extra);
+  for (const [k, v] of add) {
+    if (k.toLowerCase() === 'set-cookie') headers.append(k, v);
+    else headers.set(k, v);
+  }
+  return new Response(JSON.stringify(data), { status, headers });
 }

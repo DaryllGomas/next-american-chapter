@@ -30,14 +30,7 @@ async function sendFeedback(e) {
   const btn = $('button', f);
   btn.disabled = true;
   try {
-    const token = await humanCheck();
-    const res = await fetch('/api/feedback', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: f.text.value, website: f.website.value, token }),
-    });
-    const out = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(out.error || 'Something went wrong.');
+    await post('/api/feedback', { text: f.text.value, website: f.website.value });
     f.reset();
     toast('Thanks. It goes into the next version.');
   } catch (err) {
@@ -121,20 +114,37 @@ function renderSeats() {
   }
 }
 
-async function submit(card, payload) {
+// Votes go one at a time, so a second click can't cancel the first one's human check.
+let queue = Promise.resolve();
+function submit(card, payload) {
+  queue = queue.then(() => submitNow(card, payload));
+  return queue;
+}
+
+// Try without a check first: one passed check covers the next 30 minutes of voting.
+async function post(url, body) {
+  const send = (token) => fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(token ? { ...body, token } : body),
+  });
+  let res = await send();
+  let out = await res.json().catch(() => ({}));
+  if (res.status === 403 && out.needCheck) {
+    res = await send(await humanCheck());
+    out = await res.json().catch(() => ({}));
+  }
+  if (!res.ok) throw new Error(out.error || 'Something went wrong.');
+  return out;
+}
+
+async function submitNow(card, payload) {
   const buttons = card.querySelectorAll('button');
   buttons.forEach((b) => (b.disabled = true));
   card.classList.add('pending');
   toast(payload.choice === 'none' ? 'Removing your vote…' : 'Counting your vote…');
   try {
-    const token = await humanCheck();
-    const res = await fetch('/api/vote', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...payload, token }),
-    });
-    const out = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(out.error || 'Something went wrong.');
+    await post('/api/vote', payload);
     if (payload.choice === 'none') delete myVotes[payload.seat];
     else myVotes[payload.seat] = payload.choice === 'alt' ? `alt:${payload.altName}` : payload.choice;
     saveMyVotes();
