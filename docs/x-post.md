@@ -8,7 +8,7 @@ Hey @elonmusk, it might be time to bring back the America Party. In Contact, @Mc
 
 The Balanced Ticket is live. See the AI-built slate, vote on 25 seats, and suggest better names with your reasons. Nobody named has endorsed it.
 
-https://next-american-chapter.next-american-chapter.workers.dev
+https://balancedticket.bigpicsolutions.com
 
 ## 3. Optional, 30–90 minutes later
 

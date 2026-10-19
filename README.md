@@ -3,7 +3,7 @@
 **Not left. Not right. One country.** An open-source, AI-powered people's ticket for a hypothetical 2028–2032
 administration. Vote on every seat, or write in your own.
 
-**Vote:** https://next-american-chapter.next-american-chapter.workers.dev
+**Vote:** https://balancedticket.bigpicsolutions.com
 
 > "My hope here is that we can find a common ground, break through any obstacles that may have kept us apart."
 > Palmer Joss (Matthew McConaughey), *Contact*, 1997
