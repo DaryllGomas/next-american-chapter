@@ -22,7 +22,6 @@ async function init() {
     fetch('/api/config').then((r) => r.json()).catch(() => ({})),
   ]);
   if (slate.repo) $('#repo-link').href = slate.repo;
-  renderFixed();
   renderSeats();
   refreshTally();
   $('#fb-form').addEventListener('submit', sendFeedback);
@@ -44,18 +43,15 @@ async function sendFeedback(e) {
   }
 }
 
-function renderFixed() {
-  $('#fixed').innerHTML = slate.fixed.map((f) => `
-    <article class="card fixed-card">
-      <div class="card-top"><div class="role">${esc(f.role)}</div><span class="lock" title="Set, not voted on">🔒</span></div>
-      <h3 class="name">${esc(f.name)}</h3>
-      <p class="why">${esc(f.why)}</p>
-      <span class="lock">Set, not voted on</span>
-    </article>`).join('');
+function renderSeats() {
+  // "Who we call on" seats sit in their own section above the team; voting works the same.
+  $('#call-on').innerHTML = slate.seats.filter((s) => s.group === 'call-on').map(seatCard).join('');
+  $('#seats').innerHTML = slate.seats.filter((s) => !s.group).map(seatCard).join('');
+  wireSeats();
 }
 
-function renderSeats() {
-  $('#seats').innerHTML = slate.seats.map((s) => `
+function seatCard(s) {
+  return `
     <article class="card seat" data-seat="${esc(s.id)}">
       <div class="card-top">
         <div class="role">${esc(s.seat)}</div>
@@ -82,7 +78,7 @@ function renderSeats() {
         <button class="btn alt" data-choice="alt" aria-pressed="false" aria-expanded="false">✍️ Write in your own <span class="pct" data-pct="alt"></span></button>
       </div>
       <form class="alt-form" novalidate>
-        <input name="altName" maxlength="80" placeholder="Who would you put in this seat?" aria-label="Who would you put in this seat?" autocomplete="off" required>
+        <input name="altName" maxlength="80" placeholder="${esc(s.altPrompt || 'Who would you put in this seat?')}" aria-label="${esc(s.altPrompt || 'Who would you put in this seat?')}" autocomplete="off" required>
         <textarea name="reason" maxlength="500" placeholder="Why them? What have they actually done?" aria-label="Why them?"></textarea>
         <p class="form-note">Write-ins that enough people back get added to the ballot.</p>
         <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
@@ -90,8 +86,10 @@ function renderSeats() {
       </form>
       <p class="your-vote" hidden></p>
       <div class="suggested" hidden></div>
-    </article>`).join('');
+    </article>`;
+}
 
+function wireSeats() {
   for (const card of document.querySelectorAll('[data-seat]')) {
     const seat = card.dataset.seat;
     markPressed(card, myVotes[seat]);

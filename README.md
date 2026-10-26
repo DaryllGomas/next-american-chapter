@@ -19,8 +19,9 @@ team?
   through 2028–2032, and trust across differences. Party, gender and race were not scored. Where they agreed, that's the
   AI pick, with runners-up beside it. The whole process is in [`docs/how-we-got-here.md`](docs/how-we-got-here.md).
 - **The lead:** McConaughey starts as the strong lead for president. Like every seat, it's open to write-ins.
-- **The backer:** Elon Musk announced the America Party in 2025 and reportedly shelved it. In this scenario, he revives it
-  to put an independent ticket on the ballot, with no government job and no say over appointments.
+- **Who we call on:** a votable list of wealthy Americans with a record of backing independents or fixing how we vote,
+  asked to fund the ticket. Elon Musk was the fixed backer until 2026-10-26; he shelved the America Party and now funds
+  Republican groups, so he's one option among several. Funders get no government job and no say over appointments.
 - **The people decide:** vote for any pick, or write in your own with a reason. An AI sniff test checks that each write-in
   is a real person with a real reason, without judging their politics. Names people keep writing in join the list and rise
   by votes. AI reviews the votes, write-ins and feedback periodically and updates the team.

@@ -51,12 +51,11 @@ button, input, textarea { font: inherit; color: inherit; }
 .section-h { font-size: 26px; margin: 48px 0 16px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .hint { font-family: Inter, sans-serif; font-weight: 500; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
 
-.fixed { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .seats { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 .council { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
 
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.card.fixed-card { border-top: 4px solid var(--ink); }
+.section-note { margin: -4px 0 14px; color: var(--muted); font-size: 14px; }
 .role { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
 .name { font-size: 22px; }
 .mission { font-size: 14px; color: var(--muted); }
@@ -195,3 +194,6 @@ button, input, textarea { font: inherit; color: inherit; }
 .review-note { font-size: 13px; color: var(--muted); font-style: italic; margin: 10px 0 0; }
 .th-link { font-size: 14px; max-width: 640px; }
 .th-link a { font-weight: 600; }
+/* "Who we call on" is one wide card; its picks sit side by side on wider screens. */
+#call-on { grid-template-columns: 1fr; }
+#call-on .candidates { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
