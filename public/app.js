@@ -55,16 +55,16 @@ function seatCard(s) {
     <article class="card seat" data-seat="${esc(s.id)}">
       <div class="card-top">
         <div class="role">${esc(s.seat)}</div>
-        ${s.badge ? '' : `<span class="confidence ${s.confidence === 'clear' ? 'clear' : 'close'}">${s.confidence === 'clear' ? 'Clear pick' : 'Close call'}</span>`}
+        ${s.badge || s.noPick ? '' : `<span class="confidence ${s.confidence === 'clear' ? 'clear' : 'close'}">${s.confidence === 'clear' ? 'Clear pick' : 'Close call'}</span>`}
       </div>
       <div class="mission">${esc(s.mission)}</div>
-      <ol class="candidates">
+      <ol class="candidates${s.noPick ? ' even' : ''}">
         ${s.candidates.map((c, i) => `
           <li>
             <button class="candidate" data-choice="c${i}" aria-pressed="false">
               <span class="cand-head">
                 <span class="name">${esc(c.name)}</span>
-                ${i === 0 ? `<span class="ai-pick" title="${s.badge ? 'Starting pick; voters can write in someone else' : 'The pick the AIs agreed on'}">${esc(s.badge || 'AI pick')}</span>` : ''}
+                ${i === 0 && !s.noPick ? `<span class="ai-pick" title="${s.badge ? 'Starting pick; voters can write in someone else' : 'The pick the AIs agreed on'}">${esc(s.badge || 'AI pick')}</span>` : ''}
                 ${c.writeIn ? '<span class="write-in" title="Added to the ballot by voters\' write-ins">Write-in</span>' : ''}
                 <span class="pct" data-pct="c${i}"></span>
               </span>
