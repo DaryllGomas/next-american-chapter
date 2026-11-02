@@ -1,5 +1,5 @@
 {
-  "version": "4.1-call-on",
+  "version": "4.2-call-on-even",
   "repo": "https://github.com/DaryllGomas/next-american-chapter",
   "seats": [
     {
@@ -8,9 +8,18 @@
       "seat": "Who we call on",
       "mission": "Wealthy Americans with a record of backing independents or fixing how we vote. We ask them to fund this ticket.",
       "confidence": "close call",
-      "badge": "Starting pick",
       "altPrompt": "Who should we call on?",
       "candidates": [
+        {
+          "name": "John Arnold",
+          "bio": "Former energy trader and hedge fund founder; co-founded the philanthropy Arnold Ventures with his wife, Laura.",
+          "evidence": "Their Action Now Initiative was the top funder of the 2020 ranked-choice voting ballot measures: $6.59 million across Alaska and Massachusetts (Ballotpedia)."
+        },
+        {
+          "name": "Michael Bloomberg",
+          "bio": "Founder of the financial data company Bloomberg LP and three-term mayor of New York City.",
+          "evidence": "Weighed an independent run for president in 2016, then decided against it. Rejoined the Democrats in 2018 and ran in their 2020 primary."
+        },
         {
           "name": "Mark Cuban",
           "bio": "Entrepreneur and investor; founded Broadcast.com, former majority owner of the Dallas Mavericks and a longtime Shark Tank investor.",
@@ -22,26 +31,17 @@
           "evidence": "Spent about $93 million of his own money running for New York governor on the Independence Party line in 1994, 1998 and 2002. Registered Republican in 2005."
         },
         {
-          "name": "John Arnold",
-          "bio": "Former energy trader and hedge fund founder; co-founded the philanthropy Arnold Ventures with his wife, Laura.",
-          "evidence": "Their Action Now Initiative was the top funder of the 2020 ranked-choice voting ballot measures: $6.59 million across Alaska and Massachusetts (Ballotpedia)."
+          "name": "Elon Musk",
+          "bio": "CEO of Tesla and SpaceX and owner of X; the world's richest person.",
+          "evidence": "Announced the America Party in July 2025, then quietly shelved it. ABC News reports he has put about $442 million into Republican groups this election cycle."
         },
         {
           "name": "Howard Schultz",
           "bio": "Former Starbucks CEO who built it into a global chain.",
           "evidence": "Explored an independent run for president in 2019 and was reportedly ready to spend $300 to $500 million. Ruled it out that September and endorsed Biden in 2020."
-        },
-        {
-          "name": "Michael Bloomberg",
-          "bio": "Founder of the financial data company Bloomberg LP and three-term mayor of New York City.",
-          "evidence": "Weighed an independent run for president in 2016, then decided against it. Rejoined the Democrats in 2018 and ran in their 2020 primary."
-        },
-        {
-          "name": "Elon Musk",
-          "bio": "CEO of Tesla and SpaceX and owner of X; the world's richest person.",
-          "evidence": "Announced the America Party in July 2025, then quietly shelved it. ABC News reports he has put about $442 million into Republican groups this election cycle."
         }
-      ]
+      ],
+      "noPick": true
     },
     {
       "id": "president",

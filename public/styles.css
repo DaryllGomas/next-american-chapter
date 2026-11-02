@@ -136,6 +136,7 @@ button, input, textarea { font: inherit; color: inherit; }
 .cand-head { display: flex; align-items: baseline; gap: 8px; }
 .candidate .name { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 17px; }
 .candidates li:first-child .name { font-size: 20px; }
+.candidates.even li:first-child .name { font-size: 17px; } /* no starting pick: every name the same size */
 .ai-pick { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 2px 7px; border-radius: 99px; }
 .pct { margin-left: auto; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .bio { font-size: 13.5px; color: var(--ink); }
